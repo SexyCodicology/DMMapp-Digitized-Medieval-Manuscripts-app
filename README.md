@@ -1,17 +1,12 @@
 # DMMapp Open Source
 
-- [DMMapp Open Source](#dmmapp-open-source)
-  - [Overview](#overview)
-  - [Requirements](#requirements)
-  - [Quickstart](#quickstart)
-  - [Contributing](#contributing)
-  - [Questions and help](#questions-and-help)
-  - [Acknowledgements](#acknowledgements)
-  - [Copyright and license](#copyright-and-license)
-
 ## Overview
 
-DMMapp Open Source is a simple-to-implement interactive map & web-application. It does three things:
+**DMMapp Open Source is a simple-to-implement interactive map & web-application.**
+
+![DMMapp_GitHub](https://user-images.githubusercontent.com/6100093/74037375-68422280-49be-11ea-851e-0e8593957950.gif)
+
+It does three things:
 
 - Allows admins to create and fill databases that can interact with Google Maps, creating interactive pins for every entry.
 - Gives the final users a clear and fun way to interact with data.
@@ -19,7 +14,19 @@ DMMapp Open Source is a simple-to-implement interactive map & web-application. I
 
 To see it in action, please check out the [DMMapp website](https://digitizedmedievalmanuscripts.org/), and don't forget to check out the [DMMapp Open Source Wiki](https://digitizedmedievalmanuscripts.org/) to know more.
 
-## Requirements
+## Table of Contents
+
+- [DMMapp Open Source](#dmmapp-open-source)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+    - [Requirements](#requirements)
+    - [Quickstart](#quickstart)
+    - [Contributing](#contributing)
+    - [Questions and help](#questions-and-help)
+    - [Acknowledgements](#acknowledgements)
+    - [Copyright and license](#copyright-and-license)
+
+### Requirements
 
 The DMMapp Open Source is based on Laravel 6.x. As a consequence, your server must meet the following requirements:
 
@@ -37,7 +44,7 @@ To use Google Maps:
 
 - A valid Google Maps API key
 
-## Quickstart
+### Quickstart
 
 > **IMPORTANT:** this quickstart guide is meant for local development only. It will create a generic admin user that uses `admin@example.com` and `password`. **Do not use in production environments.**
 
@@ -68,15 +75,15 @@ php artisan serve
 
 A more detailed guide for setting up the app for both local and production environments is present in the [DMMapp Open Source Wiki](https://digitizedmedievalmanuscripts.org/).
 
-## Contributing
+### Contributing
 
 The DMMapp Open Source is for everyone to modify and improve. We welcome  contributions and tips! Please check our Contributing page on the wiki. (coming soon)
 
-## Questions and help
+### Questions and help
 
 Check out the Talk to us page on our wiki, or head to the Sexy Codicology website to find all the channels where you can reach us.
 
-## Acknowledgements
+### Acknowledgements
 
 The DMMapp Open Source is based on, or makes use of:
 
@@ -85,7 +92,7 @@ The DMMapp Open Source is based on, or makes use of:
 - [jQuery](https://jquery.com/)
 - [FontAwesome](https://fontawesome.com/)
 
-## Copyright and license
+### Copyright and license
 
 DMMapp Open Source is licensed under the MIT License:
 
