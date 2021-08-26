@@ -1,0 +1,18 @@
+[data-md-color-scheme="sexycodicology"] {
+  --md-primary-fg-color: #ffffff;
+  --md-footer-bg-color: #ffffff;
+  --md-footer-fg-color: #777;
+  --md-primary-bg-color: #003153;
+  --md-accent-fg-color: #D4AF37;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.md-tabs {
+  background-color: #D4AF37;
+  color: #ffffff;
+}
