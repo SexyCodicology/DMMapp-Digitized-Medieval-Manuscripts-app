@@ -133,7 +133,6 @@
 
             </div>
 
-            </div>
         </section>
         <!-- End !SECTION Services -->
 
