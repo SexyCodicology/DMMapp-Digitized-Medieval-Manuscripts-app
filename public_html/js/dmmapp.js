@@ -73,7 +73,7 @@ function initMap() {
 
         //Here we are defining the stuff for the datatable: first define what is in the "row" and then append it.
         var row = $("<tr>" + "<td>" + place.nation + "</td>" + "<td>" + place.city + "</td>" + "<td>" + place.library + "</td>" + "<td>" + place.lat + "</td>" + "<td>" + place.lng + "</td>" + "<td>" + place.quantity + "</td>" + "<td>" + '<a href="' + place.website + '" target="_blank">Browse the manuscripts</a>' + "</td>" + "</tr>");
-        $("#datatablex").find('tbody').append(row);
+        $("#dmmtable").find('tbody').append(row);
 
         //Here we are defining the content for the Infowindows
         var infowindowContent = "<h3>" + place.library + "</h3><p>" + place.quantity + "</p>" + '<a class="btn btn-success btn-block" href="' + place.website + '" target="_blank"><i class="fas fa-book-open"></i> Browse the manuscripts</a><a class="btn btn-info btn-block" href="/app/record/' + place.id + '" target="_blank"><i class="fas fa-drafting-compass"></i> Explore additional data</a></div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYd3J_nTxiF82Nvm2i7YBhRfbP9mO6cxffSLF5nmgCK5PQ8g/viewform?entry.2011995917=' + place.library + '&entry.1561016982=' + place.website + '" class="badge badge-light" target="_blank"> report broken link</a></p></div>';
@@ -115,7 +115,7 @@ function initMap() {
 
     libraries.map(addMarker);
     //Datatable options go here!
-    $('#datatablex').DataTable({
+    $('#dmmtable').DataTable({
         "responsive": true,
         "processing": true,
         "columnDefs": [{
