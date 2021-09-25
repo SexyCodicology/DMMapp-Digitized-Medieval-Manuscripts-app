@@ -15,7 +15,7 @@ class LibraryController extends Controller
      */
     private $library;
 
-    public function __construct(Library $library )
+    public function __construct(Library $library)
     {
         $this->library = $library;
     }
@@ -38,19 +38,19 @@ class LibraryController extends Controller
         return view('public/map', $data);
     }
 
-    public function search( Request $request)
+    public function search(Request $request)
     {
-        $search = $request->get ('search');
-        $libraries = DB::table('libraries')->where('library', 'like', '%'.$search.'%')->paginate(10);
-        return view('public/data', ['libraries' => $libraries ]);
+        $search = $request->get('search');
+        $libraries = DB::table('libraries')->where('library', 'like', '%' . $search . '%')->paginate(10);
+        return view('public/data', ['libraries' => $libraries]);
 
     }
 
-    public function searchadmin( Request $request)
+    public function searchadmin(Request $request)
     {
-        $search = $request->get ('search');
-        $libraries = DB::table('libraries')->where('library', 'like', '%'.$search.'%')->paginate(10);
-        return view('admin/admin', ['libraries' => $libraries ]);
+        $search = $request->get('search');
+        $libraries = DB::table('libraries')->where('library', 'like', '%' . $search . '%')->paginate(10);
+        return view('admin/admin', ['libraries' => $libraries]);
 
     }
 
@@ -66,7 +66,7 @@ class LibraryController extends Controller
     /**
      * @throws ValidationException
      */
-    public function newLibrary(Request $request, Library $library )
+    public function newLibrary(Request $request, Library $library)
     {
         $data = [];
 
@@ -80,12 +80,11 @@ class LibraryController extends Controller
         $data['copyright'] = $request->input('copyright');
         $data['notes'] = $request->input('notes');
 
-        if( $request->isMethod('post') )
-        {
+        if ($request->isMethod('post')) {
             //dd($data);
             $this->validate(
-                    $request,
-                    [
+                $request,
+                [
                     'nation' => 'required|min:3|max:255',
                     'city' => 'required|max:255',
                     'library' => 'required|max:255',
@@ -96,8 +95,8 @@ class LibraryController extends Controller
                     'copyright' => 'required|max:255',
                     'notes' => 'max:255',
 
-                    ]
-                );
+                ]
+            );
 
             $library->insert($data);
 //TODO return success message
@@ -109,18 +108,19 @@ class LibraryController extends Controller
     }
 
     public function destroy($id)
-        {
-            $library = Library::find($id);
-            $library->delete();
-            //TODO return success message
+    {
+        $library = Library::find($id);
+        $library->delete();
+        //TODO return success message
 
-            return redirect('/admin');
-        }
+        return redirect('/admin');
+    }
 
     public function show($library_id)
     {
         //return __METHOD__ . ':' . $library_id;
-        $data = []; $data['library_id'] = $library_id;
+        $data = [];
+        $data['library_id'] = $library_id;
         $data['modify'] = 1;
         $library_data = $this->library->find($library_id);
         $data['nation'] = $library_data->nation;
@@ -132,7 +132,6 @@ class LibraryController extends Controller
         $data['website'] = $library_data->website;
         $data['copyright'] = $library_data->copyright;
         $data['notes'] = $library_data->notes;
-
 
         return view('admin/show', $data);
     }
@@ -156,12 +155,11 @@ class LibraryController extends Controller
         $data['copyright'] = $library_data->copyright;
         $data['notes'] = $library_data->notes;
 
-        if( $request->isMethod('post') )
-        {
+        if ($request->isMethod('post')) {
             //dd($data);
             $this->validate(
-                    $request,
-                    [
+                $request,
+                [
                     'nation' => 'required|min:3|max:255',
                     'city' => 'required|max:255',
                     'library' => 'required|max:255',
@@ -171,29 +169,28 @@ class LibraryController extends Controller
                     'website' => 'required|max:255',
                     'copyright' => 'required|max:255',
                     'notes' => 'max:255',
-                    ]
-                );
+                ]
+            );
 
-                $library_data = $this->library->find($library_id);
+            $library_data = $this->library->find($library_id);
 
-                $library_data->nation = $request->input('nation');
-                $library_data->city = $request->input('city');
-                $library_data->library = $request->input('library');
-                $library_data->lat = $request->input('lat');
-                $library_data->lng = $request->input('lng');
-                $library_data->quantity = $request->input('quantity');
-                $library_data->website = $request->input('website');
-                $library_data->copyright = $request->input('copyright');
-                $library_data->notes = $request->input('notes');
+            $library_data->nation = $request->input('nation');
+            $library_data->city = $request->input('city');
+            $library_data->library = $request->input('library');
+            $library_data->lat = $request->input('lat');
+            $library_data->lng = $request->input('lng');
+            $library_data->quantity = $request->input('quantity');
+            $library_data->website = $request->input('website');
+            $library_data->copyright = $request->input('copyright');
+            $library_data->notes = $request->input('notes');
 
-                $library_data->save();
-                //TODO return success or fail message
-
+            $library_data->save();
+            //TODO return success or fail message
 
             return redirect('/admin');
         }
         $data['modify'] = 1;
-                        //TODO return success or fail message
+        //TODO return success or fail message
 
         return view('admin/modify', $data);
     }
