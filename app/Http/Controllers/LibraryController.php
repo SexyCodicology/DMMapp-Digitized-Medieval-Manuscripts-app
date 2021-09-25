@@ -26,7 +26,7 @@ class LibraryController extends Controller
 
         $data['libraries'] = $this->library->paginate(10);
 
-        return view('library/index', $data);
+        return view('public/data', $data);
     }
 
     public function dmmmap()
@@ -35,14 +35,14 @@ class LibraryController extends Controller
 
         $data['libraries'] = $this->library->all();
 
-        return view('library/dmmmap', $data);
+        return view('public/map', $data);
     }
 
     public function search( Request $request)
     {
         $search = $request->get ('search');
         $libraries = DB::table('libraries')->where('library', 'like', '%'.$search.'%')->paginate(10);
-        return view('library/index', ['libraries' => $libraries ]);
+        return view('public/data', ['libraries' => $libraries ]);
 
     }
 
@@ -50,7 +50,7 @@ class LibraryController extends Controller
     {
         $search = $request->get ('search');
         $libraries = DB::table('libraries')->where('library', 'like', '%'.$search.'%')->paginate(10);
-        return view('library/admin', ['libraries' => $libraries ]);
+        return view('admin/admin', ['libraries' => $libraries ]);
 
     }
 
@@ -60,7 +60,7 @@ class LibraryController extends Controller
 
         $data['libraries'] = $this->library->paginate(10);
 
-        return view('library/admin', $data);
+        return view('admin/admin', $data);
     }
 
     /**
@@ -100,10 +100,11 @@ class LibraryController extends Controller
                 );
 
             $library->insert($data);
-
+//TODO return success message
             return redirect('/admin');
         }
         $data['modify'] = 0;
+        //TODO return success message
         return view('library/form', $data);
     }
 
@@ -111,6 +112,7 @@ class LibraryController extends Controller
         {
             $library = Library::find($id);
             $library->delete();
+            //TODO return success message
 
             return redirect('/admin');
         }
@@ -132,7 +134,7 @@ class LibraryController extends Controller
         $data['notes'] = $library_data->notes;
 
 
-        return view('library/show', $data);
+        return view('admin/show', $data);
     }
 
     /**
@@ -185,11 +187,15 @@ class LibraryController extends Controller
                 $library_data->notes = $request->input('notes');
 
                 $library_data->save();
+                //TODO return success or fail message
+
 
             return redirect('/admin');
         }
         $data['modify'] = 1;
-        return view('library/modify', $data);
+                        //TODO return success or fail message
+
+        return view('admin/modify', $data);
     }
 
 }
