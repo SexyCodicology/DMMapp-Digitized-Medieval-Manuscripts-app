@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}</title>
 
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -56,7 +56,7 @@
             </nav>
             <!-- End !SECTION .nav-menu -->
 
-            <a href="#about" class="get-started-btn scrollto">Explore the map</a>
+            <a href="/map" class="get-started-btn">Explore the map</a>
 
         </div>
     </header>
@@ -72,8 +72,8 @@
                     <h1>Explore thousands of digitized medieval manuscripts</h1>
                     <h2>We love (digitized) manuscripts, and we do our best to make them easy to find.</h2>
                     <div class="d-lg-flex">
-                        <a href="#about" class="btn-get-started scrollto">Explore the map</a>
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video"
+                        <a href="/map" class="btn-get-started">Explore the map</a>
+                        <a href="/data" class="venobox btn-watch-video"
                             data-vbtype="video" data-autoplay="true"> Explore the data <i
                                 class="icofont-play-alt-2"></i></a>
                     </div>
