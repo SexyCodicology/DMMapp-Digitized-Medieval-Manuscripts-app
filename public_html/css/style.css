@@ -1370,7 +1370,7 @@ section {
 #footer .footer-top .footer-links ul a:hover {
   color: #2282ff;
 }
-#footer .footer-top .footer-newsletter form {
+#footer .footer-top .footer-patreon form {
   margin-top: 30px;
   background: #fff;
   padding: 6px 10px;
@@ -1378,12 +1378,12 @@ section {
   border-radius: 4px;
   border: 1px solid #e3e7e9;
 }
-#footer .footer-top .footer-newsletter form input[type=email] {
+#footer .footer-top .footer-patreon form input[type=email] {
   border: 0;
   padding: 4px;
   width: calc(100% - 110px);
 }
-#footer .footer-top .footer-newsletter form input[type=submit] {
+#footer .footer-top .footer-patreon form input[type=submit] {
   position: absolute;
   top: -1px;
   right: -2px;
@@ -1397,7 +1397,7 @@ section {
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
 }
-#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+#footer .footer-top .footer-patreon form input[type=submit]:hover {
   background: #007ab7;
 }
 #footer .copyright {
