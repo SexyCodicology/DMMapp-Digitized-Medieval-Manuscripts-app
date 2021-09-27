@@ -10,16 +10,16 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
+    {{-- Favicons --}}
     <link href="{{ asset('img/favicon.png') }}" rel="icon">
     <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
+    {{-- Google Fonts --}}
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
+    {{-- Vendor CSS Files --}}
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/icofont/icofont.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
@@ -28,14 +28,14 @@
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
+    {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- SECTION Header -->
+    {{-- SECTION Header --}}
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
@@ -43,7 +43,7 @@
             <a href="index.html" class="logo mr-auto"><img src="{{ asset('img/logo.png') }}" alt=""
                     class="img-fluid"></a>
 
-            <!-- SECTION .nav-menu -->
+            {{-- SECTION .nav-menu --}}
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
@@ -54,15 +54,15 @@
 
                 </ul>
             </nav>
-            <!-- End !SECTION .nav-menu -->
+            {{-- End !SECTION .nav-menu --}}
 
             <a href="/map" class="get-started-btn">Explore the map</a>
 
         </div>
     </header>
-    <!-- End !SECTION Header -->
+    {{-- End !SECTION Header --}}
 
-    <!-- SECTION Hero -->
+    {{-- SECTION Hero --}}
     <section id="hero" class="d-flex align-items-center">
 
         <div class="container">
@@ -85,12 +85,12 @@
         </div>
 
     </section>
-    <!-- End !SECTION Hero -->
+    {{-- End !SECTION Hero --}}
 
-    <!-- SECTION #main -->
+    {{-- SECTION #main --}}
     <main id="main">
 
-        <!-- SECTION Services -->
+        {{-- SECTION Services --}}
         <section id="services" class="services section-bg">
             <div class="container" data-aos="fade-up">
 
@@ -134,9 +134,9 @@
             </div>
 
         </section>
-        <!-- End !SECTION Services -->
+        {{-- End !SECTION Services --}}
 
-        <!-- SECTION About Us -->
+        {{-- SECTION About Us --}}
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
@@ -174,10 +174,10 @@
 
             </div>
         </section>
-        <!-- End !SECTION About Us -->
+        {{-- End !SECTION About Us --}}
 
 
-        <!-- SECTION Why Us -->
+        {{-- SECTION Why Us --}}
         <section id="why-us" class="why-us section-bg">
             <div class="container-fluid" data-aos="fade-up">
 
@@ -253,9 +253,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION Why Us -->
+        {{-- End !SECTION Why Us --}}
 
-        <!-- SECTION Skills -->
+        {{-- SECTION Skills --}}
         <section id="skills" class="skills">
             <div class="container" data-aos="fade-up">
 
@@ -312,9 +312,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION Skills -->
+        {{-- End !SECTION Skills --}}
 
-        <!-- SECTION Cta -->
+        {{-- SECTION Cta --}}
         <section id="cta" class="cta">
             <div class="container" data-aos="zoom-in">
 
@@ -332,9 +332,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION Cta -->
+        {{-- End !SECTION Cta --}}
 
-        <!-- SECTION Team -->
+        {{-- SECTION Team --}}
         <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">
 
@@ -383,9 +383,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION Team -->
+        {{-- End !SECTION Team --}}
 
-        <!-- SECTION Supporters -->
+        {{-- SECTION Supporters --}}
         <section id="Supporters" class="Supporters section-bg">
             <div class="container">
                 <div class="section-title">
@@ -395,17 +395,17 @@
                 <div class="row" data-aos="zoom-in">
 
 
-                    <!-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    {{-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                                 <img src="{{ asset('img/clients/client-1.png') }}" class="img-fluid" alt="">
-                            </div> -->
+                            </div> --}}
 
                 </div>
 
             </div>
         </section>
-        <!-- End !SECTION Supporters -->
+        {{-- End !SECTION Supporters --}}
 
-        <!-- SECTION patreon -->
+        {{-- SECTION patreon --}}
         <section id="patreon" class="patreon">
             <div class="container" data-aos="fade-up">
 
@@ -502,9 +502,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION patreon -->
+        {{-- End !SECTION patreon --}}
 
-        <!-- SECTION F.A.Q. -->
+        {{-- SECTION F.A.Q. --}}
         <section id="faq" class="faq section-bg">
             <div class="container" data-aos="fade-up">
 
@@ -562,9 +562,9 @@
 
             </div>
         </section>
-        <!-- End !SECTION Frequently Asked Questions -->
+        {{-- End !SECTION Frequently Asked Questions --}}
 
-        <!-- SECTION Contact -->
+        {{-- SECTION Contact --}}
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
 
@@ -616,15 +616,15 @@
 
             </div>
         </section>
-        <!-- End !SECTION Contact -->
+        {{-- End !SECTION Contact --}}
 
     </main>
-    <!-- End !SECTION #main -->
+    {{-- End !SECTION #main --}}
 
-    <!-- SECTION Footer -->
+    {{-- SECTION Footer --}}
     <footer id="footer">
 
-        <div class="footer-newsletter">
+        <div class="footer-patreon">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
@@ -688,12 +688,12 @@
                 &copy; Copyright <strong><span>Sexy Codicology</span></strong>. GNU General Public License v3.0
             </div>
         </div>
-    </footer><!-- End !SECTION Footer -->
+    </footer>{{-- End !SECTION Footer --}}
 
     <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files -->
+    {{-- Vendor JS Files --}}
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}"></script>
@@ -704,7 +704,7 @@
     <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('vendor/aos/aos.js') }}"></script>
 
-    <!-- Template Main JS File -->
+    {{-- Template Main JS File --}}
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>
