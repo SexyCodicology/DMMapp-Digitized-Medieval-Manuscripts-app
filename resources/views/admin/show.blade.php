@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('content')
-    <!-- SECTION left column -->
+    {{-- SECTION left column --}}
     <div class="col-8">
         <div class="well">
 
@@ -56,7 +56,7 @@
                     Back</button></a>
         </div>
     </div>
-    <!-- SECTION right column -->
+    {{-- SECTION right column --}}
     <div class="col-4">
             <div class="well"><h3>DMMapp Record Details</h3>
                 <p>Here you can find the data used by the DMMapp for this item. You can share share it, link to it, and report errors.</p>

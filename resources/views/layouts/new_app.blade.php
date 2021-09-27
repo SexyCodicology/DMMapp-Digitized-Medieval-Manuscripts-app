@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts App') }}</title>
 
-    <!-- Scripts -->
+    {{-- Scripts --}}
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    {{-- Styles --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
@@ -24,7 +24,7 @@
 <body>
 
 
-    <!-- SECTION Header -->
+    {{-- SECTION Header --}}
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
@@ -32,7 +32,7 @@
             <a href="index.html" class="logo mr-auto"><img src="{{ asset('img/logo.png') }}" alt=""
                     class="img-fluid"></a>
 
-            <!-- SECTION .nav-menu -->
+            {{-- SECTION .nav-menu --}}
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
@@ -43,13 +43,13 @@
 
                 </ul>
             </nav>
-            <!-- End !SECTION .nav-menu -->
+            {{-- End !SECTION .nav-menu --}}
 
             <a href="/map" class="get-started-btn scrollto">Explore the map</a>
 
         </div>
     </header>
-    <!-- End !SECTION Header -->
+    {{-- End !SECTION Header --}}
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -61,14 +61,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- Right Side Of Navbar --}}
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        {{-- Authentication Links --}}
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

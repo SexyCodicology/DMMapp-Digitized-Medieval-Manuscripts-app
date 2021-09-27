@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <!-- ======= Hero Section ======= -->
+    {{-- ======= Hero Section ======= --}}
     <section id="hero">
 
         <div class="container">
@@ -23,11 +23,11 @@
             </div>
         </div>
 
-    </section><!-- End Hero -->
+    </section>{{-- End Hero --}}
 
     <main id="main">
 
-        <!-- ======= About Section =======
+        {{-- ======= About Section =======
         <section id="about" class="about">
             <div class="container">
 
@@ -56,9 +56,9 @@
                 </div>
 
             </div>
-        </section>End About Section -->
+        </section>End About Section --}}
 
-        <!-- ======= Features Section =======
+        {{-- ======= Features Section =======
         <section id="features" class="features">
             <div class="container">
 
@@ -118,9 +118,9 @@
                 </div>
 
             </div>
-        </section>End Features Section -->
+        </section>End Features Section --}}
 
-        <!-- ======= Services Section ======= -->
+        {{-- ======= Services Section ======= --}}
         <section id="services" class="services section-bg">
             <div class="container">
 
@@ -159,9 +159,9 @@
                 </div>
 
             </div>
-        </section><!-- End Services Section -->
+        </section>{{-- End Services Section --}}
 
-        <!-- ======= Team Section ======= -->
+        {{-- ======= Team Section ======= --}}
         <section id="team" class="team">
             <div class="container ">
 
@@ -208,8 +208,8 @@
 
             </div>
         </section>
-        <!-- End Team Section -->
-        <!-- ======= Patreon Section ======= -->
+        {{-- End Team Section --}}
+        {{-- ======= Patreon Section ======= --}}
         <section id="patreon" class="patreon section-bg">
             <div class="container">
 
@@ -297,9 +297,9 @@
 
             </div>
         </section>
-        <!-- End Patreon Section -->
+        {{-- End Patreon Section --}}
 
-        <!-- ======= Cta Section ======= -->
+        {{-- ======= Cta Section ======= --}}
         <section id="cta" class="cta">
             <div class="container">
                 <div class="row" data-aos="zoom-in">
@@ -314,9 +314,9 @@
 
             </div>
         </section>
-        <!-- End Cta Section -->
+        {{-- End Cta Section --}}
 
-        <!-- ======= Portfolio Section =======
+        {{-- ======= Portfolio Section =======
         <section id="portfolio" class="portfolio">
           <div class="container">
 
@@ -468,9 +468,9 @@
 
           </div>
         </section>
-        End Portfolio Section -->
+        End Portfolio Section --}}
 
-        <!-- ======= Testimonials Section =======
+        {{-- ======= Testimonials Section =======
         <section id="testimonials" class="testimonials">
             <div class="container">
 
@@ -563,11 +563,11 @@
                 </div>
 
             </div>
-        </section> End Testimonials Section -->
+        </section> End Testimonials Section --}}
 
 
 
-        <!-- ======= Clients Section =======
+        {{-- ======= Clients Section =======
         <section id="clients" class="clients">
             <div class="container">
 
@@ -632,9 +632,9 @@
 
             </div>
         </section>
-        End Clients Section -->
+        End Clients Section --}}
 
-        <!-- ======= F.A.Q Section ======= -->
+        {{-- ======= F.A.Q Section ======= --}}
         <section id="faq" class="faq">
             <div class="container">
 
@@ -678,9 +678,9 @@
 
             </div>
         </section>
-        <!-- End Frequently Asked Questions Section -->
+        {{-- End Frequently Asked Questions Section --}}
 
-        <!-- ======= Contact Section =======
+        {{-- ======= Contact Section =======
         <section id="contact" class="contact section-bg">
           <div class="container">
 
@@ -749,11 +749,11 @@
           </div>
         </section>
 
-        End Contact Section -->
+        End Contact Section --}}
 
-    </main><!-- End #main -->
+    </main>{{-- End #main --}}
 
 @endsection
-<!-- Optional JavaScript -->
+{{-- Optional JavaScript --}}
 @section('javascript')
 @endsection

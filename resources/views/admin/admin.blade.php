@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('content')
-    <!-- Content here -->
+    {{-- Content here --}}
         <div class="col-md-6">
             <h2 class="pull-left">
                 <h2>DMMapp Data Admin</h2>
