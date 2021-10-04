@@ -28,15 +28,12 @@
 
     {{-- TODO convert to blade call as the CSS --}}
     {{-- TODO cdn files over local files --}}
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-
-
 
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -61,12 +58,12 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     {{-- TODO fix nav links --}}
-                    <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+                    <li><a class="nav-link" href="/">Home</a></li>
                     <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-                            <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                            <li><a class="nav-link scrollto" href="#testimonials">Testimonials</a></li>
+                            <li><a class="nav-link" href="#about">About Us</a></li>
+                            <li><a class="nav-link" href="#team">Team</a></li>
+                            <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
                             {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
@@ -79,10 +76,10 @@
                             </li> --}}
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link" href="{{route('map')}}">Map</a></li>
+                    <li><a class="nav-link" href="{{route('data')}}">Data</a></li>
+                    <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
+                    <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
                     <li class="ml-4"></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
