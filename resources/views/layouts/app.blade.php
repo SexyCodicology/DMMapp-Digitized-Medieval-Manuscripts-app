@@ -67,7 +67,7 @@
                             <li><a class="nav-link scrollto" href="#about">About Us</a></li>
                             <li><a class="nav-link scrollto" href="#team">Team</a></li>
                             <li><a class="nav-link scrollto" href="#testimonials">Testimonials</a></li>
-                            {{--<li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                            {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">Deep Drop Down 1</a></li>
@@ -76,7 +76,7 @@
                                     <li><a href="#">Deep Drop Down 4</a></li>
                                     <li><a href="#">Deep Drop Down 5</a></li>
                                 </ul>
-                            </li>--}}
+                            </li> --}}
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
@@ -171,7 +171,11 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Giulio Menna</span></strong>. <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+                &copy; Copyright <strong><span>Giulio Menna</span></strong>. <a rel="license"
+                    href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
+                        style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
+                work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
+                    Commons Attribution 4.0 International License</a>.
             </div>
             {{-- <div class="credits">
                  All the links in the footer should remain intact.
