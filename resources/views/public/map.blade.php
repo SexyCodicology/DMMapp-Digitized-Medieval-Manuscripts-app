@@ -1,25 +1,25 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.2/r-2.2.9/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
-<section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-        <ol>
-            <li><a href="/">Home</a></li>
-            <li>Map</li>
-        </ol>
-        <h2>Map</h2>
-    </div>
-</section>
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Map</li>
+            </ol>
+            <h2>Map</h2>
+        </div>
+    </section>
 
 @endsection
 @section('content')
     @foreach ($libraries as $library)
     @endforeach
 
-    <section id="main-map" data-aos="zoom-out">
+    <div id="main-map" data-aos="fade-up">
 
         <div id="map" style="height:50em; width:100%;">
             <noscript>
@@ -30,30 +30,37 @@
             </noscript>
         </div>
 
-        <div id="map-table" class="mt-3">
+        <div id="map-table" class="my-3">
             <noscript>
                 <div class="alert alert-info">
                     <h4>Your JavaScript is disabled</h4>
                     <p>Please enable JavaScript to see the table.</p>
                 </div>
             </noscript>
-            <table id="dmmtable" class="table table-striped table-bordered" style="width:100%; padding-bottom:1em;">
+            <table id="dmmtable" class="table table-striped table-bordered" style="width:100%;">
                 <thead>
                     <tr>
-                        <th data-priority="1">Nation</th>
+                        <th>Institution</th>
+                        <th>IIIF repository</th>
+                        <th>Quantity of digitized items</th>
+                        <th>Digitized items' copyright</th>
+                        <th>Free Cultural Works License</th>
+                        <th>Nation</th>
                         <th>City</th>
-                        <th data-priority="2">Library</th>
                         <th>lat</th>
                         <th>lng</th>
-                        <th>Quantity</th>
-                        <th>Website</th>
+                        <th>Notes</th>
+                        <th>Link</th>
+                        <th>Has a blog post</th>
+                        <th>Blog post</th>
                     </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
+
             </table>
         </div>
+
         <div class="accordion" id="accordion">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -82,19 +89,20 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <x-patreon />
 
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.2/r-2.2.9/datatables.min.js"></script>
-    {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
+    {{-- NOTE this transforms our libraries to json, which can then be read by Googl maps - in dmmapp.js --}}
     <script type="text/javascript">
-        var libraries = {!! json_encode($libraries) !!}
+        var libraries = {!! json_encode($libraries->toArray()) !!}
     </script>
     <script async type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbFwvj_8iz-56H2YYRdOPqxphj01fWdw&callback=initMap"></script>
