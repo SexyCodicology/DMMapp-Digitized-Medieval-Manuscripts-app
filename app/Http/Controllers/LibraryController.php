@@ -24,7 +24,7 @@ class LibraryController extends Controller
     {
         $data = [];
 
-        $data['libraries'] = $this->library->paginate(10);
+        $data['libraries'] = $this->library->all();
 
         return view('public/data', $data);
     }

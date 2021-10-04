@@ -1,54 +1,102 @@
 @extends('layouts.app')
+
 @section('css')
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.css" />
+@endsection
+@section('breadcrumbs')
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Data</li>
+            </ol>
+            <h2>Data</h2>
+        </div>
+    </section>
+
 @endsection
 @section('content')
-<!-- Content here -->
-<div class="col-sm-8">
-        <div class="well">
-            <form action="/search" method="GET" class="form-inline">
+    @foreach ($libraries as $library)
+    @endforeach
 
-                <div class="form-group mb-2">
-                    <input type="search" name="search" class="form-control" placeholder="Libraries, Cities, etc.">
+    <div id="main-data" data-aos="fade-up">
+
+        <div id="data-table" class="my-3">
+            <noscript>
+                <div class="alert alert-info">
+                    <h4>Your JavaScript is disabled</h4>
+                    <p>Please enable JavaScript to see the table.</p>
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Search </button>
-            </form>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">DMMApp ID</th>
-                            <th scope="col">Library</th>
-                            <th scope="col">Info</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($libraries as $library)
-                        <tr>
-                            <td>{{$library->id}}</td>
-                            <td>{{$library->library}}</td>
-                            <td>
-                                <a class="btn btn-outline-primary" href="{{ route('show_library', ['library_id' => $library->id]) }}">View
-                                    Data</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{ $libraries->links() }}
-            </div>
+            </noscript>
+            <table id="dmmtable" class="table table-striped table-bordered" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>IIIF repository</th>
+                        <th>Quantity of digitized items</th>
+                        <th>Digitized items' copyright</th>
+                        <th>Free Cultural Works License</th>
+                        <th>Nation</th>
+                        <th>City</th>
+                        <th>lat</th>
+                        <th>lng</th>
+                        <th>Notes</th>
+                        <th>Link</th>
+                        <th>Has a blog post</th>
+                        <th>Blog post</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+
+            </table>
         </div>
-</div>
-<div class="col-4">
-    <div class="well"><h3>DMMapp Data Overview</h3>
-        <p>Welcome to the DMMapp Data Overview page. Here you can browse and search all the data used by the DMMapp. You can browse all the individual items in the database, share them, link to them, and report errors.</p>
-        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform" class="btn btn-outline-danger" role="button" aria-pressed="true">
-                <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-        </a></p>
-        <h4>Love what we do?</h4>
-        <p><a href="https://www.patreon.com/bePatron?u=3645539" data-patreon-widget-type="become-patron-button">Become a Patron!</a></p>
+
+        <div class="accordion" id="accordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <strong>How does the DMMapp data work?</strong>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse collapsed" aria-labelledby="headingOne"
+                    data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        The DMMapp (Digitized Medieval Manuscripts App) links to more than 500 libraries in the world. Each
+                        one
+                        of these contains digitized medieval manuscripts that can be browsed for free.
+                        <h3>How does it work?</h3>
+                        <ol>
+                            <li>Search for a library / city / country</li>
+                            <li>Click on the library you want to visit</li>
+                            <li>Click on "Browse the manuscripts" and off you go!</li>
+                        </ol>
+                        <p>The DMMapp is developed and maintained with a ton of love by the Sexy Codicology Team.</p>
+                        <h3>Love what we do?</h3>
+                        <p><a href="https://www.patreon.com/bePatron?u=3645539"
+                                data-patreon-widget-type="become-patron-button">Become a Patron!</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    @endsection
-    @section('javascript')
-    @endsection
+    <x-patreon />
+
+@endsection
+{{-- Optional JavaScript --}}
+@section('javascript')
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
+    {{-- NOTE this transforms our libraries to json, which can then be read by Googl maps - in dmmapp.js --}}
+    <script type="text/javascript">
+        var libraries = {!! json_encode($libraries->toArray()) !!}
+    </script>
+    <script defer type="text/javascript" src="{{ asset('/js/data.js') }}"></script>
+@endsection
