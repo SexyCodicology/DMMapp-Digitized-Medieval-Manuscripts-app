@@ -17,11 +17,43 @@
 
 @endsection
 @section('content')
-    @foreach ($libraries as $library)
-    @endforeach
+
+<div data-aos="zoom-in" class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          DMMapp Data Info
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <div  class="alert alert-primary" role="alert">
+                <strong>The full DMMapp data!</strong> Here you can browse, search, and filter all the data we have inserted into the DMMapp.
+                <hr>
+                <dt>Institution</dt>
+                <dd>The name of the institution housing digitized items. Also, the link to the said repository.</dd>
+                <dt>IIIF Repository</dt>
+                <dd>Indicates wether a repository uses the International Image Interoperability Framework.</dd>
+                <dt>Quantity</dt>
+                <dd>An indication of how many digitized items are (estimated) in a repository.</dd>
+                <dt>Digitized Items' Copyright</dt>
+                <dd>The copyright applied to the digitized items in a repository.</dd>
+                <dt>Free Cultural Works License</dt>
+                <dd>Indicates if the copyright used in a repository is a Creative Commons' Free Cultural Works License.</dd>
+                <dt>Country</dt>
+                <dd>The country where an institution is located.</dd>
+                <dt>City</dt>
+                <dd>The city where an institution is located.</dd>
+                <dt>Blog Post</dt>
+                <dd>Indicates weather the Sexy Codicology team has written a blog post reviewing the repository.</dd>
+              </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <div id="main-data" data-aos="fade-up">
-
         <div id="data-table" class="my-3">
             <noscript>
                 <div class="alert alert-info">
