@@ -40,17 +40,13 @@ $(function () {
 
         columnDefs: [
             {
-                targets: [5, 7, 8, 9],
+                targets: [5, 6, 7, 8, 9],
                 visible: false,
                 searchable: true
             },
             {
-                targets: [6],
+                targets: [11, 10],
                 visible: false,
-                searchable: true
-            },
-            {
-                targets: [10],
                 searchable: false
             },
             {
@@ -65,38 +61,51 @@ $(function () {
                 searchPanes: {
                     show: false
                 },
-                targets: [7, 8, 9, 10]
+                targets: [7, 8, 9, 10, 11]
             },
             {
-            searchPanes: {
-                viewCount: false,
-            search: false },
-                targets: [1,4,11],
+                searchPanes: {
+                    //viewCount: false,
+                    search: false
+                },
+                targets: [0, 1, 4, 11, 12],
             },
             {
                 targets: [1, 4, 11],
-                render: function (data, type, row) {
+                render: function (data) {
 
                     if (data === 1) {
-                        return "<div class='alert alert-success text-center' role='alert'>Yes</div>";
+                        return "<p class='text-success text-center' role='alert'>Yes</p>";
                     }
                     else {
-                        return "<div class='alert alert-danger text-center' role='alert'>No</div>";;
+                        return "<p class='text-danger text-center' role='alert'>No</p>";;
                     }
                 }
             },
             {
                 targets: 10,
-                render: function (data, type, full, meta) {
-                    return '<div class="d-grid gap-2"><a class="alert alert-info" href="' + data + '" role="button">Browse</a></div>';
+                render: function (data, type, row, meta) {
+                    return '<div class="d-grid gap-2"><a class="alert alert-info text-center" href="' + data + '" role="button">Browse</a></div>';
                 }
             },
             {
                 targets: 12,
-                render: function (data, type, full, meta) {
-                    return '<div class="d-grid gap-2"><a class="alert alert-info" href="' + data + '" role="button">Read</a></div>';
-                }
+                render: function (data, type, row, meta) {
+                    if (row['has_post'] === 1) {
+                        return '<div class="d-grid gap-2"><a class="text-center" href="' + data + '" role="button">Read <sup><i class="fas fa-external-link-alt"></i></sup></a></div>';
+                    }
+                    else {
+                        return '<p class="text-dark text-center" href="#" role="alert">No post available</p>';
+                    }
+                },
             },
+            {
+                targets: 0,
+                render: function (data, type, row, meta) {
+                return '<div class="d-grid gap-2"><a class="btn btn-primary" href="' + row['website'] + '" role="button">' + data + ' <sup><i class="fas fa-external-link-alt"></i></sup></a></div>';
+
+            }
+        }
         ]
 
     });
