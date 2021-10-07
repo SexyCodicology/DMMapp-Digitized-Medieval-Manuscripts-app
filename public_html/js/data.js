@@ -75,10 +75,11 @@ $(function () {
                 render: function (data) {
 
                     if (data === 1) {
-                        return "<p class='text-success text-center' role='alert'>Yes</p>";
+                        return "<p class='text-center'><i class='fas fa-2x fa-check-circle text-success'></i></p>";
+
                     }
                     else {
-                        return "<p class='text-danger text-center' role='alert'>No</p>";;
+                        return "<p class='text-center'><i class='fas fa-2x fa-times-circle text-danger'></i></p>";
                     }
                 }
             },
