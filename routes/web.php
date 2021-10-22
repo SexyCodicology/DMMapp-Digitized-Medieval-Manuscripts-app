@@ -16,22 +16,22 @@ use Illuminate\Support\Facades\Route;
 
 //SECTION Homepage
 
-Route::get('/', function () {return view('index');});
-Route::get('/sample', function () {return view('landing_page');});
+Route::get('/', function () {return view('landing_page');});
+Route::get('/sample', function () {return view('index');});
 
 //SECTION Admin pannel
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [LibraryController::class, 'admin'])->name('admin');
 
-    Route::get('/record/new', [LibraryController::class, 'newLibrary'])->name('new_library');
-    Route::post('/record/new', [LibraryController::class, 'newLibrary'])->name('create_library');
+    Route::get('/admin/record/new', [LibraryController::class, 'newLibrary'])->name('new_library');
+    Route::post('/admin/record/new', [LibraryController::class, 'newLibrary'])->name('create_library');
 
-    Route::get('/record/edit/{library_id}', [LibraryController::class, 'modify'])->name('modify_library');
-    Route::post('/record/edit/{library_id}', [LibraryController::class, 'modify'])->name('update_library');
+    Route::get('/admin/record/edit/{library_id}', [LibraryController::class, 'modify'])->name('modify_library');
+    Route::post('/admin/record/edit/{library_id}', [LibraryController::class, 'modify'])->name('update_library');
 
-    Route::get('/search', [LibraryController::class, 'searchadmin']);
+    Route::get('/admin/search', [LibraryController::class, 'searchadmin']);
 
-    Route::delete('/record/delete/{library_id}', [LibraryController::class, 'destroy'])->name('delete_library');
+    Route::delete('/admin/record/delete/{library_id}', [LibraryController::class, 'destroy'])->name('delete_library');
 });
 
 //SECTION public views

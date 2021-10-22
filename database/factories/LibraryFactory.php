@@ -31,7 +31,11 @@ class LibraryFactory extends Factory
                 'quantity' => $this->faker->numberBetween($min = 1000, $max = 9000),
                 'website' => $this->faker->url(),
                 'copyright' => $this->faker->sentence(),
+                'is_free_cultural_works_license' => $this->faker->boolean(),
                 'notes' => $this->faker->sentence(),
+                'IIIF' => $this->faker->boolean(),
+                'has_post' => $this->faker->boolean(),
+                'post_url' => $this->faker->url()
         ];
     }
 }
