@@ -58,28 +58,15 @@ $(function () {
                 targets: -1
             },
             {
-                searchPanes: {
-                    show: false
-                },
-                targets: [7, 8, 9, 10, 11]
-            },
-            {
-                searchPanes: {
-                    //viewCount: false,
-                    search: false
-                },
-                targets: [0, 1, 4, 11, 12],
-            },
-            {
                 targets: [1, 4, 11],
                 render: function (data) {
 
                     if (data === 1) {
-                        return "<p class='text-center'><i class='fas fa-2x fa-check-circle text-success'></i></p>";
+                        return "<p style='display:none'>yes</p><p class='text-center'><i class='fas fa-2x fa-check-circle text-success'></i></p>";
 
                     }
                     else {
-                        return "<p class='text-center'><i class='fas fa-2x fa-times-circle text-danger'></i></p>";
+                        return "<p style='display:none'>no</p><p class='text-center'><i class='fas fa-2x fa-times-circle text-danger'></i></p>";
                     }
                 }
             },
@@ -103,10 +90,22 @@ $(function () {
             {
                 targets: 0,
                 render: function (data, type, row, meta) {
-                return '<div class="d-grid gap-2"><a class="btn btn-primary" href="' + row['website'] + '" role="button">' + data + ' <sup><i class="fas fa-external-link-alt"></i></sup></a></div>';
+                    return '<div class="d-grid gap-2"><a class="btn btn-primary" href="' + row['website'] + '" role="button">' + data + ' <sup><i class="fas fa-external-link-alt"></i></sup></a></div>';
 
-            }
-        }
+                }
+            }, {
+                searchPanes: {
+                    show: false
+                },
+                targets: [7, 8, 9, 10, 11]
+            },            {
+                targets: [0],
+                searchPanes: {
+                    viewCount: false
+                },
+
+            },
+
         ]
 
     });
