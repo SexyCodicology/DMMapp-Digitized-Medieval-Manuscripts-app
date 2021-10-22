@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use App\Models\Library;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -35,7 +36,8 @@ class LibraryFactory extends Factory
                 'notes' => $this->faker->sentence(),
                 'IIIF' => $this->faker->boolean(),
                 'has_post' => $this->faker->boolean(),
-                'post_url' => $this->faker->url()
+                'post_url' => $this->faker->url(),
+                'library_name_slug'=>Str::slug($this->faker->unique()->company())
         ];
     }
 }

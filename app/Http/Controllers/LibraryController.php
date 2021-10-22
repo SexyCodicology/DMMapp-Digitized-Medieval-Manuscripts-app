@@ -116,13 +116,32 @@ class LibraryController extends Controller
         return redirect('/admin');
     }
 
-    public function show($library_id)
+    
+
+    public function show($library_name_slug)
+    {
+        try {
+            //NOTE find a library in the database that contains the slug in the URL
+            $library_data = Library::where('library_name_slug', $library_name_slug)->first();
+             //NOTE and now, we pass the location data AND the building data AND the alerts AND the options to the view to display it to the public.
+            return view('public.single-institution', ['library_data' => $library_data]);
+
+        } catch (Throwable $e) {
+            \Log::notice('User landed on a location that has not been added to the database:' . URL::current());
+            abort(404, 'No information about this location is available at this time. ');
+        }
+
+    }
+
+    /*public function show($library_name_slug)
+
     {
         //return __METHOD__ . ':' . $library_id;
         $data = [];
-        $data['library_id'] = $library_id;
+        $data['library_name_slug'] = $library_name_slug;
         $data['modify'] = 1;
-        $library_data = $this->library->find($library_id);
+        $library_data = Library::find($library_name_slug);
+        dd($library_data);
         $data['nation'] = $library_data->nation;
         $data['city'] = $library_data->city;
         $data['library'] = $library_data->library;
@@ -134,7 +153,7 @@ class LibraryController extends Controller
         $data['notes'] = $library_data->notes;
 
         return view('admin/show', $data);
-    }
+    }8?
 
     /**
      * @throws ValidationException

@@ -2,37 +2,81 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to env --}}
+    @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
+    @else
+        {{-- Global site tag (gtag.js) - Google Analytics --}}
+        <script async
+                src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
+        </script>
+    @endempty
+    {{-- metadata --}}
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- TODO variable if statments: each page gets the title of the institution + digitized medieval manuscripts --}}
-    <title>{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}</title>
-    {{-- TODO variable if statments: each page gets the description of the institution + digitized medieval manuscripts --}}
-    <meta content="Digitized medieval manuscripts belonging to  the ..." name="description">
-    {{-- TODO check keywords --}}
-    <meta content="Digitized medieval manuscripts, manuscripts, digitized books, medieval" name="keywords">
+    {{-- Primary Meta Tags --}}
+    <title>@if (View::hasSection('title'))@yield('title')@else{{ config('app.name', 'Digitized Medieval Manuscripts app - DMMapp') }}@endif</title>
+    <meta name="title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta name="description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
 
-    {{-- Favicons --}}
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ URL::current() }}">
+    <meta property="og:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta property="og:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
+    <meta property="og:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+
+    {{-- Twitter --}}
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ URL::current() }}">
+    <meta property="twitter:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta property="twitter:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
+    <meta property="twitter:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+
+    {{-- Icons --}}
     <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('img/manifest.json') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('img/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href={{ URL::current() }}>
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
 
     {{-- Vendor CSS Files --}}
-
-    {{-- TODO convert to blade call as the CSS --}}
-    {{-- TODO cdn files over local files --}}
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     {{-- Template Main CSS File --}}
@@ -61,9 +105,9 @@
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link" href="#about">About Us</a></li>
+                            <li><a class="nav-link" href="#tools">Tools</a></li>
                             <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                            <li><a class="nav-link" href="#patreon">Support Us</a></li>
                             {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
@@ -76,10 +120,11 @@
                             </li> --}}
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="{{route('map')}}">Map</a></li>
-                    <li><a class="nav-link" href="{{route('data')}}">Data</a></li>
+                    <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
+                    <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
                     <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
-                    <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
+                    <li><a class="nav-link"
+                            href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
                     <li class="ml-4"></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>

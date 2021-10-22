@@ -1,13 +1,18 @@
 {{-- ======= Cta Section ======= --}}
 <section id="cta" class="cta">
     <div class="container">
-        <div class="row" data-aos="zoom-in">
-            <div class="col-lg-9 text-center text-lg-start">
-                <h3>Support us on Patreon!</h3>
-                <p> The DMMapp is free for everyone to use, and will always be. If you would like to support the development of this application, please consider joining the Sexy Codicology on Patreon</p>
-            </div>
-            <div class="col-lg-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" href="https://www.patreon.com/SexyCodicology">Go to Patreon</a>
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-9 text-center text-lg-start">
+                        <h3>Support us on Patreon!</h3>
+                        <p> The DMMapp is free for everyone to use, and will always be. If you would like to support the
+                            development of this application, please consider joining the Sexy Codicology on Patreon</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="https://www.patreon.com/SexyCodicology">Go to Patreon</a>
+                    </div>
+                </div>
             </div>
         </div>
 

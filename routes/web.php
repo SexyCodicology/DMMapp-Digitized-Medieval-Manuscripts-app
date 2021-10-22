@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
-Route::get('/record/{library_id}', [LibraryController::class, 'show'])->name('show_library');
+Route::get('/{library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 Route::get('/search', [LibraryController::class, 'search']);
 
 //SECTION Auth
