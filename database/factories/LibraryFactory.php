@@ -37,7 +37,9 @@ class LibraryFactory extends Factory
                 'IIIF' => $this->faker->boolean(),
                 'has_post' => $this->faker->boolean(),
                 'post_url' => $this->faker->url(),
-                'library_name_slug'=>Str::slug($this->faker->unique()->company())
+                'library_name_slug'=>Str::slug($this->faker->unique()->company()),
+                'is_part_of' => $this->faker->company(),
+                'is_part_of_url' => $this->faker->url()
         ];
     }
 }
