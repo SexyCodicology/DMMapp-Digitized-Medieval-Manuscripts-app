@@ -40,6 +40,9 @@ Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
 Route::get('/{library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 Route::get('/search', [LibraryController::class, 'search']);
 
+//SECTION redirects from old DMMapp structure
+Route::get('/record/{id}', RedirectController::class)->name('redirect');
+
 //SECTION Auth
 Auth::routes([
     'register' => false, // Registration Routes...
