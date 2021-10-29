@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+ //SECTION Auth
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
+
+
 //SECTION Homepage
 
 Route::get('/', function () {return view('landing_page');});
@@ -43,9 +51,3 @@ Route::get('/search', [LibraryController::class, 'search']);
 //SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
 
-//SECTION Auth
-Auth::routes([
-    'register' => false, // Registration Routes...
-    'reset' => false, // Password Reset Routes...
-    'verify' => false, // Email Verification Routes...
-]);
