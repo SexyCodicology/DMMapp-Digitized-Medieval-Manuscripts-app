@@ -1,55 +1,55 @@
 @extends('layouts.app')
 @section('css')
 @endsection
+@section('breadcrumbs')
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Admin</li>
+            </ol>
+            <h2>Admin</h2>
+        </div>
+    </section>
+
+@endsection
 @section('content')
     {{-- Content here --}}
-        <div class="col-md-6">
-            <h2 class="pull-left">
-                <h2>DMMapp Data Admin</h2>
-        </div>
-        <div class="col-md-6" style="padding: 15px">
-            <a class="btn btn-outline-success pull-right" href="record/new">
+            <a class="btn btn-success" href="record/new">
             <i class="fa fa-plus-square"></i> New Library</a>
-        </div>
-    <div class="well">
-        <form action="/search" method="GET" class="form-inline">
-            <div class="form-group mb-2">
-                <input type="search" name="search" class="form-control" placeholder="Libraries, Cities, etc.">
+        <div id="main-data">
+            <div id="data-table" class="my-3">
+                <noscript>
+                    <div class="alert alert-info">
+                        <h4>Your JavaScript is disabled</h4>
+                        <p>Please enable JavaScript to see the table.</p>
+                    </div>
+                </noscript>
+                <table id="dashboard" class="table table-striped table-bordered" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Institution</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                </table>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Search </button>
-        </form>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">DMMApp ID</th>
-                        <th scope="col">Library</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($libraries as $library)
-                    <tr>
-                        <td>{{$library->id}}</td>
-                        <td>{{$library->library}}</td>
-                        <td>
-                            <a class="btn btn-outline-primary" href="{{ route('update_library', ['library_id' => $library->id]) }}">Edit</a>
-                        </td>
-                        <td>
-                            <form action="{{ route('delete_library', ['library_id' => $library->id]) }}" method="post">
-                                @csrf
-                                {{ method_field('delete') }}
-                                <button class="btn btn-outline-danger" type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
         </div>
-        {{ $libraries->links() }}
-    </div>
 @endsection
 @section('javascript')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
+{{-- NOTE this transforms our libraries to json, which can then be read by Googl maps - in dmmapp.js --}}
+<script type="text/javascript">
+    var libraries = {!! json_encode($libraries->toArray()) !!}
+</script>
+<script defer type="text/javascript" src="{{ asset('/js/dashboard.js') }}"></script>
 @endsection
