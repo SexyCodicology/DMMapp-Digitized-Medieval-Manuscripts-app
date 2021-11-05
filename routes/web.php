@@ -40,13 +40,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('update_library');
         Route::post('/edit/{id}', [LibraryController::class, 'update']);
 
-        Route::delete('/record/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
+        Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
     });
 });
 
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
+
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
 //SECTION redirects from old DMMapp structure
