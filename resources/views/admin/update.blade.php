@@ -9,15 +9,31 @@
                 <li><a href="{{ route('admin') }}">Admin</a></li>
                 <li>Edit</li>
             </ol>
-            <h2>Update institution</h2>
+            <h2>Update or delete institution</h2>
         </div>
     </section>
 
 @endsection
 @section('content')
-    <form id="createForm" class="row g-3 needs-validation" action={{ route('update_library', $library->id) }} method="post" novalidate>
+
+    <div class="row">
+        <div class="col-sm-10 col-12">
+        <h2>{{ $library->library }}</h2>
+        </div>
+        <div class="col-sm-2 col-12">
+            <form action="{{ route('delete_library', $library->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this institution?')"
+                class="btn btn-danger float-end" id="{{ $library->id }}">Delete institution <i class="fas fa-trash-alt"></i></button>
+        </form>
+        </div>
+    </div>
+    <hr>
+    <form id="createForm" class="row g-3 needs-validation" action={{ route('update_library', $library->id) }} method="POST"
+        novalidate>
         @csrf
-        @if($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -26,7 +42,7 @@
                 </ul>
             </div>
         @endif
-        @if(session('error'))
+        @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
@@ -35,8 +51,7 @@
         <div class="mb-4">
             <label for="library" class="form-label">Institution name</label>
             <input name="library" type="text" class="form-control" id="library"
-                placeholder="The British Library, The Getty Museum..." value="{{ $library->library }}"
-                required>
+                placeholder="The British Library, The Getty Museum..." value="{{ $library->library }}" required>
             <div class="invalid-feedback">
                 Please fill in this field.
             </div>
@@ -85,10 +100,11 @@
         <div class="mb-4">
             <div class="form-check">
                 <input type="hidden" name="iiif" value="0">
-                <input name="iiif" class="form-check-input" type="checkbox" id="iiif" value="1" {{ ($library->iiif == 1 ? ' checked' : '') }}>
+                <input name="iiif" class="form-check-input" type="checkbox" id="iiif" value="1"
+                    {{ $library->iiif == 1 ? ' checked' : '' }}>
 
                 <label class="form-check-label" for="iiif">IIIF repository</label>
-                
+
 
             </div>
             <div id="iiifNote" class="form-text">Indicates if this is a IIIF repository</div>
@@ -97,7 +113,8 @@
         <div class="mb-4">
             <div class="form-check">
                 <input type="hidden" name="is_part_of" value="0">
-                <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of" value="1" {{ ($library->is_part_of == 1 ? ' checked' : '') }}>
+                <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of" value="1"
+                    {{ $library->is_part_of == 1 ? ' checked' : '' }}>
 
                 <label class="form-check-label" for="is_part_of">Is part of a project</label>
             </div>
@@ -110,8 +127,7 @@
             <div class="mb-4">
                 <label for="is_part_of_project_name" class="form-label">Home project name</label>
                 <input name="is_part_of_project_name" type="text" class="form-control" id="is_part_of_project_name"
-                    placeholder="e-Codices, Manuscripta, etc."
-                    value="{{ $library->is_part_of_project_name }}">
+                    placeholder="e-Codices, Manuscripta, etc." value="{{ $library->is_part_of_project_name }}">
                 <div id="libraryNote" class="form-text">The name of the project home to multiple repositories</div>
             </div>
 
@@ -189,7 +205,8 @@
             <div class="form-check">
                 <input type="hidden" name="is_free_cultural_works_license" value="0">
                 <input name="is_free_cultural_works_license" class="form-check-input" type="checkbox"
-                    id="is_free_cultural_works_license" value="1" {{ ($library->is_free_cultural_works_license == 1 ? ' checked' : '') }}>
+                    id="is_free_cultural_works_license" value="1"
+                    {{ $library->is_free_cultural_works_license == 1 ? ' checked' : '' }}>
 
 
                 <label class="form-check-label" for="is_free_cultural_works_license">Copyright is approved for Free
@@ -207,7 +224,8 @@
         <div class="mb-4">
             <div class="form-check">
                 <input type="hidden" name="has_post" value="0">
-                <input name="has_post" class="form-check-input" type="checkbox" id="has_post" value="1" {{ ($library->has_post == 1 ? ' checked' : '') }}>
+                <input name="has_post" class="form-check-input" type="checkbox" id="has_post" value="1"
+                    {{ $library->has_post == 1 ? ' checked' : '' }}>
 
                 <label class="form-check-label" for="has_post">Has a Sexy Codicology Blog post</label>
             </div>
@@ -225,9 +243,9 @@
         </div>
         <hr>
         <div class="col-12">
-        <button class="btn btn-success" type="submit">Update library <i class="fas fa-plus"></i></button>
-        <a class="btn btn-danger pull-right" href="/admin">
-            Cancel <i class="fas fa-ban"></i></a>
+            <button class="btn btn-success" type="submit">Update library <i class="fas fa-plus"></i></button>
+            <a class="btn btn-secondary pull-right" href={{ route('admin') }}>
+                Cancel edits <i class="fas fa-ban"></i></a>
         </div>
     </form>
 @endsection
@@ -238,10 +256,8 @@
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
             'use strict'
-
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             var forms = document.querySelectorAll('.needs-validation')
-
             // Loop over them and prevent submission
             Array.prototype.slice.call(forms)
                 .forEach(function(form) {
@@ -250,7 +266,6 @@
                             event.preventDefault()
                             event.stopPropagation()
                         }
-
                         form.classList.add('was-validated')
                     }, false)
                 })

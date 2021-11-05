@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Library as Library;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\ValidationException;
@@ -41,17 +40,6 @@ class LibraryController extends Controller
         return view('public/map', $data);
     }
 
-    //TODO do we need this function? We are searching via datatables / frontend anyway. "Searchadmin" should stay then.
-
-    public function search(Request $request)
-    {
-        $search = $request->get('search');
-        //TODO why are we using DB here?
-        $libraries = DB::table('libraries')->where('library', 'like', '%' . $search . '%')->paginate(10);
-        return view('public/data', ['libraries' => $libraries]);
-
-    }
-
     public function admin()
     {
 
@@ -60,23 +48,6 @@ class LibraryController extends Controller
         $data['libraries'] = $this->library->all();
 
         return view('admin/admin', $data);
-
-    }
-
-    public function destroy($id)
-    {
-        $library = Library::findOrFail($id);
-
-        try {
-            $library->delete();
-            return redirect('admin')->with("success", "An institution has been successfully deleted.");
-
-        } catch (Throwable $e) {
-
-            Log::error('Unable delete library from the database:' . $e);
-            //TODO check if the view has an "error" and a "success section"
-            return redirect()->route('create_library')->with("error", "Something went wrong and the library could not be deleted. Check the logs.");
-        }
 
     }
 
@@ -200,7 +171,7 @@ class LibraryController extends Controller
                 'is_part_of_url' => 'nullable|active_url',
             ]);
 
-            { $library = Library::where('id',$id)->first();
+            { $library = Library::where('id', $id)->first();
 
                 $library->nation = $request->input('nation');
                 $library->city = $request->input('city');
@@ -218,7 +189,7 @@ class LibraryController extends Controller
                 $library->library_name_slug = $request->input('library_name_slug');
                 $library->is_part_of = $request->input('is_part_of');
                 $library->is_part_of_url = $request->input('is_part_of_url');
-                
+
                 try {
                     $library->save();
                 } catch (Throwable $e) {
@@ -229,6 +200,29 @@ class LibraryController extends Controller
 
             return redirect('admin')->with("success", "An institution has been successfully updated.");
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $library = Library::findOrFail($id);
+
+        try {
+            $library->delete();
+            return redirect('admin')->with("success", "An institution has been successfully deleted.");
+
+        } catch (Throwable $e) {
+
+            Log::error('Unable delete library from the database:' . $e);
+            //TODO check if the view has an "error" and a "success section"
+            return redirect()->route('create_library')->with("error", "Something went wrong and the library could not be deleted. Check the logs.");
+        }
+
     }
 
 }
