@@ -14,9 +14,9 @@ class AddIsPartOfToLibraries extends Migration
     public function up()
     {
         Schema::table('libraries', function (Blueprint $table) {
-            $table->string('is_part_of');
-            $table->string('is_part_of_url');
-
+            $table->boolean('is_part_of');
+            $table->string('is_part_of_project_name')->nullable();
+            $table->string('is_part_of_url')->nullable();
 
         });
     }
