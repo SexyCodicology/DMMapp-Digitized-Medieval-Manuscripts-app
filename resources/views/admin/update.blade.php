@@ -307,4 +307,16 @@
             }
         })
     </script>
+    <script>
+    $(document).ready(function(){
+
+        if ($('#is_part_of').is(':checked')) {
+            ($('#is_part_of_display')).show();
+            };
+
+        if ($('#has_post').is(':checked')) {
+            ($('#has_post_display')).show();
+          };
+        });
+    </script>
 @endsection
