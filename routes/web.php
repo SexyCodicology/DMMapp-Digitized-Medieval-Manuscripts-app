@@ -36,13 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [LibraryController::class, 'admin'])->name('admin');
 
-        Route::get('/new', [LibraryController::class, 'newLibrary'])->name('new_library');
-        Route::post('/new', [LibraryController::class, 'newLibrary'])->name('create_library');
+        Route::get('/new', [LibraryController::class, 'create'])->name('create_library');
+        Route::post('/new', [LibraryController::class, 'store']);
 
-        Route::get('/edit/{library_id}', [LibraryController::class, 'modify'])->name('modify_library');
-        Route::post('/edit/{library_id}', [LibraryController::class, 'modify'])->name('update_library');
-
-        Route::get('/search', [LibraryController::class, 'searchadmin']);
+        Route::get('/edit/{library_id}', [LibraryController::class, 'edit'])->name('modify_library');
+        Route::post('/edit/{library_id}', [LibraryController::class, 'modify']);
 
         Route::delete('/record/delete/{library_id}', [LibraryController::class, 'destroy'])->name('delete_library');
     });
