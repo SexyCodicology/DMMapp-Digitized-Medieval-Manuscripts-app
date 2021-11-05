@@ -60,8 +60,6 @@ class LibraryController extends Controller
 
         } catch (Throwable $e) {
             Log::notice('User landed on a institution that has not been added to the database:' . URL::current());
-            //TODO publish personalized error pages
-
             abort(404, 'No information about this institution is available at this time. ');
         }
         return view('public.single-institution', ['library_data' => $library_data]);
@@ -129,7 +127,6 @@ class LibraryController extends Controller
             $library->save();
         } catch (Throwable $e) {
             Log::error('Unable to add a new library to the database:' . $e);
-            //TODO check if the view has an "error" and a "success section"
             return redirect()->route('create_library')->with("error", "Something went wrong and the library could not be saved. Check the logs.");
         }
         return redirect()->route('admin')->with("success", "A new institution has been successfully saved.");
@@ -219,7 +216,6 @@ class LibraryController extends Controller
         } catch (Throwable $e) {
 
             Log::error('Unable delete library from the database:' . $e);
-            //TODO check if the view has an "error" and a "success section"
             return redirect()->route('create_library')->with("error", "Something went wrong and the library could not be deleted. Check the logs.");
         }
 
