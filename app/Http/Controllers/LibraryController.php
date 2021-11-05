@@ -130,12 +130,12 @@ class LibraryController extends Controller
             'is_free_cultural_works_license' => 'required|boolean',
             'has_post' => 'required|boolean',
             'post_url' => 'nullable|active_url',
-            'library_name_slug' => 'required|max:255',
+            'library_name_slug' => 'required|max:255|unique:libraries',
             'is_part_of' => 'nullable|max:255',
             'is_part_of_url' => 'nullable|active_url',
         ]);
 
-        $library = new Library ([
+        $library = new Library([
             'nation' => $request->input('nation'),
             'city' => $request->input('city'),
             'library' => $request->input('library'),
@@ -170,85 +170,65 @@ class LibraryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        return view('admin.modify');
+        $library = Library::where('id', $id)->first();
+        //dd($library);
+
+        return view('admin.update', ['library' => $library]);
     }
 
-    public function modify(Request $request, $library_id)
+    public function update(Request $request, $id)
     {
-        $data = [];
-        $data['library_id'] = $library_id;
-        $library_data = $this->library->find($library_id);
-        $data['nation'] = $library_data->nation;
-        $data['city'] = $library_data->city;
-        $data['library'] = $library_data->library;
-        $data['lat'] = $library_data->lat;
-        $data['lng'] = $library_data->lng;
-        $data['quantity'] = $library_data->quantity;
-        $data['website'] = $library_data->website;
-        $data['copyright'] = $library_data->copyright;
-        $data['notes'] = $library_data->notes;
-        $data['iiif'] = $library_data->iiif;
-        $data['is_free_cultural_works_license'] = $library_data->is_free_cultural_works_license;
-        $data['has_post'] = $library_data->has_post;
-        $data['post_url'] = $library_data->post_url;
-        $data['library_name_slug'] = $library_data->library_name_slug;
-        $data['is_part_of'] = $library_data->is_part_of;
-        $data['is_part_of_url'] = $library_data->is_part_of_url;
+        {
+            $request->validate([
+                'nation' => 'required|string|max:255',
+                'city' => 'required|string|max:255',
+                'library' => 'required|string|max:255',
+                'lat' => 'required|string|max:10',
+                'lng' => 'required|string|max:10',
+                'quantity' => 'required|string',
+                'website' => 'required|active_url|max:255',
+                'copyright' => 'required|string|max:255',
+                'notes' => 'nullable|max:255',
+                'iiif' => 'required|boolean',
+                'is_free_cultural_works_license' => 'required|boolean',
+                'has_post' => 'required|boolean',
+                'post_url' => 'nullable|active_url',
+                'library_name_slug' => 'required|max:255|unique:libraries,library_name_slug,' . $id,
+                'is_part_of' => 'nullable|max:255',
+                'is_part_of_url' => 'nullable|active_url',
+            ]);
 
-        if ($request->isMethod('post')) {
-            $this->validate(
-                $request,
-                [
-                    'nation' => 'required|string|min:3|max:255',
-                    'city' => 'required|string|max:255',
-                    'library' => 'required|string|max:255',
-                    'lat' => 'required|string|max:10',
-                    'lng' => 'required|string|max:10',
-                    'quantity' => 'required|string',
-                    'website' => 'required|active_url|max:255',
-                    'copyright' => 'required|string|max:255',
-                    'notes' => 'string|max:255',
-                    'iiif' => 'required|boolean',
-                    'is_free_cultural_works_license' => 'required|boolean',
-                    'has_post' => 'boolean',
-                    'post_url' => 'active_url',
-                    'library_name_slug' => 'max:255',
-                    'is_part_of' => 'max:255',
-                    'is_part_of_url' => 'active_url',
-                ]
-            );
+            { $library = Library::where('id',$id)->first();
 
-            $library_data = $this->library->find($library_id);
-            $library_data->nation = $request->input('nation');
-            $library_data->city = $request->input('city');
-            $library_data->library = $request->input('library');
-            $library_data->lat = $request->input('lat');
-            $library_data->lng = $request->input('lng');
-            $library_data->quantity = $request->input('quantity');
-            $library_data->website = $request->input('website');
-            $library_data->copyright = $request->input('copyright');
-            $library_data->notes = $request->input('notes');
-            $library_data->iiif = $request->input('iiif');
-            $library_data->is_free_cultural_works_license = $request->input('is_free_cultural_works_license');
-            $library_data->has_post = $request->input('has_post');
-            $library_data->post_url = $request->input('post_url');
-            $library_data->library_name_slug = $request->input('library_name_slug');
-            $library_data->is_part_of = $request->input('is_part_of');
-            $library_data->is_part_of_url = $request->input('is_part_of_url');
-            try {
-                $library_data->save();
-            } catch (Throwable $e) {
-
-                Log::error('Unable to add institution to the databaase: ' . $e);
-                //TODO check if the view has an "error" and a "success section"'
-                //TODO this should redirect to the newly created insitution's page
-                return redirect()->route('create_library')->with("error", "Something went wrong and the institution could not be saved. Check the logs.");
+                $library->nation = $request->input('nation');
+                $library->city = $request->input('city');
+                $library->library = $request->input('library');
+                $library->lat = $request->input('lat');
+                $library->lng = $request->input('lng');
+                $library->quantity = $request->input('quantity');
+                $library->website = $request->input('website');
+                $library->copyright = $request->input('copyright');
+                $library->notes = $request->input('notes');
+                $library->iiif = $request->input('iiif');
+                $library->is_free_cultural_works_license = $request->input('is_free_cultural_works_license');
+                $library->has_post = $request->input('has_post');
+                $library->post_url = $request->input('post_url');
+                $library->library_name_slug = $request->input('library_name_slug');
+                $library->is_part_of = $request->input('is_part_of');
+                $library->is_part_of_url = $request->input('is_part_of_url');
+                
+                try {
+                    $library->save();
+                } catch (Throwable $e) {
+                    Log::error('Unable to update institution to the database: ' . $e);
+                    return redirect()->route('create_library')->with("error", "Something went wrong and the institution could not be saved. Check the logs.");
+                }
             }
-        }
 
-        return redirect('admin')->with("success", "An institution has been successfully saved.");
+            return redirect('admin')->with("success", "An institution has been successfully updated.");
+        }
     }
 
 }
