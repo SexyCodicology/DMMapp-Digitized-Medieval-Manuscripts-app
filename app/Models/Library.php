@@ -12,7 +12,6 @@ class Library extends Model
 {
     use HasFactory;
     //
-    public function insert(array $data)
-    {
-    }
+    protected $guarded = [];
+    
 }

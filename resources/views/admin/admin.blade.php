@@ -14,8 +14,13 @@
 
 @endsection
 @section('content')
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
     {{-- Content here --}}
-            <a class="btn btn-success" href="record/new">
+            <a class="btn btn-success" href="{{ route('create_library') }}">
             <i class="fa fa-plus-square"></i> New Library</a>
         <div id="main-data">
             <div id="data-table" class="my-3">
@@ -25,7 +30,7 @@
                         <p>Please enable JavaScript to see the table.</p>
                     </div>
                 </noscript>
-                <table id="dashboard" class="table table-striped table-bordered" style="width:100%;">
+                <table id="dashboard" class="table table-striped table-bordered align-middle text-center" style="width:100%;">
                     <thead>
                         <tr>
                             <th>ID</th>

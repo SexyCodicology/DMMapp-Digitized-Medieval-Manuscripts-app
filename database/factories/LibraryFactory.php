@@ -38,7 +38,8 @@ class LibraryFactory extends Factory
                 'has_post' => $this->faker->boolean(),
                 'post_url' => $this->faker->url(),
                 'library_name_slug'=>Str::slug($this->faker->unique()->company()),
-                'is_part_of' => $this->faker->company(),
+                'is_part_of' => $this->faker->boolean(),
+                'is_part_of_project_name' => $this->faker->company(),
                 'is_part_of_url' => $this->faker->url()
         ];
     }
