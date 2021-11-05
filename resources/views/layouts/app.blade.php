@@ -250,7 +250,7 @@
     <script async defer src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
     {{-- Template Main JS File --}}
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     @yield('javascript')
 
 </body>

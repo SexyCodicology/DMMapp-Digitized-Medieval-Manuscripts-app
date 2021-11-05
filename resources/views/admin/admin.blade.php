@@ -30,7 +30,7 @@
                         <p>Please enable JavaScript to see the table.</p>
                     </div>
                 </noscript>
-                <table id="dashboard" class="table table-striped table-bordered" style="width:100%;">
+                <table id="dashboard" class="table table-striped table-bordered align-middle text-center" style="width:100%;">
                     <thead>
                         <tr>
                             <th>ID</th>
