@@ -23,7 +23,7 @@ class CreateLibrariesTable extends Migration
             $table->string('quantity');
             $table->string('website');
             $table->string('copyright');
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }
