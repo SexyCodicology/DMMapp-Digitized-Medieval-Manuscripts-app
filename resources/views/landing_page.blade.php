@@ -174,11 +174,11 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in">
-                            <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="">
+                            <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="" style="display: none">
                             </div>
                             <div class="member-info">
                                 <h4>Giulio Menna</h4>
-                                <span>The eclectic developer</span>
+                                <span>The developer</span>
                                 <div class="social">
                                     <a href="https://twitter.com/Giulio_Menna"><i class="bi bi-twitter"></i></a>
                                     <a href="https://www.linkedin.com/in/giuliomenna/"><i class="bi bi-linkedin"></i></a>
@@ -189,16 +189,12 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="img/team/team-2.jpg" class="img-fluid" alt="">
+                            <div class="pic"><img src="img/team/team-2.jpg" class="img-fluid" alt="" style="display: none">
                             </div>
                             <div class="member-info">
                                 <h4>Marjolein de Vos</h4>
-                                <span>The precise controller</span>
+                                <span>The Metadata Specialist</span>
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
