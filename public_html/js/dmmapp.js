@@ -67,7 +67,7 @@ function initMap() {
     function addMarker(place) {
 
         //Here we are defining the content for the Infowindows
-        var infowindowContent = "<h3>" + place.library + "</h3><p>" + place.quantity + "</p>" + '<a class="btn btn-success btn-block" href="' + place.website + '" target="_blank"><i class="fas fa-book-open"></i> Browse the manuscripts</a><a class="btn btn-info btn-block" href="/record/' + place.id + '" target="_blank"><i class="fas fa-drafting-compass"></i> Explore additional data</a></div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYd3J_nTxiF82Nvm2i7YBhRfbP9mO6cxffSLF5nmgCK5PQ8g/viewform?entry.2011995917=' + place.library + '&entry.1561016982=' + place.website + '" class="badge badge-light" target="_blank"> report broken link</a></p></div>';
+        var infowindowContent = "<h3>" + place.library + "</h3><p>" + place.quantity + "</p>" + '<a class="btn btn-success btn-block" href="' + place.website + '" target="_blank"><i class="fas fa-book-open"></i> Browse the manuscripts</a><a class="btn btn-info btn-block" href="' + place.library_name_slug + '" target="_blank"><i class="fas fa-drafting-compass"></i> Explore additional data</a></div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYd3J_nTxiF82Nvm2i7YBhRfbP9mO6cxffSLF5nmgCK5PQ8g/viewform?entry.2011995917=' + place.library + '&entry.1561016982=' + place.website + '" class="badge badge-light" target="_blank"> report broken link</a></p></div>';
 
         //Here we are trying to click on the table, center our map on the clicked library, and pass the data.
         var clickToggle = function () { //when clicked, do this:
@@ -112,7 +112,8 @@ function initMap() {
                 { "data": "notes" }, //9
                 { "data": "website" }, //10
                 { "data": "has_post" }, // 11
-                { "data": "post_url" } // 12
+                { "data": "post_url" }, // 12
+                { "data": "library_name_slug"},
             ],
 
             responsive: true,
@@ -126,11 +127,11 @@ function initMap() {
             columnDefs: [
 
                 {
-                    targets: [3, 5, 6, 7, 8, 9, 10, 11, 12],
+                    targets: [3, 5, 6, 7, 8, 9, 10, 11, 12, 13],
                     visible: false
                 },
                 {
-                    targets: [1, 2, 3, 4, 7, 8, 9, 10, 11, 12],
+                    targets: [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13],
                     searchable: false
                 },
                 {
@@ -145,7 +146,7 @@ function initMap() {
                     searchPanes: {
                         show: false
                     },
-                    targets: [1, 3, 5, 6, 7, 8, 9, 10 , 11, 12]
+                    targets: [1, 3, 5, 6, 7, 8, 9, 10 , 11, 12, 13]
                 }
             ]
 
@@ -156,7 +157,7 @@ function initMap() {
         //SECTION when a user clicks on the table row, move to marker.
         $('#dmmtable tbody').on('click', 'tr', function () {
             var data = table.row(this).data();
-            var infowindowContent = "<h3>" + data.library + "</h3><p>" + data.quantity + "</p>" + '<a class="btn btn-success btn-block" href="' + data.website + '" target="_blank"><i class="fas fa-book-open"></i> Browse the manuscripts</a><a class="btn btn-info btn-block" href="/record/' + data.id + '" target="_blank"><i class="fas fa-drafting-compass"></i> Explore additional data</a></div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYd3J_nTxiF82Nvm2i7YBhRfbP9mO6cxffSLF5nmgCK5PQ8g/viewform?entry.2011995917=' + data.library + '&entry.1561016982=' + data.website + '" class="badge badge-light" target="_blank"> report broken link</a></p></div>';
+            var infowindowContent = "<h3>" + data.library + "</h3><p>" + data.quantity + "</p>" + '<a class="btn btn-success btn-block" href="' + data.website + '" target="_blank"><i class="fas fa-book-open"></i> Browse the manuscripts</a><a class="btn btn-info btn-block" href="' + data.library_name_slug + '" target="_blank"><i class="fas fa-drafting-compass"></i> Explore additional data</a></div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYd3J_nTxiF82Nvm2i7YBhRfbP9mO6cxffSLF5nmgCK5PQ8g/viewform?entry.2011995917=' + data.library + '&entry.1561016982=' + data.website + '" class="badge badge-light" target="_blank"> report broken link</a></p></div>';
             var marker = new google.maps.Marker({ //here we are adding the pins for every library.
                 position: {
                     lat: parseFloat((data.lat)),
