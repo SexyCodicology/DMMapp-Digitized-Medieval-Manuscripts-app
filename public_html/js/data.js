@@ -14,7 +14,7 @@ $(function () {
             { "data": "lat" }, //8
             { "data": "lng" }, //9
             { "data": "website" }, //10
-            { "data": "library_name_slug"},
+            { "data": "library_name_slug" },
         ],
 
         responsive: true,
@@ -98,7 +98,7 @@ $(function () {
                     show: false
                 },
                 targets: [4, 8, 9, 10, 11]
-            },            {
+            }, {
                 targets: [0],
                 searchPanes: {
                     viewCount: false
