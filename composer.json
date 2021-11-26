@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "spatie/laravel-query-builder": "^3.6",
+        "spatie/laravel-sitemap": "^6.0",
         "twbs/bootstrap": "5.1.1"
     },
     "require-dev": {
