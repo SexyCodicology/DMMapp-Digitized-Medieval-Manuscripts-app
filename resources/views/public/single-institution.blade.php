@@ -89,13 +89,13 @@
                         @endif
                     </td>
                 </tr>
-                @empty($library_data->notes)
+                @if(empty($library_data->notes))
                 @else
                     <tr>
                         <th scope="row">Notes</th>
                         <td>{{ $library_data->notes }}</td>
                     </tr>
-                @endempty
+                @endif
             </tbody>
         </table>
     </div>
