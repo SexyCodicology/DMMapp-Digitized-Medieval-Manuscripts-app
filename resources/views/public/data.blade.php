@@ -114,5 +114,5 @@
         <script type="text/javascript">
             var libraries = {!! json_encode($libraries->toArray()) !!}
         </script>
-        <script defer type="text/javascript" src="{{ asset('/js/data.js') }}"></script>
+        <script defer type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
     @endsection

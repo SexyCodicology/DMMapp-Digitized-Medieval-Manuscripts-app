@@ -80,8 +80,7 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     {{-- Template Main CSS File --}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @yield('css')
 
 </head>
@@ -250,7 +249,7 @@
     <script async defer src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
     {{-- Template Main JS File --}}
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.min.js') }}"></script>
     @yield('javascript')
 
 </body>
