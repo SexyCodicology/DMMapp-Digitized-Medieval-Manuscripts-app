@@ -193,7 +193,7 @@
                             </div>
                             <div class="member-info">
                                 <h4>Marjolein de Vos</h4>
-                                <span>The Metadata Specialist</span>
+                                <span>The editor</span>
                                 <div class="social">
                                 </div>
                             </div>
