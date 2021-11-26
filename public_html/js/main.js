@@ -1,9 +1,3 @@
-/**
-* Template Name: Scaffold - v4.4.0
-* Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function () {
     "use strict";
 
