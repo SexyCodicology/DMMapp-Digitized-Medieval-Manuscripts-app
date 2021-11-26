@@ -83,8 +83,8 @@
             "type": "image/png"
         }
     ],
-    "scope": "/app/",
-    "start_url": "/index.php",
+    "scope": "/",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "browser"
