@@ -4,7 +4,7 @@ $(function () {
         data: libraries,
         columns: [
             { "data": "library" }, //0
-            { "data": "library" }, //1
+            { "data": "website" }, //1
             { "data": "quantity" }, //2
             { "data": "iiif" }, //3
             { "data": "copyright" }, //4
