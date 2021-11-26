@@ -20,26 +20,27 @@
 @endsection
 
 @section('content')
-<div class="text-center" data-aos="zoom-in">
-    <p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-            aria-expanded="false" aria-controls="collapseExample">
-            <i class="fas fa-info-circle"></i> About
-        </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-            <h3>The "DMMapp record details" page</h3>
-            <p>This "DMMapp record details" page contains all the available information about
-                <b>{{ $library_data->library }}</b> and the digitized medieval manuscripts made available by
-                this institution.</p>
-            <hr>
-            <p>The data collected by the DMMapp is crowdsourced and updated constantly. If you notice any
-                errors, please help us correct them by using the <b>Report data issue</b> button at the
-                bottom of this page.</p>
+    <div class="text-center" data-aos="zoom-in">
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-info-circle"></i> About
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <h3>The "DMMapp record details" page</h3>
+                <p>This "DMMapp record details" page contains all the available information about
+                    <b>{{ $library_data->library }}</b> and the digitized medieval manuscripts made available by
+                    this institution.
+                </p>
+                <hr>
+                <p>The data collected by the DMMapp is crowdsourced and updated constantly. If you notice any
+                    errors, please help us correct them by using the <b>Report data issue</b> button at the
+                    bottom of this page.</p>
+            </div>
         </div>
     </div>
-</div>
     <h4>Institution details</h4>
     <div class="table-responsive mb-4">
         <table class="table">
@@ -68,9 +69,9 @@
                     <th scope="row">IIIF</th>
                     <td>
                         @if ($library_data->iiif == '0')
-                            Yes
-                        @else
                             No
+                        @else
+                            Yes
                         @endif
                     </td>
                 </tr>
@@ -82,16 +83,19 @@
                     <th scope="row">Uses a Free Cultural Works License</th>
                     <td>
                         @if ($library_data->is_free_cultural_works_license == '0')
-                            Yes
-                        @else
                             No
+                        @else
+                            Yes
                         @endif
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">Notes</th>
-                    <td>{{ $library_data->notes }}</td>
-                </tr>
+                @empty($library_data->notes)
+                @else
+                    <tr>
+                        <th scope="row">Notes</th>
+                        <td>{{ $library_data->notes }}</td>
+                    </tr>
+                @endempty
             </tbody>
         </table>
     </div>
@@ -139,20 +143,19 @@
                     <th scope="row">Has a related Sexy Codicology post</th>
                     <td>
                         @if ($library_data->has_post == '0')
-                            Yes
-                        @else
                             No
+                        @else
+                            Yes
                         @endif
                     </td>
                 </tr>
                 @if ($library_data->has_post == '0')
+                @else
                     <tr>
                         <th scope="row">Sexy Codicology post URL</th>
                         <td>{{ $library_data->post_url }}</td>
                     </tr>
-                @else
                 @endif
-                <tr>
                 <tr>
                     <th scope="row">DMMapp ID</th>
                     <td>{{ $library_data->id }}</td>
