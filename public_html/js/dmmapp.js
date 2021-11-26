@@ -147,7 +147,27 @@ function initMap() {
                         show: false
                     },
                     targets: [1, 3, 5, 6, 7, 8, 9, 10 , 11, 12, 13]
-                }
+                },
+                {
+                    targets: [1, 4],
+                    render: function (data) {
+
+                        if (data === 1) {
+                            return "<p style='display:none'>yes</p><i class='fas fa-2x fa-check-circle text-success'></i>";
+
+                        }
+                        else {
+                            return "<p style='display:none'>no</p><i class='fas fa-2x fa-times-circle text-danger'></i>";
+                        }
+                    }
+                },
+                {
+                    targets: [0],
+                    searchPanes: {
+                        viewCount: false
+                    },
+
+                },
             ]
 
         });
