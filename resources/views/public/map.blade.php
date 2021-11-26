@@ -114,10 +114,10 @@
     <script async type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbFwvj_8iz-56H2YYRdOPqxphj01fWdw&callback=initMap"></script>
     @env('production')
-    <script defer type="text/javascript" src="{{ asset('/js/dmmapp.min.js') }}"></script>
+    <script defer type="text/javascript" src="{{ asset('/js/dmmapp20211126.min.js') }}"></script>
     @endenv
     @env('local')
-    <script defer type="text/javascript" src="{{ asset('/js/dmmapp.js') }}"></script>
+    <script defer type="text/javascript" src="{{ asset('/js/dmmapp20211126.js') }}"></script>
     @endenv
 
 @endsection

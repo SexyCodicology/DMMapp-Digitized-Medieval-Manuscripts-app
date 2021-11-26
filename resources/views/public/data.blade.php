@@ -126,9 +126,9 @@
             var libraries = {!! json_encode($libraries->toArray()) !!}
         </script>
         @env('production')
-        <script defer type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
+        <script defer type="text/javascript" src="{{ asset('/js/data20211126.min.js') }}"></script>
         @endenv
         @env('local')
-        <script defer type="text/javascript" src="{{ asset('/js/data.js') }}"></script>
+        <script defer type="text/javascript" src="{{ asset('/js/data20211126.js') }}"></script>
         @endenv
     @endsection

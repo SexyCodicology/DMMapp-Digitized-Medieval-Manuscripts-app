@@ -52,14 +52,14 @@
 
 <script type="text/javascript"
         src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
-{{-- NOTE this transforms our libraries to json, which can then be read by Googl maps - in dmmapp.js --}}
+{{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
 <script type="text/javascript">
     var libraries = {!! json_encode($libraries->toArray()) !!}
 </script>
 @env('production')
-<script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('/js/dashboard20211126.min.js') }}"></script>
 @endenv
 @env('local')
-<script defer type="text/javascript" src="{{ asset('/js/dashboard.js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('/js/dashboard20211126.js') }}"></script>
 @endenv
 @endsection
