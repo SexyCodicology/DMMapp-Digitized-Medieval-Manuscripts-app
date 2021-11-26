@@ -100,7 +100,7 @@
         </div>
         <div class="row mb-4">
             <div class="col text-center">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
                     rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                     <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
                             class="fas fa-external-link-alt fa-xs"></i></sup>
@@ -121,9 +121,14 @@
 
         <script type="text/javascript"
                 src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
-        {{-- NOTE this transforms our libraries to json, which can then be read by Googl maps - in dmmapp.js --}}
+        {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
         <script type="text/javascript">
             var libraries = {!! json_encode($libraries->toArray()) !!}
         </script>
+        @env('production')
         <script defer type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
+        @endenv
+        @env('local')
+        <script defer type="text/javascript" src="{{ asset('/js/data.js') }}"></script>
+        @endenv
     @endsection
