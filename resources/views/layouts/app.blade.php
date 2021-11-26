@@ -3,6 +3,7 @@
 
 <head>
     {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to env --}}
+    @production
     @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
     @else
         {{-- Global site tag (gtag.js) - Google Analytics --}}
@@ -19,6 +20,7 @@
             gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
         </script>
     @endempty
+    @endproduction
     {{-- metadata --}}
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -79,8 +81,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
+    @env('production')
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    @endenv
+    @env('local')
+    {{-- Template Main CSS File --}}
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    @endenv
+
     @yield('css')
 
 </head>
@@ -250,7 +259,12 @@
     <script async defer src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
     {{-- Template Main JS File --}}
+    @env('production')
     <script src="{{ asset('js/main.min.js') }}"></script>
+    @endenv
+    @env('local')
+    <script src="{{ asset('js/main.js') }}"></script>
+    @endenv
     @yield('javascript')
 
 </body>

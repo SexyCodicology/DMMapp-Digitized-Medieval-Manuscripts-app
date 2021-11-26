@@ -56,5 +56,10 @@
 <script type="text/javascript">
     var libraries = {!! json_encode($libraries->toArray()) !!}
 </script>
+@env('production')
+<script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
+@endenv
+@env('local')
 <script defer type="text/javascript" src="{{ asset('/js/dashboard.js') }}"></script>
+@endenv
 @endsection

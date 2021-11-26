@@ -23,25 +23,26 @@
     </section>
 @endsection
 @section('content')
-<div class="text-center" data-aos="zoom-in">
-    <p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-            aria-expanded="false" aria-controls="collapseExample">
-            <i class="fas fa-info-circle"></i> About
-        </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-            <h3>The DMMapp Map</h3>
-            <strong>The classic DMMapp experience!</strong> Browse a map containing all the institutions that are some to digitized medieval manuscripts.
-            <hr>
-            <p>The data collected by the DMMapp is crowdsourced and updated constantly. If you notice
-                any
-                errors, please help us correct them by using the <b>Report data issue</b> button at the
-                bottom of this page.</p>
+    <div class="text-center" data-aos="zoom-in">
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-info-circle"></i> About
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <h3>The DMMapp Map</h3>
+                <strong>The classic DMMapp experience!</strong> Browse a map containing all the institutions that are some
+                to digitized medieval manuscripts.
+                <hr>
+                <p>The data collected by the DMMapp is crowdsourced and updated constantly. If you notice
+                    any
+                    errors, please help us correct them by using the <b>Report data issue</b> button at the
+                    bottom of this page.</p>
+            </div>
         </div>
     </div>
-</div>
     <div id="main-map" data-aos="fade-up">
         <div id="map" style="height:50em; width:100%;">
             <noscript>
@@ -86,7 +87,7 @@
     <div class="row mb-4">
         <div class="col text-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform
-                rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
+                    rel=" noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                 <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
                         class="fas fa-external-link-alt fa-xs"></i></sup>
             </a>
@@ -112,5 +113,11 @@
     </script>
     <script async type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbFwvj_8iz-56H2YYRdOPqxphj01fWdw&callback=initMap"></script>
+    @env('production')
     <script defer type="text/javascript" src="{{ asset('/js/dmmapp.min.js') }}"></script>
+    @endenv
+    @env('local')
+    <script defer type="text/javascript" src="{{ asset('/js/dmmapp.js') }}"></script>
+    @endenv
+
 @endsection
