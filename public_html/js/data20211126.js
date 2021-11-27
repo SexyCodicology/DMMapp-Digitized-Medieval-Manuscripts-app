@@ -1,6 +1,7 @@
 //Datatables
 $(function () {
     var table = $('#dmmtable').DataTable({
+        dom: 'Plfrtip',
         data: libraries,
         columns: [
             { "data": "library" }, //0
@@ -35,6 +36,7 @@ $(function () {
         searchPanes: true,
         searchPanes: {
             threshold: 1,
+            initCollapsed: true
         },
 
         columnDefs: [
@@ -50,11 +52,11 @@ $(function () {
             },
             {
                 responsivePriority: 1,
-                targets: 2
+                targets: 0
             },
             {
                 responsivePriority: 2,
-                targets: -1
+                targets: 1
             },
             {
                 targets: [3, 5],
@@ -72,7 +74,7 @@ $(function () {
             {
                 targets: 10,
                 render: function (data, type, row, meta) {
-                    return '<a class="btn btn-success" href="' + row['library_name_slug'] + '" role="button">Browse</a>';
+                    return '<a class="btn btn-success" href="' + row['library_name_slug'] + '" role="button"><i class="fas fa-search-plus"></i> Explore</a>';
                 }
             },
             {
@@ -89,7 +91,7 @@ $(function () {
             {
                 targets: 1,
                 render: function (data, type, row, meta) {
-                    return '<a class="btn btn-primary" href="' + row['website'] + '" role="button">Digitized manuscripts <sup><i class="fas fa-external-link-alt"></i></sup></a>';
+                    return '<a class="btn btn-primary" href="' + row['website'] + '" role="button"><i class="fas fa-link"></i> Digitized manuscripts <sup><i class="fas fa-external-link-alt"></i></sup></a>';
 
                 }
             },
@@ -98,14 +100,13 @@ $(function () {
                     show: false
                 },
                 targets: [4, 8, 9, 10, 11]
-            }, {
-                targets: [0],
+            },
+            {
                 searchPanes: {
                     viewCount: false
                 },
-
-            },
-
+                targets: [0],
+            }
         ]
 
     });
