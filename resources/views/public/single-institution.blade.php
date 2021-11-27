@@ -22,12 +22,13 @@
 @section('content')
     <div class="text-center" data-aos="zoom-in">
         <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
+                aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
             </button>
+            <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
         </p>
-        <div class="collapse" id="collapseExample">
+        <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The "DMMapp record details" page</h3>
                 <p>This "DMMapp record details" page contains all the available information about
@@ -41,6 +42,7 @@
             </div>
         </div>
     </div>
+    <hr>
     <h4>Institution details</h4>
     <div class="table-responsive mb-4">
         <table class="table">
@@ -179,10 +181,7 @@
         </div>
     </div>
 
-    {{-- ======= Cta Section ======= --}}
-    <div class="mt-3">
-        <x-patreon />
-    </div>
+    <x-patreon />
 
 @endsection
 @section('javascript')

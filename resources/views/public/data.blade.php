@@ -25,12 +25,16 @@
 @section('content')
     <div class="text-center" data-aos="zoom-in">
         <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
+                aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
             </button>
+            <a class="btn btn-success" href="#dmmtable_filter" type="button">
+            <i class="fas fa-link"></i> Go to links</a>
+            <a class="btn btn-danger" href="#cta" type="button">
+            <i class="fab fa-patreon"></i> Support us!</a>
         </p>
-        <div class="collapse" id="collapseExample">
+        <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The "DMMapp data" page</h3>
                 <strong>The full DMMapp data!</strong> Here you can browse, search, and filter all the data we
@@ -68,6 +72,7 @@
             </div>
         </div>
     </div>
+    <hr>
     <div id="main-data" data-aos="fade-up">
         <div id="data-table" class="my-3">
             <noscript>
@@ -79,18 +84,18 @@
             <table id="dmmtable" class="table table-striped table-bordered align-middle text-center" style="width:100%;">
                 <thead>
                     <tr>
-                        <th>Institution name</th>
-                        <th>Link to digitized manuscripts</th>
-                        <th>Quantity of digitized items</th>
-                        <th>IIIF repository</th>
-                        <th>Digitized items' copyright</th>
-                        <th>Free Cultural Works License</th>
-                        <th>Nation</th>
-                        <th>City</th>
-                        <th>lat</th>
-                        <th>lng</th>
-                        <th>Full DMMapp data</th>
-                        <th>Sexy Codicology blog post</th>
+                        <th class="align-middle">Institution name</th>
+                        <th class="align-middle">Link to digitized manuscripts</th>
+                        <th class="align-middle">Quantity of digitized items</th>
+                        <th class="align-middle">IIIF repository</th>
+                        <th class="align-middle">Digitized items' copyright</th>
+                        <th class="align-middle">Free Cultural Works License</th>
+                        <th class="align-middle">Nation</th>
+                        <th class="align-middle">City</th>
+                        <th class="align-middle">lat</th>
+                        <th class="align-middle">lng</th>
+                        <th class="align-middle">Full DMMapp data</th>
+                        <th class="align-middle">Sexy Codicology blog post</th>
                     </tr>
                 </thead>
                 <tbody>
