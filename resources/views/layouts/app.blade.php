@@ -113,19 +113,14 @@
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
+                            @if(Request::is('/'))
                             <li><a class="nav-link" href="#tools">Tools</a></li>
                             <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#patreon">Support Us</a></li>
-                            {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li> --}}
+                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                            @else
+                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                            @endif
+
                         </ul>
                     </li>
                     <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
@@ -139,8 +134,7 @@
             </nav>{{-- .navbar --}}
 
             <div class="header-social-links d-flex align-items-center">
-                <a class="nav-link" href="https://www.patreon.com/bePatron?u=3645539"
-                    data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i class="fab fa-patreon"></i></a>
                 <a href="https://twitter.com/sexycodicology" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="https://www.facebook.com/SexyCodicology/" class="facebook"><i
                         class="bi bi-facebook"></i></a>
@@ -256,7 +250,6 @@
     {{-- Vendor JS Files --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script async defer src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
     {{-- Template Main JS File --}}
     @env('production')
