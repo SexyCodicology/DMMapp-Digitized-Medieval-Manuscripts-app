@@ -24,7 +24,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #7b909a;
   white-space: nowrap;
   transition: 0.3s;
@@ -324,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px;
 }
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 13px;
   text-transform: uppercase;
@@ -381,7 +381,7 @@ section {
   font-weight: 400;
   margin-bottom: 20px;
   padding-bottom: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #627680;
 }
 .section-title p {
@@ -408,7 +408,7 @@ section {
   font-weight: 400;
   font-size: 32px;
   color: #364146;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 .about .content ul {
   list-style: none;
@@ -571,7 +571,7 @@ section {
   color: #576971;
 }
 .cta .cta-btn {
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -811,7 +811,7 @@ section {
   font-size: 36px;
   color: #2282ff;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin-bottom: 20px;
 }
 .patreon h4 sup {
@@ -855,7 +855,6 @@ section {
   border-radius: 4px;
   color: #fff;
   font-size: 13px;
-  font-family: "Raleway", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -901,7 +900,6 @@ section {
 .faq .faq-list .question {
   display: block;
   position: relative;
-  font-family: #2282ff;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -1145,7 +1143,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #576971;
 }
 #footer .footer-top .social-links a {
