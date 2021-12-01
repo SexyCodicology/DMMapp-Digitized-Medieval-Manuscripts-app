@@ -27,6 +27,9 @@
                 <i class="fas fa-info-circle"></i> About
             </button>
             <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
+            @auth
+            <a class="btn btn-warning" href="{{route('update_library' , $library_data->id)}}" type="button"><i class="fas fa-edit"></i> Edit</a>
+            @endauth
         </p>
         <div class="collapse" id="collapsible">
             <div class="card card-body">
