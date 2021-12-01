@@ -19,20 +19,6 @@ $(function () {
         ],
 
         responsive: true,
-        responsive: {
-            details: {
-                display: $.fn.dataTable.Responsive.display.modal({
-                    header: function (row) {
-                        var data = row.data();
-                        return 'Details for ' + data.library;
-                    }
-                }),
-                renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                    tableClass: 'table'
-                })
-            }
-        },
-
         searchPanes: true,
         searchPanes: {
             threshold: 1,
