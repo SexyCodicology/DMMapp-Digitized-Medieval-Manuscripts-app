@@ -39,14 +39,14 @@
     <meta property="og:url" content="{{ URL::current() }}">
     <meta property="og:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="og:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="og:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+    <meta property="og:image" content="{{ asset('/img/dmmapp.png')}}">
 
     {{-- Twitter --}}
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ URL::current() }}">
     <meta property="twitter:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="twitter:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="twitter:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+    <meta property="twitter:image" content="{{ asset('/img/dmmapp.png')}}">
 
     {{-- Icons --}}
     <link href="img/favicon.ico" rel="icon">
