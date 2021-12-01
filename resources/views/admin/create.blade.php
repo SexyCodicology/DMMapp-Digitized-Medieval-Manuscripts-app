@@ -7,9 +7,9 @@
             <ol>
                 <li><a href="/">Home</a></li>
                 <li><a href="{{ route('admin') }}">Admin</a></li>
-                <li>Edit</li>
+                <li>Create Institution</li>
             </ol>
-            <h2>Add a new institution</h2>
+            <h2>Add a new institution to the DMMapp</h2>
         </div>
     </section>
 
@@ -108,7 +108,7 @@
                     placeholder="e-Codices, Manuscripta, etc." value="{{ old('is_part_of_project_name') ? old('is_part_of_project_name') : '' }}">
                 <div id="libraryNote" class="form-text">The name of the project home to multiple repositories</div>
             </div>
-    
+
             <div class="mb-4">
                 <label for="is_part_of_url" class="form-label">Home project URL</label>
                 <input name="is_part_of_url" type="url" class="form-control" id="is_part_of_url" placeholder="https://..."
