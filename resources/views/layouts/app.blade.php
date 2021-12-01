@@ -85,7 +85,7 @@
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @endenv
-    @env('local')
+    @env(['local', 'staging'])
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @endenv
@@ -255,7 +255,7 @@
     @env('production')
     <script src="{{ asset('js/main20211126.min.js') }}"></script>
     @endenv
-    @env('local')
+    @env(['local', 'staging'])
     <script src="{{ asset('js/main20211126.js') }}"></script>
     @endenv
     @yield('javascript')
