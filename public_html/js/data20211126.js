@@ -107,7 +107,11 @@ $(function () {
                 },
                 targets: [0],
             }
-        ]
+        ],
+
+        fnInitComplete : function() {
+            $("#spinner").hide();
+         }
 
     });
     table.searchPanes.container().prependTo(table.table().container());

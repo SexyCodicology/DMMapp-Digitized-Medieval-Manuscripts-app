@@ -168,7 +168,11 @@ function initMap() {
                     },
 
                 },
-            ]
+            ],
+
+            fnInitComplete : function() {
+                $("#spinner").hide();
+             }
 
         });
         table.searchPanes.container().prependTo(table.table().container());
