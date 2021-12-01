@@ -131,6 +131,26 @@
                     <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
                     <li><a class="nav-link"
                             href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
+                    @auth
+                        <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a class="nav-link" href="{{ route('create_library') }}">Create institution</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ route('data') }}">List institutions</a>
+                                </li>
+                                <hr>
+                                <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endauth
                     <li class="ml-4"></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -223,9 +243,12 @@
                         style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
                 work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
                     Commons Attribution 4.0 International License</a>.
-                    <p>Made in The Netherlands</p>
-                    <div><a class="fw-lighter text-center" href="/login">login</a></div>
-
+                <p>Made in The Netherlands</p>
+                @guest
+                    <div>
+                        <a class="fw-lighter text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </div>
+                @endguest
             </div>
             {{-- <div class="credits">
                  All the links in the footer should remain intact.
