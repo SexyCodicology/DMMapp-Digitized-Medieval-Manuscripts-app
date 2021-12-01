@@ -116,13 +116,13 @@ function initMap() {
                 { "data": "library_name_slug"},
             ],
 
-            responsive: true,
-
+            responsive: {
+                details: false
+            },
             searchPanes: true,
             searchPanes: {
                 threshold: 1,
             },
-
 
             columnDefs: [
 
@@ -202,7 +202,7 @@ function initMap() {
             infowindow.open(map, marker);
 
             $('html, body').animate({
-                scrollTop: $("#map").offset().top
+                scrollTop: $("#lead").offset().top
             }, 500);
         });
 

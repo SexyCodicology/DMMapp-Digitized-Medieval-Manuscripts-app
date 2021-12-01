@@ -26,9 +26,9 @@
 
 <div class="text-center">
     <h1 class="display-3">Digitized Medieval Manuscripts map</h1>
-    <p class="text-muted lead">by Sexy Codicology</p>
+    <p id="lead" class="text-muted lead">by Sexy Codicology</p>
 </div>
-    <div class="text-center mt-4">
+    <div id="map-buttons" class="text-center mt-4">
         <p>
             <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
