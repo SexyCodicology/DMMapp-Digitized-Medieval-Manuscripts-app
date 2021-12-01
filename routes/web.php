@@ -27,7 +27,6 @@ Auth::routes([
 //SECTION Homepage
 
 Route::get('/', function () {return view('landing_page');});
-Route::get('/sample', function () {return view('index');});
 
 //SECTION Admin pannel
 Route::middleware('auth')->group(function () {

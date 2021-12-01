@@ -4,27 +4,30 @@
 <head>
     {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to env --}}
     @production
-    @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
-    @else
-        {{-- Global site tag (gtag.js) - Google Analytics --}}
-        <script async
-                src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+        @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
+        @else
+            {{-- Global site tag (gtag.js) - Google Analytics --}}
+            <script async
+                        src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
+            </script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
-        </script>
-    @endempty
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+                gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
+            </script>
+        @endempty
     @endproduction
     {{-- metadata --}}
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @env(['local', 'staging'])
+    <meta name="robots" content="none" />
+    @endenv
 
     {{-- Primary Meta Tags --}}
     <title>@if (View::hasSection('title'))@yield('title')@else{{ config('app.name', 'Digitized Medieval Manuscripts app - DMMapp') }}@endif</title>
@@ -36,17 +39,17 @@
     <meta property="og:url" content="{{ URL::current() }}">
     <meta property="og:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="og:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="og:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+    <meta property="og:image" content="{{ asset('/img/dmmapp.png') }}">
 
     {{-- Twitter --}}
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ URL::current() }}">
     <meta property="twitter:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="twitter:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="twitter:image" content="https://digitizedmedievalmanuscripts.org/img/dmmapp.png">
+    <meta property="twitter:image" content="{{ asset('/img/dmmapp.png') }}">
 
     {{-- Icons --}}
-    <link href="img/favicon.png" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/apple-icon-72x72.png') }}">
@@ -71,7 +74,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap">
 
     {{-- Vendor CSS Files --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -85,9 +88,9 @@
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @endenv
-    @env('local')
+    @env(['local', 'staging'])
     {{-- Template Main CSS File --}}
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @endenv
 
     @yield('css')
@@ -97,11 +100,11 @@
 <body>
 
     {{-- SECTION -  Header --}}
-    <header id="header" class="fixed-top d-flex align-items-center">
+    <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
         <div class="container d-flex align-items-center">
 
             <div class="logo me-auto">
-                <h1><a href="{{ url('/') }}">DMMapp</a></h1>
+                <h2><a href="{{ url('/') }}">DMMapp</a></h2>
                 {{-- TODO image logo --}}
                 {{-- <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="DMMapp Logo"
                         class="img-fluid"></a> --}}
@@ -113,19 +116,14 @@
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link" href="#tools">Tools</a></li>
-                            <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#patreon">Support Us</a></li>
-                            {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li> --}}
+                            @if (Request::is('/'))
+                                <li><a class="nav-link" href="#tools">Tools</a></li>
+                                <li><a class="nav-link" href="#team">Team</a></li>
+                                <li><a class="nav-link" href="#cta">Support Us</a></li>
+                            @else
+                                <li><a class="nav-link" href="#cta">Support Us</a></li>
+                            @endif
+
                         </ul>
                     </li>
                     <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
@@ -133,14 +131,34 @@
                     <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
                     <li><a class="nav-link"
                             href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
+                    @auth
+                        <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a class="nav-link" href="{{ route('create_library') }}">Create institution</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ route('data') }}">List institutions</a>
+                                </li>
+                                <hr>
+                                <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endauth
                     <li class="ml-4"></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>{{-- .navbar --}}
 
             <div class="header-social-links d-flex align-items-center">
-                <a class="nav-link" href="https://www.patreon.com/bePatron?u=3645539"
-                    data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
+                        class="fab fa-patreon"></i></a>
                 <a href="https://twitter.com/sexycodicology" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="https://www.facebook.com/SexyCodicology/" class="facebook"><i
                         class="bi bi-facebook"></i></a>
@@ -157,7 +175,7 @@
 
         @yield('breadcrumbs')
         <section class="inner-page">
-            <div class="container">
+            <div class="container border py-4 shadow rounded">
 
                 @yield('content')
             </div>
@@ -226,9 +244,12 @@
                         style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
                 work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
                     Commons Attribution 4.0 International License</a>.
-                    <p>Made in The Netherlands</p>
-                    <div><a class="fw-lighter text-center" href="/login">login</a></div>
-
+                <p>Made in The Netherlands</p>
+                @guest
+                    <div>
+                        <a class="fw-lighter text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </div>
+                @endguest
             </div>
             {{-- <div class="credits">
                  All the links in the footer should remain intact.
@@ -256,13 +277,12 @@
     {{-- Vendor JS Files --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script async defer src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
     {{-- Template Main JS File --}}
     @env('production')
     <script src="{{ asset('js/main.min.js') }}"></script>
     @endenv
-    @env('local')
+    @env(['local', 'staging'])
     <script src="{{ asset('js/main.js') }}"></script>
     @endenv
     @yield('javascript')

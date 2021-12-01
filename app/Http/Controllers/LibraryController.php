@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Library as Library;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\ValidationException;
@@ -69,7 +75,7 @@ class LibraryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -79,11 +85,11 @@ class LibraryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @throws ValidationException
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
+     *@throws ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $this->validate($request, [
             'nation' => 'required|string|max:255',
@@ -136,7 +142,7 @@ class LibraryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function edit(int $id)
     {
@@ -202,10 +208,10 @@ class LibraryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Application|RedirectResponse|Redirector
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $library = Library::findOrFail($id);
 

@@ -14,7 +14,7 @@
                     <div>
                         <h1>We help you find digitized medieval manuscripts</h1>
                         <h2>We have collected 500+ links to fully digitized books, fragments, IIIF repositories, etc.</h2>
-                        <a href="{{ route('data') }}" class="btn-get-started scrollto">Get Started</a>
+                        <a href="{{ route('data') }}" class="btn-get-started">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -43,8 +43,8 @@
                             </p>
                             <ul>
                                 <li><i class="bi bi-check-circle"></i> A map full of repositories to be explored</li>
-                                <li><i class="bi bi-check-circle"></i> More than 500 links to digitized repoistories.</li>
-                                <li><i class="bi bi-check-circle"></i> An API to inplement our data into your own
+                                <li><i class="bi bi-check-circle"></i> More than 500 links to digitized repositories.</li>
+                                <li><i class="bi bi-check-circle"></i> An API to implement our data into your own
                                     applications (coming soon!)</li>
                             </ul>
                             <p>
@@ -174,7 +174,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in">
-                            <div class="pic"><img src="img/team/team-1.jpg" class="img-fluid" alt="" style="display: none">
+                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
                             </div>
                             <div class="member-info">
                                 <h4>Giulio Menna</h4>
@@ -189,7 +189,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="img/team/team-2.jpg" class="img-fluid" alt="" style="display: none">
+                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
                             </div>
                             <div class="member-info">
                                 <h4>Marjolein de Vos</h4>

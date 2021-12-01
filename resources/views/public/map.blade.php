@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col">
 
-                    <h2>Digitized Medieval Manuscripts app Map</h2>
+                    <h5>Digitized Medieval Manuscripts map</h5>
                     <h6>Browse the man and discover thousands of digitized medieval manuscripts</h6>
 
                 </div>
@@ -23,14 +23,23 @@
     </section>
 @endsection
 @section('content')
-    <div class="text-center" data-aos="zoom-in">
+
+<div class="text-center">
+    <h1 class="display-3">Digitized Medieval Manuscripts map</h1>
+    <p id="lead" class="text-muted lead">by Sexy Codicology</p>
+</div>
+    <div id="map-buttons" class="text-center mt-4">
         <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
+                aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
             </button>
+            <a class="btn btn-success" href="#dmmtable_wrapper" type="button">
+                <i class="fas fa-filter"></i> Go to filters</a>
+            <a class="btn btn-danger" href="#cta" type="button">
+                <i class="fab fa-patreon"></i> Support us!</a>
         </p>
-        <div class="collapse" id="collapseExample">
+        <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The DMMapp Map</h3>
                 <strong>The classic DMMapp experience!</strong> Browse a map containing all the institutions that are some
@@ -43,8 +52,16 @@
             </div>
         </div>
     </div>
-    <div id="main-map" data-aos="fade-up">
-        <div id="map" style="height:50em; width:100%;">
+    <hr>
+    <div id="spinner" class="text-center">
+        <p>Gathering the manuscripts...</p>
+        <div class="lds-dual-ring">
+
+        </div>
+    </div>
+    <div id="main-map">
+
+        <div id="map" style="height:50em; width:100%;" data-aos="fade-up">
             <noscript>
                 <div class="alert alert-info">
                     <h4>Your JavaScript is disabled</h4>
@@ -63,19 +80,19 @@
             <table id="dmmtable" class="table table-striped table-bordered align-middle text-center" style="width:100%;">
                 <thead>
                     <tr>
-                        <th>Institution</th>
-                        <th>IIIF repository</th>
-                        <th>Quantity of digitized items</th>
-                        <th>Digitized items' copyright</th>
-                        <th>Free Cultural Works License</th>
-                        <th>Nation</th>
-                        <th>City</th>
-                        <th>lat</th>
-                        <th>lng</th>
-                        <th>Notes</th>
-                        <th>Link</th>
-                        <th>Has a blog post</th>
-                        <th>Blog post</th>
+                        <th class="align-middle">Institution</th>
+                        <th class="align-middle">IIIF repository</th>
+                        <th class="align-middle">Quantity of digitized items</th>
+                        <th class="align-middle">Digitized items' copyright</th>
+                        <th class="align-middle">Free Cultural Works License</th>
+                        <th class="align-middle">Nation</th>
+                        <th class="align-middle">City</th>
+                        <th class="align-middle">lat</th>
+                        <th class="align-middle">lng</th>
+                        <th class="align-middle">Notes</th>
+                        <th class="align-middle">Link</th>
+                        <th class="align-middle">Has a blog post</th>
+                        <th class="align-middle">Blog post</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,7 +104,7 @@
     <div class="row mb-4">
         <div class="col text-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform
-                    rel=" noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
+                        rel=" noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                 <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
                         class="fas fa-external-link-alt fa-xs"></i></sup>
             </a>
@@ -116,7 +133,7 @@
     @env('production')
     <script defer type="text/javascript" src="{{ asset('/js/dmmapp.min.js') }}"></script>
     @endenv
-    @env('local')
+    @env(['local', 'staging'])
     <script defer type="text/javascript" src="{{ asset('/js/dmmapp.js') }}"></script>
     @endenv
 

@@ -9,6 +9,8 @@ use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
 use Carbon\Carbon;
 use App\Models\Library;
+use Psr\Http\Message\UriInterface;
+
 
 class GenerateSitemap extends Command
 {
@@ -45,28 +47,26 @@ class GenerateSitemap extends Command
     {
         $this->info('Generating sitemap');
 
-        SitemapGenerator::create('http://127.0.0.1:8000')
-        ->writeToFile('public_html/sitemap.xml');
+        $libraries = Library::all();
 
+        $sitemap = Sitemap::create()
+        ->add(Url::create('/')->setLastModificationDate(Carbon::yesterday())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+        ->setPriority(0.9))
+        ->add(Url::create('/map')->setLastModificationDate(Carbon::yesterday())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+        ->setPriority(0.7))
+        ->add(Url::create('/data')->setLastModificationDate(Carbon::yesterday())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+        ->setPriority(0.8));
 
-        Sitemap::create()
-        ->add(Url::create('/')
-            ->setLastModificationDate(Carbon::yesterday())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-            ->setPriority(1.0))
-        ->add(Url::create('/data')
-            ->setLastModificationDate(Carbon::yesterday())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-            ->setPriority(0.9))
+        foreach ($libraries as $library) {
+            $sitemap->add(Url::create("/{$library->library_name_slug}")->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            ->setPriority(0.9));
+        };
 
-        ->add(Url::create('/map')
-            ->setLastModificationDate(Carbon::yesterday())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-            ->setPriority(0.8))
-
-        ->add(Library::all())
-
-        ->writeToFile('public_html/sitemap.xml');
+        $sitemap->writeToFile(public_path('sitemap.xml'));
 
         $this->info('Sitemap generated');
         return Command::SUCCESS;
