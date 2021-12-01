@@ -100,11 +100,11 @@
 <body>
 
     {{-- SECTION -  Header --}}
-    <header id="header" class="fixed-top d-flex align-items-center">
+    <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
         <div class="container d-flex align-items-center">
 
             <div class="logo me-auto">
-                <h1><a href="{{ url('/') }}">DMMapp</a></h1>
+                <h2><a href="{{ url('/') }}">DMMapp</a></h2>
                 {{-- TODO image logo --}}
                 {{-- <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="DMMapp Logo"
                         class="img-fluid"></a> --}}
@@ -175,7 +175,7 @@
 
         @yield('breadcrumbs')
         <section class="inner-page">
-            <div class="container">
+            <div class="container border py-4 shadow rounded">
 
                 @yield('content')
             </div>

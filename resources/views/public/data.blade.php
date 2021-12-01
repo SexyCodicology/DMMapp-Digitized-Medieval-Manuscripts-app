@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col">
 
-                    <h2>Digitized Medieval Manuscripts app data</h2>
+                    <h5>Digitized Medieval Manuscripts database</h5>
                     <h6>Explore all the institutions added to the DMMapp database</h6>
 
                 </div>
@@ -23,8 +23,12 @@
     </section>
 @endsection
 @section('content')
-    <div class="text-center" data-aos="zoom-in">
-        <p>
+<div class="text-center">
+    <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
+    <p class="text-muted lead">by Sexy Codicology</p>
+
+</div>
+    <div class="text-center mt-4">
             <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
@@ -33,7 +37,6 @@
             <i class="fas fa-link"></i> Go to links</a>
             <a class="btn btn-danger" href="#cta" type="button">
             <i class="fab fa-patreon"></i> Support us!</a>
-        </p>
         <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The "DMMapp data" page</h3>

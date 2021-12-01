@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col">
 
-                    <h2>Digitized Medieval Manuscripts app Map</h2>
+                    <h5>Digitized Medieval Manuscripts map</h5>
                     <h6>Browse the man and discover thousands of digitized medieval manuscripts</h6>
 
                 </div>
@@ -23,14 +23,19 @@
     </section>
 @endsection
 @section('content')
-    <div class="text-center" data-aos="zoom-in">
+
+<div class="text-center">
+    <h1 class="display-3">Digitized Medieval Manuscripts map</h1>
+    <p class="text-muted lead">by Sexy Codicology</p>
+</div>
+    <div class="text-center mt-4">
         <p>
             <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
             </button>
             <a class="btn btn-success" href="#dmmtable_wrapper" type="button">
-                <i class="fas fa-filter"></i> Filters</a>
+                <i class="fas fa-filter"></i> Go to filters</a>
             <a class="btn btn-danger" href="#cta" type="button">
                 <i class="fab fa-patreon"></i> Support us!</a>
         </p>

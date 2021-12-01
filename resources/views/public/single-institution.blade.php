@@ -21,7 +21,9 @@
 
 @section('content')
     <div class="text-center" data-aos="zoom-in">
-        <p>
+        <h1>{{ $library_data->library }} - Digitized manuscripts</h1>
+        <h3>{{ $library_data->city }}, {{ $library_data->nation }}</h3>
+
             <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
@@ -30,7 +32,7 @@
             @auth
             <a class="btn btn-warning" href="{{route('update_library' , $library_data->id)}}" type="button"><i class="fas fa-edit"></i> Edit</a>
             @endauth
-        </p>
+
         <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The "DMMapp record details" page</h3>
@@ -52,7 +54,7 @@
             <thead>
                 <tr>
                     <th class="col-6" scope="col">Type</th>
-                    <th scope="col">Data</th>
+                    <th class="col-6" scope="col">Data</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +64,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Link to digitized items</th>
-                    <td><a href="{{ $library_data->website }}" target="_blank" class="btn btn-success" rel="noopener">
+                    <td><a href="{{ $library_data->website }}" target="_blank" class="btn btn-success text-truncate" style="max-width: 25em;" rel="noopener">
                             {{ $library_data->website }} <sup><i class="fas fa-external-link-alt fa-xs"></i></sup></a>
                     </td>
                 </tr>
