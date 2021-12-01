@@ -4,22 +4,22 @@
 <head>
     {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to env --}}
     @production
-    @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
-    @else
-        {{-- Global site tag (gtag.js) - Google Analytics --}}
-        <script async
-                src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+        @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
+        @else
+            {{-- Global site tag (gtag.js) - Google Analytics --}}
+            <script async
+                        src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
+            </script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
-        </script>
-    @endempty
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+                gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
+            </script>
+        @endempty
     @endproduction
     {{-- metadata --}}
     <meta charset="utf-8">
@@ -39,14 +39,14 @@
     <meta property="og:url" content="{{ URL::current() }}">
     <meta property="og:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="og:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="og:image" content="{{ asset('/img/dmmapp.png')}}">
+    <meta property="og:image" content="{{ asset('/img/dmmapp.png') }}">
 
     {{-- Twitter --}}
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ URL::current() }}">
     <meta property="twitter:title" content="@if (View::hasSection('title-meta'))@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
     <meta property="twitter:description" content="@if (View::hasSection('description-meta'))@yield('description-meta')@else{{ 'Find digitized medieval manuscripts, illuminated books, IIIF repositories, and much more!' }}@endif">
-    <meta property="twitter:image" content="{{ asset('/img/dmmapp.png')}}">
+    <meta property="twitter:image" content="{{ asset('/img/dmmapp.png') }}">
 
     {{-- Icons --}}
     <link href="img/favicon.ico" rel="icon">
@@ -116,12 +116,12 @@
                     <li><a class="nav-link" href="/">Home</a></li>
                     <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            @if(Request::is('/'))
-                            <li><a class="nav-link" href="#tools">Tools</a></li>
-                            <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                            @if (Request::is('/'))
+                                <li><a class="nav-link" href="#tools">Tools</a></li>
+                                <li><a class="nav-link" href="#team">Team</a></li>
+                                <li><a class="nav-link" href="#cta">Support Us</a></li>
                             @else
-                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                                <li><a class="nav-link" href="#cta">Support Us</a></li>
                             @endif
 
                         </ul>
@@ -157,7 +157,8 @@
             </nav>{{-- .navbar --}}
 
             <div class="header-social-links d-flex align-items-center">
-                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i class="fab fa-patreon"></i></a>
+                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
+                        class="fab fa-patreon"></i></a>
                 <a href="https://twitter.com/sexycodicology" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="https://www.facebook.com/SexyCodicology/" class="facebook"><i
                         class="bi bi-facebook"></i></a>
