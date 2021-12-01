@@ -1,0 +1,60 @@
+## Project information
+site_name: DMMapp - Digitized Medieval Manuscripts app
+site_url: https://digitizedmedievalmanuscripts.org/
+site_description: The DMMapp (Digitized Medieval Manuscripts app) links to more than 500 libraries in the world. Each one of these contains digitized medieval manuscripts that can be browsed for free.
+
+## Repository
+repo_name: New DMMapp
+repo_url: https://github.com/SecyCodicology/new-DMMapp
+edit_uri: ''  #disables edit button
+
+## Configuration
+theme:
+  name: material
+  logo: assets/images/favicon.png
+  favicon: assets/images/favicon.png
+  custom_dir: docs/override/
+  palette:
+    scheme: sexycodicology
+    primary: white
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.tracking
+  font:
+    text: Open Sans
+    code: Ubuntu
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - abbr
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Getting started:
+    - Introduction: introduction.md
+    - Installation: installation.md
+    - Customization: customization.md
+  - More info:
+    - Data privacy: data-privacy.md
+    - About us: about.md
+    - License: license.md
+
+copyright: GNU General Public License v3.0 - Sexy Codicology
+
+## Social Media
+extra:
+  social:
+    - icon: fontawesome/solid/home
+      link: https://www.digitizedmedievalmanuscripts.org
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/SexyCodicology
