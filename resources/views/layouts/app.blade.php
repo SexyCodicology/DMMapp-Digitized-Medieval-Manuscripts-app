@@ -90,7 +90,7 @@
     @endenv
     @env(['local', 'staging'])
     {{-- Template Main CSS File --}}
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @endenv
 
     @yield('css')
