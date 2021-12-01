@@ -74,7 +74,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i">
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap">
 
     {{-- Vendor CSS Files --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
