@@ -280,10 +280,10 @@
 
     {{-- Template Main JS File --}}
     @env('production')
-    <script src="{{ asset('js/main20211126.min.js') }}"></script>
+    <script src="{{ asset('js/main.min.js') }}"></script>
     @endenv
     @env(['local', 'staging'])
-    <script src="{{ asset('js/main20211126.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     @endenv
     @yield('javascript')
 
