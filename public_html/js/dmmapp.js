@@ -131,7 +131,7 @@ function initMap() {
                     visible: false
                 },
                 {
-                    targets: [1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13],
+                    targets: [1, 3, 7, 8, 9, 10, 11, 12, 13],
                     searchable: false
                 },
                 {
