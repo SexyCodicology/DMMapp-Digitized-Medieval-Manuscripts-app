@@ -35,7 +35,7 @@
             </button>
             <a class="btn btn-success" href="#dmmtable_filter" type="button">
             <i class="fas fa-link"></i> Go to links</a>
-            <a class="btn btn-warning" href="{{route('random_library')}}" type="button">
+            <a class="btn btn-info" href="{{route('random_library')}}" type="button">
                 <i class="fas fa-random"></i> Explore a random library!</a>
             <a class="btn btn-danger" href="#cta" type="button">
             <i class="fab fa-patreon"></i> Support us!</a>
