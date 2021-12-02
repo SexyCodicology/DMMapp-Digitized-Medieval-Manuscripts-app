@@ -24,14 +24,17 @@
         <h1>{{ $library_data->library }} - Digitized manuscripts</h1>
         <h3>{{ $library_data->city }}, {{ $library_data->nation }}</h3>
 
-            <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
-                aria-expanded="false" aria-controls="collapsible">
-                <i class="fas fa-info-circle"></i> About
-            </button>
-            <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
-            @auth
-            <a class="btn btn-warning" href="{{route('update_library' , $library_data->id)}}" type="button"><i class="fas fa-edit"></i> Edit</a>
-            @endauth
+        <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
+            aria-expanded="false" aria-controls="collapsible">
+            <i class="fas fa-info-circle"></i> About
+        </button>
+        <a class="btn btn-warning" href="{{ route('random_library') }}" type="button">
+            <i class="fas fa-random"></i> Explore another random library!</a>
+        <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
+        @auth
+            <a class="btn btn-warning" href="{{ route('update_library', $library_data->id) }}" type="button"><i
+                    class="fas fa-edit"></i> Edit</a>
+        @endauth
 
         <div class="collapse" id="collapsible">
             <div class="card card-body">
