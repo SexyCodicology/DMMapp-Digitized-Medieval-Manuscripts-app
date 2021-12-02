@@ -28,7 +28,7 @@
             aria-expanded="false" aria-controls="collapsible">
             <i class="fas fa-info-circle"></i> About
         </button>
-        <a class="btn btn-warning" href="{{ route('random_library') }}" type="button">
+        <a class="btn btn-info" href="{{ route('random_library') }}" type="button">
             <i class="fas fa-random"></i> Explore another random library!</a>
         <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
         @auth
