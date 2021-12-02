@@ -59,9 +59,8 @@
 
         </div>
     </div>
-    <div id="main-map">
-
-        <div id="map" style="height:50em; width:100%;" data-aos="fade-up">
+    <div id="main-map" data-aos="fade-up">
+        <div id="map" style="height:50em; width:100%;">
             <noscript>
                 <div class="alert alert-info">
                     <h4>Your JavaScript is disabled</h4>
