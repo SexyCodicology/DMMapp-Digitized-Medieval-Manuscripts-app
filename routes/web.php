@@ -3,6 +3,7 @@
 use App\Models\Library;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\RandomInstiutionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
+Route::get('/explore', RandomInstiutionController::class)->name('random_library');
 
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
