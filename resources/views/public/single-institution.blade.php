@@ -20,21 +20,27 @@
 @endsection
 
 @section('content')
-    <div class="text-center">
-        <h1>{{ $library_data->library }} - Digitized manuscripts</h1>
-        <h3>{{ $library_data->city }}, {{ $library_data->nation }}</h3>
+<div class="text-center">
+    <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
+    <p class="text-muted lead">by Sexy Codicology</p>
 
-        <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
-            aria-expanded="false" aria-controls="collapsible">
-            <i class="fas fa-info-circle"></i> About
-        </button>
-        <a class="btn btn-info" href="{{ route('random_library') }}" type="button">
-            <i class="fas fa-random"></i> Explore another random library!</a>
-        <a class="btn btn-danger" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
-        @auth
-            <a class="btn btn-warning" href="{{ route('update_library', $library_data->id) }}" type="button"><i
-                    class="fas fa-edit"></i> Edit</a>
-        @endauth
+</div>
+    <div class="text-center">
+
+        <div class="btn-group my-3" role="group" aria-label="additional options">
+
+            <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsible" aria-expanded="false" aria-controls="collapsible">
+                <i class="fas fa-info-circle"></i> About
+            </button>
+            <a class="btn btn-primary border-light align-middle text-center" href="{{ route('random_library') }}"
+                type="button"><i class="fas fa-random"></i> Explore another random library!</a>
+            <a class="btn btn-primary border-light" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
+            @auth
+                <a class="btn btn-primary border-light" href="{{ route('update_library', $library_data->id) }}"
+                    type="button"><i class="fas fa-edit"></i> Edit</a>
+            @endauth
+        </div>
 
         <div class="collapse" id="collapsible">
             <div class="card card-body">
@@ -50,15 +56,33 @@
             </div>
         </div>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="alert alert-success text-center my-3" role="alert" data-aos="zoom-in">
+
+        <h1>{{ $library_data->library }} - Digitized manuscripts</h1>
+        <h3>{{ $library_data->city }}, {{ $library_data->nation }}</h3>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <hr>
+            </div>
+        </div>
+
+        <div class="my-3">
+            <a href="{{ $library_data->website }}" target="_blank" class="btn btn-success" rel="noopener">Go to the digitized manuscripts <sup><i
+                        class="fas fa-external-link-alt fa-xs"></i></sup></a>
+        </div>
+        </div>
+    </div>
     <hr>
-    <div data-aos="zoom-in">
+    <div>
         <h4>Institution details</h4>
-        <div class="table-responsive mb-4">
+        <div class="table-responsive mb-4" data-aos="zoom-in">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-6" scope="col">Type</th>
-                        <th class="col-6" scope="col">Data</th>
+                        <th class="col-4" scope="col">Type</th>
+                        <th class="col-8" scope="col">Data</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,11 +91,8 @@
                         <td>{{ $library_data->library }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Link to digitized items</th>
-                        <td><a href="{{ $library_data->website }}" target="_blank" class="btn btn-success text-truncate"
-                                style="max-width: 25em;" rel="noopener">
-                                {{ $library_data->website }} <sup><i
-                                        class="fas fa-external-link-alt fa-xs"></i></sup></a>
+                        <th scope="row">URL to digitized items</th>
+                        <td class="text-break">{{ $library_data->website }}
                         </td>
                     </tr>
                     <tr>
@@ -114,14 +135,14 @@
         </div>
     </div>
 
-    <div data-aos="zoom-in">
+    <div>
         <h4>Geographical information</h4>
-        <div class="table-responsive mb-4">
+        <div class="table-responsive mb-4" data-aos="zoom-in">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-6" scope="col">Type</th>
-                        <th scope="col">Data</th>
+                        <th class="col-4" scope="col">Type</th>
+                        <th class="col-8" scope="col">Data</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -144,15 +165,15 @@
             </table>
         </div>
     </div>
-    <div data-aos="zoom-in">
+    <div>
         <h4>Blog post availability and additional data</h4>
 
-        <div class="table-responsive mb-4">
+        <div class="table-responsive mb-4" data-aos="zoom-in">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-6" scope="col">Type</th>
-                        <th scope="col">Data</th>
+                        <th class="col-4" scope="col">Type</th>
+                        <th class="col-8" scope="col">Data</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -214,8 +235,8 @@
                     <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
                             class="fas fa-external-link-alt fa-xs"></i></sup>
                 </a>
-                <a href="https://docs.google.com/forms/d/1EvEN3Ctzt1rQgGPPcyyAZ4UcSN3p-aqVqfOIUTE75Xk"
-                    rel="noopener" class="btn btn-danger mt-2" target="_blank" role="button" aria-pressed="true">
+                <a href="https://docs.google.com/forms/d/1EvEN3Ctzt1rQgGPPcyyAZ4UcSN3p-aqVqfOIUTE75Xk" rel="noopener"
+                    class="btn btn-danger mt-2" target="_blank" role="button" aria-pressed="true">
                     <i class="fas fa-exclamation-circle"></i> Report missing institution <sup><i
                             class="fas fa-external-link-alt fa-xs"></i></sup>
                 </a>

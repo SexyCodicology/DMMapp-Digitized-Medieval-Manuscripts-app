@@ -28,17 +28,20 @@
     <p class="text-muted lead">by Sexy Codicology</p>
 
 </div>
-    <div class="text-center mt-4">
-            <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
+    <div class="text-center">
+        <div class="btn-group my-3" role="group" aria-label="additional options">
+            <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
                 <i class="fas fa-info-circle"></i> About
             </button>
-            <a class="btn btn-success" href="#dmmtable_filter" type="button">
+            <a class="btn btn-primary border-light" href="#dmmtable_filter" type="button">
             <i class="fas fa-link"></i> Go to links</a>
-            <a class="btn btn-info" href="{{route('random_library')}}" type="button">
+            <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="fas fa-random"></i> Explore a random library!</a>
-            <a class="btn btn-danger" href="#cta" type="button">
+            <a class="btn btn-primary border-light" href="#cta" type="button">
             <i class="fab fa-patreon"></i> Support us!</a>
+        </div>
+
         <div class="collapse" id="collapsible">
             <div class="card card-body">
                 <h3>The "DMMapp data" page</h3>
