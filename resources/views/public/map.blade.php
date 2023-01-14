@@ -103,11 +103,10 @@
     </div>
     <div class="row mb-4">
         <div class="col text-center">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform
-                        rel=" noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
+                        rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                 <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
-                        class="fas fa-external-link-alt fa-xs"></i></sup>
-            </a>
+                        class="fas fa-external-link-alt fa-xs"></i></sup></a>
             <p class="small text-muted mt-4">The DMMapp data is crowdsourced. Help us keep it up-to-date by reporting
                 inaccuracies.</p>
         </div>
