@@ -146,9 +146,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                <tr>
                     <th scope="row">Nation</th>
                     <td>{{ $library_data->nation }}</td>
-                    </tr>
+                </tr>
                     <tr>
                         <th scope="row">City</th>
                         <td> {{ $library_data->city }} </td>
