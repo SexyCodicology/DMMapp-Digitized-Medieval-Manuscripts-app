@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Library;
+use App\Http\Controllers\URLsListController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\RandomInstitutionController;
@@ -29,7 +29,8 @@ Auth::routes([
 
 Route::get('/', function () {return view('landing_page');});
 
-//SECTION Admin pannel
+
+//SECTION Admin panel
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [LibraryController::class, 'admin'])->name('admin');
@@ -48,6 +49,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
 Route::get('/explore', RandomInstitutionController::class)->name('random_library');
+Route::get('/URLsList', URLsListController::class)->name('URLsList');
 
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
