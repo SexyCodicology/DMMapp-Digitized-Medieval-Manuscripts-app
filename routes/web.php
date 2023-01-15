@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [LibraryController::class, 'update']);
 
         Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
+
+        Route::get('/broken-links', URLsListController::class)->name('broken_links');
     });
 });
 
@@ -49,7 +51,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
 Route::get('/explore', RandomInstitutionController::class)->name('random_library');
-Route::get('/URLsList', URLsListController::class)->name('URLsList');
 
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
