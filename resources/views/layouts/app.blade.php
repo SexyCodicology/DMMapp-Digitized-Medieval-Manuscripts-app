@@ -265,27 +265,9 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-    </script>
 
-
-    <script type="text/javascript" async defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"
-        integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous">
-    </script>
-
-    {{-- Vendor JS Files --}}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-    {{-- Template Main JS File --}}
-    @env('production')
-    <script src="{{ asset('js/main.min.js') }}"></script>
-    @endenv
-    @env(['local', 'staging'])
-    <script src="{{ asset('js/main.js') }}"></script>
-    @endenv
     @yield('javascript')
+    @stack('scripts')
 
 </body>
 
