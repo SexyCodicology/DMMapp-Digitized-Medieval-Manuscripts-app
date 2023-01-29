@@ -11,20 +11,23 @@
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3",
         "spatie/laravel-query-builder": "^5.0",
         "spatie/laravel-sitemap": "^6.0",
-        "twbs/bootstrap": "5.1.1"
+        "twbs/bootstrap": "5.1.1",
+        "yajra/laravel-datatables": "9.0",
+        "yajra/laravel-datatables-buttons": "9.0",
+        "yajra/laravel-datatables-oracle": "10.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^2.12",
-        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
+        "laravel/ui": "^4.2",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
         "psr-4": {
