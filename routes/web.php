@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\URLsListController;
+use App\Http\Controllers\BrokenURLsController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\RandomInstitutionController;
+use App\Models\BrokenLink;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +44,8 @@ Route::middleware('auth')->group(function () {
 
         Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
 
-        Route::get('/broken-links', URLsListController::class)->name('broken_links');
+        Route::get('/broken-links', BrokenURLsController::class)->name('broken-links');
+
     });
 });
 
@@ -56,3 +58,11 @@ Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->
 
 //SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
