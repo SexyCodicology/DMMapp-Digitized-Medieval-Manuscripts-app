@@ -6,6 +6,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\RandomInstitutionController;
 use App\Models\BrokenLink;
 use Illuminate\Support\Facades\Route;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
 
         Route::get('/broken-links', BrokenURLsController::class)->name('broken-links');
+        Route::get('/logs', [LogViewerController::class, 'index']);
 
     });
 });
