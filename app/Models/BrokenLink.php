@@ -10,4 +10,6 @@ class BrokenLink extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $table="broken_links";
 }
