@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to env --}}
+    {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to config rather than env --}}
     @production
         @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
         @else
