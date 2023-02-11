@@ -17,7 +17,7 @@
 @endsection
 @section('content')
     {{-- Content here --}}
-
+    <a class="btn btn-primary" href="{{route('check_broken_links')}}" role="button">Start Broken Links checker</a>
     <div id="main-data">
         <div class="container">
             <div class="card">

@@ -64,7 +64,7 @@ class LibraryController extends Controller
             //NOTE and now, we pass the library data to display it to the public.
 
         } catch (Throwable $e) {
-            Log::notice('User landed on a institution that has not been added to the database:' . URL::current());
+            //Log::notice('User landed on a institution that has not been added to the database:' . URL::current());
             abort(404, 'No information about this institution is available at this time. ');
         }
         return view('public.single-institution', ['library_data' => $library_data]);
