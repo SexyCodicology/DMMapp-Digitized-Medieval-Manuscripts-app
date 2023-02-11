@@ -136,7 +136,9 @@
                             <ul>
                                 <li><a class="nav-link" href="{{ route('create_library') }}">Create institution</a>
                                 </li>
-                                <li><a class="nav-link" href="{{ route('data') }}">List institutions</a>
+                                <li><a class="nav-link" href="{{ route('admin') }}">List institutions</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ route('broken-links') }}">Broken links</a>
                                 </li>
                                 <hr>
                                 <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();

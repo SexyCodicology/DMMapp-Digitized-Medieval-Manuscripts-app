@@ -8,6 +8,7 @@ use App\Models\BrokenLinksTask;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Session;
 
 class BrokenURLsController extends Controller
 {
@@ -29,7 +30,7 @@ class BrokenURLsController extends Controller
     public function executeJob(BrokenLinksDataTable $dataTable)
     {
         CheckWebsitesInDatabaseJob::dispatch(BrokenLinksTask::class);
-        return $dataTable->render('admin.broken_links');
+        return redirect()->route('admin')->with('success', 'Broken Links job initiated');
 
     }
 }
