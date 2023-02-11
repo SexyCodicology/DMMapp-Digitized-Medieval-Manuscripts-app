@@ -109,7 +109,8 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
             }
         }
         Log::info('Broken URLs check complete.');
-        //TODO send email notification to sexycodicology@gmail.com once the job is complete. Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
+        //TODO send email notification to sexycodicology@gmail.com once the job is complete.
+        //Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
 
         //$this->release();
     }
