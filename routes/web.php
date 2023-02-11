@@ -4,7 +4,8 @@ use App\Http\Controllers\BrokenURLsController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\RandomInstitutionController;
-use App\Models\BrokenLink;
+use App\Jobs\CheckWebsitesInDatabaseJob;
+use App\Models\BrokenLinksTask;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -46,7 +47,13 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
 
         Route::get('/broken-links', BrokenURLsController::class)->name('broken-links');
-        Route::get('/logs', [LogViewerController::class, 'index']);
+        Route::get('/logs', [LogViewerController::class, 'index'])->name('log_viewer');
+        Route::get('/jobs/check-broken-links', function () {
+            //Run this job in the background and continue
+            CheckWebsitesInDatabaseJob::dispatch(BrokenLinksTask::class);
+            //After job is started/Queued return view
+            return view('admin.broken_links');
+        });
 
     });
 });
