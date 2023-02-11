@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Models\BrokenLinksTask;
 use App\Models\BrokenLink;
 use App\Models\Library;
 use Exception;
@@ -29,6 +28,27 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
     public $tries = 1;
 
     /**
+     * The maximum number of unhandled exceptions to allow before failing.
+     *
+     * @var int
+     */
+    public $maxExceptions = 3;
+
+    /**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */
+    public $timeout = 300; //5 minutes
+
+    /**
+     * Indicate if the job should be marked as failed on timeout.
+     *
+     * @var bool
+     */
+    public $failOnTimeout = true;
+
+    /**
      * Create a new job instance.
      *
      *
@@ -46,11 +66,12 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
     public function handle()
     {
         Log::info('Checking URLs validity in the DMMapp database...');
-        Log::info('Emptying Broken Links database...');
+        Log::info('Emptying Broken Links database');
         BrokenLink::truncate();
+        Log::info('Broken Links database emptied');
         $libraries = Library::all();
         $urls = $libraries->map->only(['id', 'website', 'library']);
-        Log::info('Initiating URLs checks...');
+        Log::info('Initiating URLs checks');
 
         foreach ($urls as $url) {
             try{
@@ -89,5 +110,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
         }
         Log::info('Broken URLs check complete.');
         //TODO send email notification to sexycodicology@gmail.com once the job is complete. Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
+
+        //$this->release();
     }
 }
