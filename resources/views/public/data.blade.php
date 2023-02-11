@@ -2,7 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.css" />
+          href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <section id="breadcrumbs" class="breadcrumbs">
@@ -23,23 +23,24 @@
     </section>
 @endsection
 @section('content')
-<div class="text-center">
-    <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
-    <p class="text-muted lead">by Sexy Codicology</p>
+    <div class="text-center">
+        <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
+        <p class="text-muted lead">by Sexy Codicology</p>
 
-</div>
+    </div>
     <div class="text-center">
         <div class="btn-group my-3" role="group" aria-label="additional options">
-            <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
-                aria-expanded="false" aria-controls="collapsible">
-                <i class="fas fa-info-circle"></i> About
+            <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsible"
+                    aria-expanded="false" aria-controls="collapsible">
+                <i class="bi-info-circle"></i> About
             </button>
             <a class="btn btn-primary border-light" href="#dmmtable_filter" type="button">
-            <i class="fas fa-link"></i> Go to links</a>
+                <i class="bi-link"></i> Go to links</a>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
-                <i class="fas fa-random"></i> Explore a random library!</a>
+                <i class="bi-random"></i> Explore a random library!</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
-            <i class="fab fa-patreon"></i> Support us!</a>
+                <i class="fab fa-patreon"></i> Support us!</a>
         </div>
 
         <div class="collapse" id="collapsible">
@@ -62,7 +63,8 @@
                 <dd>The copyright applied to the digitized items in a repository.</dd>
                 <dt>Free Cultural Works License</dt>
                 <dd>Indicates if the copyright used in a repository is a Creative Commons' Free Cultural Works
-                    License.</dd>
+                    License.
+                </dd>
                 <dt>Country</dt>
                 <dd>The country where an institution is located.</dd>
                 <dt>City</dt>
@@ -80,76 +82,63 @@
             </div>
         </div>
     </div>
-    <hr>
-    <div id="spinner" class="text-center">
-        <p>Gathering the manuscripts...</p>
-        <div class="lds-dual-ring">
-
-        </div>
-    </div>
     <div id="main-data">
-        <div id="data-table" class="my-3" data-aos="fade-up">
-            <noscript>
-                <div class="alert alert-info">
-                    <h4>Your JavaScript is disabled</h4>
-                    <p>Please enable JavaScript to see the table.</p>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">List of institutions</div>
+                <div class="card-body">
+                    <table class="table table-bordered yajra-datatable" style="table-layout: fixed">
+                        <noscript>
+                            <div class="alert alert-info">
+                                <h4>Your JavaScript is disabled</h4>
+                                <p>Please enable JavaScript to see the table.</p>
+                            </div>
+                        </noscript>
+                        <thead>
+                        <tr>
+                            <th>Institution name</th>
+                            <th>Link to digitized manuscripts</th>
+                            <th>Quantity of digitized items</th>
+                            <th>IIIF repository</th>
+                            <th>Digitized items' copyright</th>
+                            <th>Free Cultural Works License</th>
+                            <th>Nation</th>
+                            <th>City</th>
+                            <th>lat</th>
+                            <th>lng</th>
+                            <th>Full DMMapp data</th>
+                            <th>Sexy Codicology blog post</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
-            </noscript>
-            <table id="dmmtable" class="table table-striped table-bordered align-middle text-center" style="width:100%;">
-                <thead>
-                    <tr>
-                        <th class="align-middle">Institution name</th>
-                        <th class="align-middle">Link to digitized manuscripts</th>
-                        <th class="align-middle">Quantity of digitized items</th>
-                        <th class="align-middle">IIIF repository</th>
-                        <th class="align-middle">Digitized items' copyright</th>
-                        <th class="align-middle">Free Cultural Works License</th>
-                        <th class="align-middle">Nation</th>
-                        <th class="align-middle">City</th>
-                        <th class="align-middle">lat</th>
-                        <th class="align-middle">lng</th>
-                        <th class="align-middle">Full DMMapp data</th>
-                        <th class="align-middle">Sexy Codicology blog post</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-
-            </table>
-        </div>
-        <div class="row mb-4">
-            <div class="col text-center">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
-                    rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
-                    <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
-                            class="fas fa-external-link-alt fa-xs"></i></sup>
-                </a>
-                <p class="small text-muted mt-4">The DMMapp data is crowdsourced. Help us keep it up-to-date by reporting
-                    inaccuracies.</p>
             </div>
         </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
+               rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
+                <i class="bi-exclamation-circle"></i> Report data issue <sup><i
+                        class="bi-box-arrow-up-right fa-xs"></i></sup>
+            </a>
+            <p class="small text-muted mt-4">The DMMapp data is crowdsourced. Help us keep it up-to-date by reporting
+                inaccuracies.</p>
+        </div>
+    </div>
 
-        <x-patreon />
+    <x-patreon/>
 
-    @endsection
-    {{-- Optional JavaScript --}}
-    @section('javascript')
+@endsection
+{{-- Optional JavaScript --}}
+@section('javascript')
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
+    <script type="text/javascript" src="{{asset('/js/data.min.js')}}"></script>
 
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-    crossorigin="anonymous"></script>
+@endsection
 
-        <script type="text/javascript"
-                src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
-        {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
-        <script type="text/javascript">
-            var libraries = {!! json_encode($libraries->toArray()) !!}
-        </script>
-        @env('production')
-        <script defer type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
-        @endenv
-        @env(['local', 'staging'])
-        <script defer type="text/javascript" src="{{ asset('/js/data.js') }}"></script>
-        @endenv
-    @endsection
+@push('scripts')
+@endpush

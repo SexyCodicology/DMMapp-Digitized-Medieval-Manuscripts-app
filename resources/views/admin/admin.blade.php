@@ -62,6 +62,6 @@
         <script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
     @endenv
     @env(['local', 'staging'])
-        <script defer type="text/javascript" src="{{ asset('/js/dashboard.js') }}"></script>
+        <script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
     @endenv
 @endsection

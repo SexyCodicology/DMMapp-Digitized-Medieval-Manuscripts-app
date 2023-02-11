@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Library as Library;
+use App\Models\Library;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\ValidationException;
 use Throwable;
+use Yajra\DataTables\Facades\DataTables;
 
 class LibraryController extends Controller
 {
@@ -27,13 +29,19 @@ class LibraryController extends Controller
         $this->library = $library;
     }
 
-    public function index()
+    /**
+     * @param Request $request
+     * @return Application|Factory|View|JsonResponse
+     * @throws Exception
+     */
+    public function index(Request $request)
     {
-        $data = [];
-
-        $data['libraries'] = $this->library->all();
-
-        return view('public/data', $data);
+        if ($request->ajax()) {
+            $data = Library::all();
+            return Datatables::of($data)
+                ->make();
+        }
+        return view('public/data');
     }
 
     public function dmmmap()

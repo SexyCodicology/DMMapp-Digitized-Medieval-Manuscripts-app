@@ -78,8 +78,7 @@
 
     {{-- Vendor CSS Files --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
     @env('production')
     {{-- Template Main CSS File --}}
@@ -265,12 +264,10 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-@env(['local', 'staging'])
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-@endenv
-    @env('production')
-        <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
-    @endenv
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
     @yield('javascript')
     @stack('scripts')
 

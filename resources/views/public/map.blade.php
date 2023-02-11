@@ -32,10 +32,10 @@
         <div class="btn-group my-3" role="group" aria-label="additional options">
             <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsible"
                 aria-expanded="false" aria-controls="collapsible">
-                <i class="fas fa-info-circle"></i> About
+                <i class="bi-info-circle"></i> About
             </button>
             <a class="btn btn-primary border-light" href="#dmmtable_wrapper" type="button">
-                <i class="fas fa-filter"></i> Go to filters</a>
+                <i class="bi-filter"></i> Go to filters</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
                 <i class="fab fa-patreon"></i> Support us!</a>
         </div>
@@ -105,8 +105,8 @@
         <div class="col text-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
                         rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
-                <i class="fas fa-exclamation-circle"></i> Report data issue <sup><i
-                        class="fas fa-external-link-alt fa-xs"></i></sup></a>
+                <i class="bi-exclamation-circle"></i> Report data issue <sup><i
+                        class="bi-box-arrow-up-right fa-xs"></i></sup></a>
             <p class="small text-muted mt-4">The DMMapp data is crowdsourced. Help us keep it up-to-date by reporting
                 inaccuracies.</p>
         </div>
@@ -133,7 +133,7 @@
     <script defer type="text/javascript" src="{{ asset('/js/dmmapp.min.js') }}"></script>
     @endenv
     @env(['local', 'staging'])
-    <script defer type="text/javascript" src="{{ asset('/js/dmmapp.js') }}"></script>
+    <script defer type="text/javascript" src="{{ asset('/js/dmmapp.min.js') }}"></script>
     @endenv
 
 @endsection
