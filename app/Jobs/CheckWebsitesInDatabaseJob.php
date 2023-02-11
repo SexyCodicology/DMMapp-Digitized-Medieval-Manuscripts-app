@@ -81,6 +81,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                     Log::info('Broken link detected.');
                     error_log('logging broken link');
                     /* If the response from the URL is not within the 200's, we'll add the details into the 'broken urls' table */
+                    $library = $url['library'];
                     $status_code = Http::withOptions([
                         'connect_timeout' => 5,
                         'timeout' => 5
@@ -90,7 +91,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                     BrokenLink::updateOrCreate([
                         'dmmapp_id' => $dmmapp_id
                     ],
-                        ['status_code' => $status_code, 'url' => $url]
+                        ['status_code' => $status_code, 'url' => $url, 'library' => $library]
                     );
                 }
                 else {
@@ -98,12 +99,13 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                 }
             } catch (Exception $e)
             {
+                $library = $url['library'];
                 $dmmapp_id = $url['id'];
                 $url = $url['website'];
                 BrokenLink::updateOrCreate([
                     'dmmapp_id' => $dmmapp_id
                 ],
-                    ['status_code' => $e->getMessage(), 'url' => $url]
+                    ['status_code' => $e->getMessage(), 'url' => $url, 'library' => $library]
                 );
 
             }
