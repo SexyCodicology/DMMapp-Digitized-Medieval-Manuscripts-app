@@ -21,6 +21,8 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
 
     protected $BrokenLinksTask;
 
+    public $tries = 1;
+
     /**
      * Create a new job instance.
      *
