@@ -80,17 +80,16 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     @env('production')
     {{-- Template Main CSS File --}}
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @endenv
     @env(['local', 'staging'])
     {{-- Template Main CSS File --}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @endenv
 
     @yield('css')
@@ -266,8 +265,12 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
-
+@env(['local', 'staging'])
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+@endenv
+    @env('production')
+        <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
+    @endenv
     @yield('javascript')
     @stack('scripts')
 
