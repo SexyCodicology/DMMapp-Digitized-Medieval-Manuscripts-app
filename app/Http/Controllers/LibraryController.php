@@ -44,22 +44,6 @@ class LibraryController extends Controller
         return view('public/data');
     }
 
-    /**
-     * @param Request $request
-     * @return Application|Factory|View|JsonResponse
-     * @throws Exception
-     */
-    public function dmmmap(Request $request)
-    {
-        if ($request->ajax()) {
-            $data = Library::all();
-            return Datatables::of($data)
-                ->make();
-            dd($request);
-        }
-        return view('public/map');
-    }
-
     public function admin()
     {
 

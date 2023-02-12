@@ -33,7 +33,6 @@ Route::get('/', function () {
 
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
-Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
 Route::get('/explore', RandomInstitutionController::class)->name('random_library');

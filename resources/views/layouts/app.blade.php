@@ -124,7 +124,6 @@
 
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
                     <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
                     <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
                     <li><a class="nav-link"
@@ -213,7 +212,6 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{ route('map') }}">Map</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="{{ route('data') }}">Data</a></li>
                             <li><i class="bx bx-chevron-right disabled"></i> <a href="#">API (coming soon)</a></li>
 
