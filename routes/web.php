@@ -34,11 +34,13 @@ Route::get('/', function () {
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'dmmmap'])->name('map');
-Route::get('/explore', RandomInstitutionController::class)->name('random_library');
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
+
+Route::get('/explore', RandomInstitutionController::class)->name('random_library');
 
 //SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //SECTION Admin panel
