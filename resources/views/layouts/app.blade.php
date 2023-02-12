@@ -158,10 +158,7 @@
 
             <div class="header-social-links d-flex align-items-center">
                 <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
-                        class="bi-patreon"></i></a>
-                <a href="https://twitter.com/sexycodicology" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.facebook.com/SexyCodicology/" class="facebook"><i
-                        class="bi bi-facebook"></i></a>
+                        class="bi bi-chat-left-heart-fill"></i></a>
                 <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
                         class="bi bi-linkedin"></i></a>
 
@@ -193,12 +190,10 @@
                         <div class="footer-info">
                             <h3>DMMapp</h3>
                             <div class="social-links mt-3">
-                                <a href="https://twitter.com/sexycodicology" class="twitter"><i
-                                        class="bx bxl-twitter"></i></a>
-                                <a href="https://www.facebook.com/SexyCodicology/" class="facebook"><i
-                                        class="bx bxl-facebook"></i></a>
+                                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
+                                        class="bi bi-chat-left-heart-fill"></i></a>
                                 <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
-                                        class="bx bxl-linkedin"></i></a>
+                                        class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
