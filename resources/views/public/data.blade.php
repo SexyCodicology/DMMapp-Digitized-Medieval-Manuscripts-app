@@ -40,7 +40,7 @@
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="bi-random"></i> Explore a random library!</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
-                <i class="fab fa-patreon"></i> Support us!</a>
+                <i class="bi-patreon"></i> Support us!</a>
         </div>
 
         <div class="collapse" id="collapsible">
@@ -87,7 +87,7 @@
             <div class="card">
                 <div class="card-header">List of institutions</div>
                 <div class="card-body">
-                    <table class="table table-bordered yajra-datatable" style="table-layout: fixed">
+                    <table class="table table-bordered yajra-datatable table-responsive table-hover" style="width:100%">
                         <noscript>
                             <div class="alert alert-info">
                                 <h4>Your JavaScript is disabled</h4>
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-    <div class="row mb-4">
+    <div class="row my-3">
         <div class="col text-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
                rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
