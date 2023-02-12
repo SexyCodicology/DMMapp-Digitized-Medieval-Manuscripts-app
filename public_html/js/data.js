@@ -24,6 +24,7 @@ $(function () {
         },
 
         columnDefs: [
+            {className: "dt-center", "targets": "_all"},
             {
                 targets: [4, 6, 7, 8, 9],
                 visible: false,
@@ -87,5 +88,6 @@ $(function () {
             }
         ],
     });
+
 });
 
