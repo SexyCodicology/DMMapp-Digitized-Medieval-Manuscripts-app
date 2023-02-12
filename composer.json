@@ -23,6 +23,7 @@
         "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
+        "laracasts/cypress": "^3.0",
         "laravel/sail": "^1.0.1",
         "laravel/ui": "^4.2",
         "mockery/mockery": "^1.4.2",

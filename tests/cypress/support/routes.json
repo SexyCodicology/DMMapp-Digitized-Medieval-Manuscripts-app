@@ -1,0 +1,309 @@
+{
+  "debugbar.openhandler": {
+    "name": "debugbar.openhandler",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@handle",
+    "uri": "_debugbar/open",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.clockwork": {
+    "name": "debugbar.clockwork",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@clockwork",
+    "uri": "_debugbar/clockwork/{id}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.assets.css": {
+    "name": "debugbar.assets.css",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\AssetController@css",
+    "uri": "_debugbar/assets/stylesheets",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.assets.js": {
+    "name": "debugbar.assets.js",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\AssetController@js",
+    "uri": "_debugbar/assets/javascript",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.cache.delete": {
+    "name": "debugbar.cache.delete",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\CacheController@delete",
+    "uri": "_debugbar/cache/{key}/{tags?}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "cypress.factory": {
+    "name": "cypress.factory",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@factory",
+    "uri": "__cypress__/factory",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.login": {
+    "name": "cypress.login",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@login",
+    "uri": "__cypress__/login",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.logout": {
+    "name": "cypress.logout",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@logout",
+    "uri": "__cypress__/logout",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.artisan": {
+    "name": "cypress.artisan",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@artisan",
+    "uri": "__cypress__/artisan",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.run-php": {
+    "name": "cypress.run-php",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@runPhp",
+    "uri": "__cypress__/run-php",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.csrf-token": {
+    "name": "cypress.csrf-token",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@csrfToken",
+    "uri": "__cypress__/csrf_token",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "cypress.routes": {
+    "name": "cypress.routes",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@routes",
+    "uri": "__cypress__/routes",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.current-user": {
+    "name": "cypress.current-user",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@currentUser",
+    "uri": "__cypress__/current-user",
+    "method": [
+      "POST"
+    ]
+  },
+  "": {
+    "name": null,
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@update",
+    "uri": "admin/edit/{id}",
+    "method": [
+      "POST"
+    ]
+  },
+  "ignition.healthCheck": {
+    "name": "ignition.healthCheck",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\HealthCheckController",
+    "uri": "_ignition/health-check",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "ignition.executeSolution": {
+    "name": "ignition.executeSolution",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\ExecuteSolutionController",
+    "uri": "_ignition/execute-solution",
+    "method": [
+      "POST"
+    ]
+  },
+  "ignition.updateConfig": {
+    "name": "ignition.updateConfig",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\UpdateConfigController",
+    "uri": "_ignition/update-config",
+    "method": [
+      "POST"
+    ]
+  },
+  "login": {
+    "name": "login",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\Auth\\LoginController@showLoginForm",
+    "uri": "login",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "logout": {
+    "name": "logout",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\Auth\\LoginController@logout",
+    "uri": "logout",
+    "method": [
+      "POST"
+    ]
+  },
+  "password.confirm": {
+    "name": "password.confirm",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\Auth\\ConfirmPasswordController@showConfirmForm",
+    "uri": "password/confirm",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "data": {
+    "name": "data",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@index",
+    "uri": "data",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "show_library": {
+    "name": "show_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@show",
+    "uri": "{library}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "random_library": {
+    "name": "random_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RandomInstitutionController",
+    "uri": "explore",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "redirect": {
+    "name": "redirect",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RedirectController",
+    "uri": "record/{id}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "home": {
+    "name": "home",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\HomeController@index",
+    "uri": "home",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "admin": {
+    "name": "admin",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@admin",
+    "uri": "admin/home",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "create_library": {
+    "name": "create_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@create",
+    "uri": "admin/new",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "update_library": {
+    "name": "update_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@edit",
+    "uri": "admin/edit/{id}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "delete_library": {
+    "name": "delete_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@destroy",
+    "uri": "admin/delete/{id}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "broken-links": {
+    "name": "broken-links",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BrokenURLsController@index",
+    "uri": "admin/broken-links",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "check_broken_links": {
+    "name": "check_broken_links",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BrokenURLsController@executeJob",
+    "uri": "admin/jobs/check-broken-links",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "log_viewer": {
+    "name": "log_viewer",
+    "domain": null,
+    "action": "Rap2hpoutre\\LaravelLogViewer\\LogViewerController@index",
+    "uri": "admin/logs",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  }
+}
