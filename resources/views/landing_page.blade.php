@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="img/hero-img.png" class="img-fluid" alt="">
+                    <img src="{{asset('/img/hero-img.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
@@ -176,13 +176,12 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in">
-                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
-                            </div>
+                            {{--<div class="pic"><img src="{{asset("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
                             <div class="member-info">
                                 <h4>Giulio Menna</h4>
                                 <span>The developer</span>
                                 <div class="social">
-                                    <a href="https://twitter.com/Giulio_Menna"><i class="bi bi-twitter"></i></a>
                                     <a href="https://www.linkedin.com/in/giuliomenna/"><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
@@ -191,13 +190,11 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
-                            </div>
+                            {{--<div class="pic"><img src="{{asset("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
                             <div class="member-info">
                                 <h4>Marjolein de Vos</h4>
                                 <span>The editor</span>
-                                <div class="social">
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -568,7 +565,7 @@
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Some links were easy to find via a search engine, other links came from a list we created while studying, but many links are crowd-sourced: users inform us of a new repository, we test test, collect information, and add it to our database.
+                                Some links were easy to find via a search engine, other links came from a list we created while studying, but many links are crowdsourced: users inform us of a new repository, we test, collect information, and add it to our database.
                             </p>
                         </div>
                     </li>
