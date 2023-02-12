@@ -18,6 +18,7 @@ $(function () {
             {data: 'library_name_slug'}, //11
         ],
         responsive: true,
+        searchPanes: true,
         searchPanes: {
             threshold: 1,
             initCollapsed: true
@@ -25,6 +26,7 @@ $(function () {
 
         columnDefs: [
             {className: "dt-center", "targets": "_all"},
+
             {
                 targets: [4, 6, 7, 8, 9],
                 visible: false,
