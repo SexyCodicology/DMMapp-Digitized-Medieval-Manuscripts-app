@@ -41,7 +41,7 @@
             </button>
             <a class="btn btn-primary border-light align-middle text-center" href="{{ route('random_library') }}"
                type="button"><i class="bi-random"></i> Explore another random library!</a>
-            <a class="btn btn-primary border-light" href="#cta" type="button"><i class="fab fa-patreon"></i> Support us!</a>
+            <a class="btn btn-primary border-light" href="#cta" type="button"><i class="bi-patreon"></i> Support us!</a>
             @auth
                 <a class="btn btn-primary border-light" href="{{ route('update_library', $library_data->id) }}"
                    type="button"><i class="bi-edit"></i> Edit</a>

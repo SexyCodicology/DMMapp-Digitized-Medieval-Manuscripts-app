@@ -37,7 +37,7 @@
             <a class="btn btn-primary border-light" href="#dmmtable_wrapper" type="button">
                 <i class="bi-filter"></i> Go to filters</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
-                <i class="fab fa-patreon"></i> Support us!</a>
+                <i class="bi-patreon"></i> Support us!</a>
         </div>
 
         <div class="collapse" id="collapsible">
