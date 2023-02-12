@@ -33,14 +33,14 @@
             <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsible"
                     aria-expanded="false" aria-controls="collapsible">
-                <i class="bi-info-circle"></i> About
+                <i class="bi bi-info-circle-fill"></i> About
             </button>
             <a class="btn btn-primary border-light" href="#dmmtable_filter" type="button">
-                <i class="bi-link"></i> Go to links</a>
+                <i class="bi bi-link"></i> Go to links</a>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
-                <i class="bi-random"></i> Explore a random library!</a>
+                <i class="bi bi-shuffle"></i> Explore a random library!</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
-                <i class="bi-patreon"></i> Support us!</a>
+                <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
         </div>
 
         <div class="collapse" id="collapsible">

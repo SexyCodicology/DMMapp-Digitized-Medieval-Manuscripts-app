@@ -25,7 +25,7 @@
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Are you sure you want to delete this institution?')"
                             class="btn btn-danger mb-3" id="{{ $library->id }}"><i
-                            class="bi-trash3"></i> Delete institution</button>
+                            class="bi bi-trash3"></i> Delete institution</button>
                 </form>
                 <form id="createForm" class="needs-validation"
                       action={{ route('update_library', $library->id) }} method="POST"
@@ -259,9 +259,9 @@
                     </div>
                     <hr>
                     <div class="col-12">
-                        <button class="btn btn-success" type="submit"><i class="bi-pencil-square"></i> Update library
+                        <button class="btn btn-success" type="submit"><i class="bi bi-pencil-square"></i> Update library
                         </button>
-                        <a class="btn btn-danger float-end" href={{ route('admin') }}><i class="bi-slash-circle"></i> Cancel edits</a>
+                        <a class="btn btn-danger float-end" href={{ route('admin') }}><i class="bi bi-slash-circle"></i> Cancel edits</a>
                     </div>
                 </form>
                 </div>

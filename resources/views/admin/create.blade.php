@@ -245,9 +245,9 @@
                         <hr>
                         <div class="col-12">
 
-                            <button class="btn btn-success" type="submit"><i class="bi-plus-circle"></i> Add library
+                            <button class="btn btn-success" type="submit"><i class="bi bi-plus-circle"></i> Add library
                             </button>
-                            <a class="btn btn-danger float-end" href="{{ route('admin') }}"><i class="bi-slash-circle"></i> Cancel</a>
+                            <a class="btn btn-danger float-end" href="{{ route('admin') }}"><i class="bi bi-slash-circle"></i> Cancel</a>
                         </div>
                     </form>
                 </div>
