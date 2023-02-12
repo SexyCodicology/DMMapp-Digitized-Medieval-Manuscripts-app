@@ -134,11 +134,15 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
-    <script type="text/javascript" src="{{asset('/js/data.min.js')}}"></script>
-
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 @endsection
 
+
 @push('scripts')
+    @env('production')
+        <script type="text/javascript" src="{{asset('/js/data.min.js')}}"></script>
+    @endenv
+    @env(['local','staging'])
+        <script type="text/javascript" src="{{asset('/js/data.js')}}"></script>
+    @endenv
 @endpush
