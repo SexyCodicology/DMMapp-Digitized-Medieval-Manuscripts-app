@@ -23,12 +23,12 @@
                 <form action="{{ route('delete_library', $library->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" onclick="return confirm('Are you sure you want to delete this institution?')"
+                    <button type="submit" data-dmmapp="delete" onclick="return confirm('Are you sure you want to delete this institution?')"
                             class="btn btn-danger mb-3" id="{{ $library->id }}"><i
                             class="bi bi-trash3"></i> Delete institution</button>
                 </form>
                 <form id="createForm" class="needs-validation"
-                      action={{ route('update_library', $library->id) }} method="POST"
+                      action="{{ route('update_library', $library->id) }}" method="POST"
                       novalidate>
                     @csrf
                     @if ($errors->any())
@@ -47,7 +47,7 @@
                     @endif
                     <div class="mb-4">
                         <label for="library" class="form-label">Institution name</label>
-                        <input name="library" type="text" class="form-control" id="library"
+                        <input name="library" type="text" class="form-control"  id="library" data-dmmapp="library"
                                placeholder="The British Library, The Getty Museum..." value="{{ $library->library }}"
                                required>
                         <div class="invalid-feedback">
@@ -61,7 +61,7 @@
 
                     <div class="mb-4">
                         <label for="quantity" class="form-label">Quantity of digitized items</label>
-                        <select name="quantity" class="form-select" id="quantity">
+                        <select name="quantity" class="form-select" id="quantity" data-dmmapp="quantity">
                             <option>{{ $library->quantity }}</option>
                             <option>Unknown</option>
                             <option>Few ( < 10 digitized manuscripts)</option>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="website" class="form-label">Digitized items URL</label>
-                        <input name="website" type="url" class="form-control" id="website" placeholder="https://..."
+                        <input name="website" type="url" class="form-control" id="website" data-dmmapp="website" placeholder="https://..."
                                value="{{ $library->website }}" required>
                         <div id="websiteNote" class="form-text">Required - The URL where the digitized items can be
                             accessed
@@ -91,7 +91,7 @@
 
                     <div class="mb-4">
                         <label for="library_name_slug" class="form-label">URL Slug</label>
-                        <input name="library_name_slug" type="text" class="form-control" id="library_name_slug"
+                        <input name="library_name_slug" type="text" class="form-control" id="library_name_slug" data-dmmapp="slug"
                                placeholder="https://..." value="{{ $library->library_name_slug }}" required>
                         <div id="slugNote" class="form-text">Required - The part of a URL or link that comes after our
                             domain.
@@ -104,7 +104,7 @@
                     <div class="mb-4">
                         <div class="form-check">
                             <input type="hidden" name="iiif" value="0">
-                            <input name="iiif" class="form-check-input" type="checkbox" id="iiif" value="1"
+                            <input name="iiif" class="form-check-input" type="checkbox" id="iiif" data-dmmapp="iiif" value="1"
                                 {{ $library->iiif == 1 ? ' checked' : '' }}>
 
                             <label class="form-check-label" for="iiif">IIIF repository</label>
@@ -116,8 +116,8 @@
 
                     <div class="mb-4">
                         <div class="form-check">
-                            <input type="hidden" name="is_part_of" value="0">
-                            <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of" value="1"
+                            <input type="hidden" name="is_part_of" value="0" >
+                            <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of" data-dmmapp="is-part-of" value="1"
                                 {{ $library->is_part_of == 1 ? ' checked' : '' }}>
 
                             <label class="form-check-label" for="is_part_of">Is part of a project</label>
@@ -133,7 +133,7 @@
                         <div class="mb-4">
                             <label for="is_part_of_project_name" class="form-label">Home project name</label>
                             <input name="is_part_of_project_name" type="text" class="form-control"
-                                   id="is_part_of_project_name"
+                                   id="is_part_of_project_name" data-dmmapp="is-part-of-project-name"
                                    placeholder="e-Codices, Manuscripta, etc."
                                    value="{{ $library->is_part_of_project_name }}">
                             <div id="libraryNote" class="form-text">The name of the project home to multiple
@@ -143,7 +143,7 @@
 
                         <div class="mb-4">
                             <label for="is_part_of_url" class="form-label">Home project URL</label>
-                            <input name="is_part_of_url" type="url" class="form-control" id="is_part_of_url"
+                            <input name="is_part_of_url" type="url" class="form-control" id="is_part_of_url" data-dmmapp="is-part-of-url"
                                    placeholder="https://..."
                                    value="{{ $library->is_part_of_url }}">
                             <div id="isPartOfNote" class="form-text">The URL of the homepage of the project</div>
@@ -157,7 +157,7 @@
                     <h3>Geographical information</h3>
                     <div class="mb-4">
                         <label for="nation" class="form-label">Country</label>
-                        <input name="nation" type="text" class="form-control" id="nation"
+                        <input name="nation" type="text" class="form-control" id="nation" data-dmmapp="nation"
                                placeholder="Italy, France, Japan..."
                                value="{{ $library->nation }}" required>
                         <div id="nationNote" class="form-text">Required</div>
@@ -168,7 +168,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="city" class="form-label">City</label>
-                        <input name="city" type="text" class="form-control" id="city"
+                        <input name="city" type="text" class="form-control" id="city" data-dmmapp="city"
                                placeholder="Rome, Paris, Tokyo..."
                                value="{{ $library->city }}" required>
                         <div id="cityNote" class="form-text">Required</div>
@@ -182,7 +182,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="lat" class="form-label">Latitude</label>
-                                <input name="lat" type="text" class="form-control" id="lat" placeholder="13.5723"
+                                <input name="lat" type="text" class="form-control" id="lat" data-dmmapp="lat" placeholder="13.5723"
                                        value="{{ $library->lat }}" required>
                                 <div id="latNote" class="form-text">Required</div>
 
@@ -192,7 +192,7 @@
                             </div>
                             <div class="col">
                                 <label for="lng" class="form-label">Longitude</label>
-                                <input name="lng" type="text" class="form-control" id="lng" placeholder="123.2235"
+                                <input name="lng" type="text" class="form-control" id="lng" data-dmmapp="lng" placeholder="123.2235"
                                        value="{{ $library->lng }}" required>
                                 <div id="lngNote" class="form-text">Required</div>
 
@@ -206,7 +206,7 @@
                     <h3>Copyright</h3>
                     <div class="mb-4">
                         <label for="copyright" class="form-label">Copyright declaration</label>
-                        <input name="copyright" type="text" class="form-control" id="copyright"
+                        <input name="copyright" type="text" class="form-control" id="copyright" data-dmmapp="copyright"
                                placeholder="CC-0, CC-BY-SA, etc."
                                value="{{ $library->copyright }}" required>
                         <div id="copyrightNote" class="form-text">Required</div>
@@ -219,7 +219,7 @@
                         <div class="form-check">
                             <input type="hidden" name="is_free_cultural_works_license" value="0">
                             <input name="is_free_cultural_works_license" class="form-check-input" type="checkbox"
-                                   id="is_free_cultural_works_license" value="1"
+                                   id="is_free_cultural_works_license" data-dmmapp="free-cultural-license" value="1"
                                 {{ $library->is_free_cultural_works_license == 1 ? ' checked' : '' }}>
 
 
@@ -231,16 +231,15 @@
 
                     <div class="mb-4">
                         <label for="notes" class="form-label">Notes</label>
-                        <textarea name="notes" class="form-control" id="notes" rows="3"
-                                  placeholder="Notes about this library..."
-                                  value="{{ $library->notes }}"></textarea>
+                        <textarea name="notes" class="form-control" id="notes" data-dmmapp="notes" rows="3"
+                                  placeholder="Notes about this library...">{{ $library->notes }}</textarea>
                     </div>
                     <hr>
                     <h3>Blog post availability and links</h3>
                     <div class="mb-4">
                         <div class="form-check">
                             <input type="hidden" name="has_post" value="0">
-                            <input name="has_post" class="form-check-input" type="checkbox" id="has_post" value="1"
+                            <input name="has_post" class="form-check-input" type="checkbox" id="has_post" data-dmmapp="has-post" value="1"
                                 {{ $library->has_post == 1 ? ' checked' : '' }}>
 
                             <label class="form-check-label" for="has_post">Has a Sexy Codicology Blog post</label>
@@ -250,7 +249,7 @@
                     <div id="has_post_display">
                         <div class="mb-4">
                             <label for="post_url" class="form-label">Sexy Codicology Blog post URL</label>
-                            <input name="post_url" type="text" class="form-control" id="post_url" placeholder="https://"
+                            <input name="post_url" type="text" class="form-control" id="post_url" data-dmmapp="post-url" placeholder="https://"
                                    value="{{ $library->post_url }}">
                             <div class="invalid-feedback">
                                 Please fill in this field.
@@ -259,7 +258,7 @@
                     </div>
                     <hr>
                     <div class="col-12">
-                        <button class="btn btn-success" type="submit"><i class="bi bi-pencil-square"></i> Update library
+                        <button class="btn btn-success" type="submit" data-dmmapp="submit"><i class="bi bi-pencil-square"></i> Update library
                         </button>
                         <a class="btn btn-danger float-end" href={{ route('admin') }}><i class="bi bi-slash-circle"></i> Cancel edits</a>
                     </div>
@@ -275,7 +274,7 @@
         (function () {
             'use strict'
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
+            let forms = document.querySelectorAll('.needs-validation')
             // Loop over them and prevent submission
             Array.prototype.slice.call(forms)
                 .forEach(function (form) {
@@ -290,7 +289,7 @@
         })()
     </script>
     <script>
-        var form = $('#createForm'),
+        let form = $('#createForm'),
             checkbox = $('#has_post'),
 
             hasPostDisplay = $('#has_post_display');
@@ -308,7 +307,7 @@
         })
     </script>
     <script>
-        var form2 = $('#createForm'),
+        let form2 = $('#createForm'),
             checkbox2 = $('#is_part_of'),
 
             isPartOfProjectDisplay = $('#is_part_of_display');

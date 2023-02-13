@@ -64,7 +64,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="alert alert-success text-center my-3" role="alert" data-aos="zoom-in">
+        <div class="alert alert-success text-center my-3" role="alert" data-aos="zoom-in" data-dmmapp="library-info">
 
             <h1>{{ $library_data->library }} - Digitized manuscripts</h1>
             <h3>{{ $library_data->city }}, {{ $library_data->nation }}</h3>
@@ -85,7 +85,7 @@
     <div id="main-data">
         <div class="container">
             <div class="card" data-aos="zoom-in">
-                <div class="card-header">Institution details</div>
+                <div class="card-header" data-dmmapp="institution-card">Institution details</div>
                 <div class="card-body">
                     <div class="table-responsive mb-4">
                         <table class="table">
@@ -98,11 +98,11 @@
                             <tbody>
                             <tr>
                                 <th scope="row">Institution name</th>
-                                <td>{{ $library_data->library }}</td>
+                                <td data-dmmapp="library">{{ $library_data->library }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">URL to digitized items</th>
-                                <td class="text-break">{{ $library_data->website }}
+                                <td data-dmmapp="url" class="text-break">{{ $library_data->website }}
                                 </td>
                             </tr>
                             <tr>

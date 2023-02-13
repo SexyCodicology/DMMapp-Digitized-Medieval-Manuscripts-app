@@ -14,7 +14,7 @@
                             </p>
                         </div>
                         <div class="col-lg-3 cta-btn-container text-center">
-                            <a class="cta-btn align-middle" data-cy="patreon-cta"
+                            <a class="cta-btn align-middle" data-dmmapp="patreon-cta"
                                href="https://www.patreon.com/SexyCodicology">Go to
                                 Patreon</a>
                         </div>
@@ -55,7 +55,7 @@
                         </ul>
                         <div class="btn-wrap">
                             <a href="https://www.patreon.com/join/424150"
-                               class="btn-buy" data-cy="patreon-sexy-codicologists">Join</a>
+                               class="btn-buy" data-dmmapp="patreon-sexy-codicologists">Join</a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         </ul>
                         <div class="btn-wrap">
                             <a href="https://www.patreon.com/join/424150"
-                               class="btn-buy" data-cy="patreon-scribes">Join</a>
+                               class="btn-buy" data-dmmapp="patreon-scribes">Join</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </ul>
                         <div class="btn-wrap">
                             <a href="https://www.patreon.com/join/424150"
-                               class="btn-buy" data-cy="patreon-master-scribes">Join</a>
+                               class="btn-buy" data-dmmapp="patreon-master-scribes">Join</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         </ul>
                         <div class="btn-wrap">
                             <a href="https://www.patreon.com/join/424150" class="btn-buy"
-                               data-cy="patreon-pope">Join</a>
+                               data-dmmapp="patreon-pope">Join</a>
                         </div>
                     </div>
                 </div>

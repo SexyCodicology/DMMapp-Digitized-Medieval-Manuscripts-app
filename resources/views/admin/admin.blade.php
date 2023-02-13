@@ -23,7 +23,7 @@
 
     <div id="main-data">
         <div class="container">
-            <a class="btn btn-success my-3" href="{{ route('create_library') }}"> <i class="bi bi-plus-circle"></i> New institution</a>
+            <a class="btn btn-success my-3" data-dmmapp="new-institution" href="{{ route('create_library') }}"> <i class="bi bi-plus-circle"></i> New institution</a>
 
             <div class="card">
                 <div class="card-header">Institutions</div>
