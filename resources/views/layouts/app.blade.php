@@ -155,8 +155,8 @@
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>{{-- .navbar --}}
 
-            <div class="header-social-links d-flex align-items-center">
-                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
+            <div class="header-social-links d-flex align-items-center" >
+                <a href="https://www.patreon.com/join/424150" class="patreon" data-dmmapp="patreon-top-icon"><i
                         class="bi bi-chat-left-heart-fill"></i></a>
                 <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
                         class="bi bi-linkedin"></i></a>
@@ -189,7 +189,7 @@
                         <div class="footer-info">
                             <h3>DMMapp</h3>
                             <div class="social-links mt-3">
-                                <a href="https://www.patreon.com/bePatron?u=3645539" class="patreon"><i
+                                <a href="https://www.patreon.com/join/424150" class="patreon" data-dmmapp="patreon-footer-icon"><i
                                         class="bi bi-chat-left-heart-fill"></i></a>
                                 <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
                                         class="bi bi-linkedin"></i></a>
@@ -221,8 +221,8 @@
                     <div class="col-lg-4 col-md-6 footer-patreon">
                         <h4>Support us</h4>
                         <p>The DMMapp lives on donations by manuscripts lovers like yourself!</p>
-                        <a href="https://www.patreon.com/bePatron?u=3645539"
-                            data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+                        <a href="https://www.patreon.com/join/424150"
+                            data-patreon-widget-type="become-patron-button" data-dmmapp="patreon-footer-link">Become a Patron!</a>
 
                     </div>
 
@@ -240,7 +240,7 @@
                 <p>Made in The Netherlands</p>
                 @guest
                     <div>
-                        <a class="fw-lighter text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="fw-lighter text-center" data-dmmapp="login" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </div>
                 @endguest
             </div>

@@ -21,13 +21,13 @@
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" data-dmmapp="login-form">
                             @csrf
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">{{ __('E-Mail Address') }}</label>
 
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                <input id="email" type="email" data-dmmapp="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -40,7 +40,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">{{ __('Password') }}</label>
 
-                                <input id="password" type="password"
+                                <input id="password" type="password" data-dmmapp="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password" required
                                     autocomplete="current-password">
 
@@ -62,7 +62,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" data-dmmapp="login-button">
                                         {{ __('Login') }}
                                     </button>
 

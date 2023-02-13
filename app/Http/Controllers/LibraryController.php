@@ -199,7 +199,7 @@ class LibraryController extends Controller
                 }
             }
 
-            return redirect('admin')->with("success", "An institution has been successfully updated.");
+            return redirect()->route('admin')->with("success", "An institution has been successfully updated.");
         }
     }
 
@@ -215,12 +215,12 @@ class LibraryController extends Controller
 
         try {
             $library->delete();
-            return redirect('admin')->with("success", "An institution has been successfully deleted.");
+            return redirect()->route('admin')->with("success", "An institution has been successfully deleted.");
 
         } catch (Throwable $e) {
 
             Log::error('Unable delete library from the database:' . $e);
-            return redirect()->route('create_library')->with("error", "Something went wrong and the library could not be deleted. Check the logs.");
+            return redirect()->route('admin')->with("error", "Something went wrong and the library could not be deleted. Check the logs.");
         }
 
     }
