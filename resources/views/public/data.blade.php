@@ -5,28 +5,22 @@
           href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li>Data</li>
-            </ol>
-            <div class="row">
-                <div class="col">
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li>Data</li>
+    </ol>
+    <div class="row">
+        <div class="col">
 
-                    <h5>Digitized Medieval Manuscripts database</h5>
-                    <h6>Explore all the institutions added to the DMMapp database</h6>
+            <h5>Digitized Medieval Manuscripts database</h5>
+            <h6>Explore all the institutions added to the DMMapp database</h6>
 
-                </div>
-            </div>
         </div>
-    </section>
+    </div>
 @endsection
 @section('content')
     <div class="text-center">
         <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
-        <p class="text-muted lead">by Sexy Codicology</p>
-
     </div>
     <div class="text-center">
         <div class="btn-group my-3" role="group" aria-label="additional options">
@@ -43,8 +37,8 @@
                 <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
         </div>
 
-        <div class="collapse" id="collapsible">
-            <div class="card card-body">
+        <div class="collapse" id="collapsible" >
+            <div class="card card-body text-start">
                 <h3>The "DMMapp data" page</h3>
                 <strong>The full DMMapp data!</strong> Here you can browse, search, and filter all the data we
                 have
@@ -154,7 +148,8 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 @endsection
 
 

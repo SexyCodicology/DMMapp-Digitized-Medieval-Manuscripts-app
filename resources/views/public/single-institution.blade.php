@@ -13,16 +13,11 @@
 @endsection
 
 @section('breadcrumbs')
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li><a href="{{ route('data') }}">Data</a></li>
-                <li>{{ $library_data->library }}</li>
-            </ol>
-        </div>
-    </section>
-
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ route('data') }}">Data</a></li>
+        <li>{{ $library_data->library }}</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -41,7 +36,8 @@
             </button>
             <a class="btn btn-primary border-light align-middle text-center" href="{{ route('random_library') }}"
                type="button"><i class="bi bi-shuffle"></i> Explore another random library!</a>
-            <a class="btn btn-primary border-light" href="#cta" type="button"><i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
+            <a class="btn btn-primary border-light" href="#cta" type="button"><i class="bi bi-chat-left-heart-fill"></i>
+                Support us!</a>
             @auth
                 <a class="btn btn-primary border-light" href="{{ route('update_library', $library_data->id) }}"
                    type="button"><i class="bi bi-edit"></i> Edit</a>
@@ -144,7 +140,7 @@
                         </table>
                     </div>
                     <h4>Geographical information</h4>
-                    <div class="table-responsive mb-4" >
+                    <div class="table-responsive mb-4">
                         <table class="table">
                             <thead>
                             <tr>

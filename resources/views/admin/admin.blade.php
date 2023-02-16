@@ -2,16 +2,11 @@
 @section('css')
 @endsection
 @section('breadcrumbs')
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li>Admin</li>
-            </ol>
-            <h2>Admin</h2>
-        </div>
-    </section>
-
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li>Admin</li>
+    </ol>
+    <h2>Admin</h2>
 @endsection
 @section('content')
     @if (session('success'))
@@ -23,7 +18,8 @@
 
     <div id="main-data">
         <div class="container">
-            <a class="btn btn-success my-3" data-dmmapp="new-institution" href="{{ route('create_library') }}"> <i class="bi bi-plus-circle"></i> New institution</a>
+            <a class="btn btn-success my-3" data-dmmapp="new-institution" href="{{ route('create_library') }}"> <i
+                    class="bi bi-plus-circle"></i> New institution</a>
 
             <div class="card">
                 <div class="card-header">Institutions</div>

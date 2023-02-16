@@ -2,16 +2,12 @@
 @section('css')
 @endsection
 @section('breadcrumbs')
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li><a href="{{ route('admin') }}">Admin</a></li>
-                <li>Create Institution</li>
-            </ol>
-            <h2>Add a new institution to the DMMapp</h2>
-        </div>
-    </section>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ route('admin') }}">Admin</a></li>
+        <li>Create Institution</li>
+    </ol>
+    <h2>Add a new institution to the DMMapp</h2>
 
 @endsection
 @section('content')
@@ -71,7 +67,8 @@
                         </div>
                         <div class="mb-4">
                             <label for="website" class="form-label">Digitized items URL</label>
-                            <input name="website" type="url" class="form-control" id="website" data-dmmapp="website" placeholder="https://..."
+                            <input name="website" type="url" class="form-control" id="website" data-dmmapp="website"
+                                   placeholder="https://..."
                                    value="{{ old('website') ? old('website') : '' }}" required>
                             <div id="websiteNote" class="form-text">Required - The URL where the digitized items can be
                                 accessed
@@ -84,7 +81,8 @@
 
                         <div class="mb-4">
                             <label for="library_name_slug" class="form-label">URL Slug</label>
-                            <input name="library_name_slug" type="text" class="form-control" id="library_name_slug" data-dmmapp="slug"
+                            <input name="library_name_slug" type="text" class="form-control" id="library_name_slug"
+                                   data-dmmapp="slug"
                                    placeholder="https://..."
                                    value="{{ old('library_name_slug') ? old('library_name_slug') : '' }}" required>
                             <div id="slugNote" class="form-text">Required - The part of a URL or link that comes after
@@ -98,7 +96,8 @@
                         <div class="mb-4">
                             <div class="form-check">
                                 <input type="hidden" name="iiif" value="0">
-                                <input name="iiif" class="form-check-input" type="checkbox" id="iiif" data-dmmapp="iiif" value="1">
+                                <input name="iiif" class="form-check-input" type="checkbox" id="iiif" data-dmmapp="iiif"
+                                       value="1">
                                 <label class="form-check-label" for="iiif">IIIF repository</label>
                             </div>
                             <div id="iiifNote" class="form-text">Indicates if this is a IIIF repository</div>
@@ -107,7 +106,8 @@
                         <div class="mb-4">
                             <div class="form-check">
                                 <input type="hidden" name="is_part_of" value="0">
-                                <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of" data-dmmapp="is-part-of"
+                                <input name="is_part_of" class="form-check-input" type="checkbox" id="is_part_of"
+                                       data-dmmapp="is-part-of"
                                        value="1">
                                 <label class="form-check-label" for="is_part_of">Is part of a project</label>
                             </div>
@@ -132,7 +132,8 @@
 
                             <div class="mb-4">
                                 <label for="is_part_of_url" class="form-label">Home project URL</label>
-                                <input name="is_part_of_url" type="url" class="form-control" id="is_part_of_url" data-dmmapp="is-part-of-url"
+                                <input name="is_part_of_url" type="url" class="form-control" id="is_part_of_url"
+                                       data-dmmapp="is-part-of-url"
                                        placeholder="https://..."
                                        value="{{ old('is_part_of_url') ? old('is_part_of_url') : '' }}">
                                 <div id="isPartOfNote" class="form-text">The URL of the homepage of the project</div>
@@ -171,7 +172,8 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="lat" class="form-label">Latitude</label>
-                                    <input name="lat" type="text" class="form-control" id="lat" data-dmmapp="lat" placeholder="13.5723"
+                                    <input name="lat" type="text" class="form-control" id="lat" data-dmmapp="lat"
+                                           placeholder="13.5723"
                                            value="{{ old('lat') ? old('lat') : '' }}" required>
                                     <div id="latNote" class="form-text">Required</div>
 
@@ -181,7 +183,8 @@
                                 </div>
                                 <div class="col">
                                     <label for="lng" class="form-label">Longitude</label>
-                                    <input name="lng" type="text" class="form-control" id="lng" data-dmmapp="lng" placeholder="123.2235"
+                                    <input name="lng" type="text" class="form-control" id="lng" data-dmmapp="lng"
+                                           placeholder="123.2235"
                                            value="{{ old('lng') ? old('lng') : '' }}" required>
                                     <div id="lngNote" class="form-text">Required</div>
 
@@ -195,7 +198,8 @@
                         <h3>Copyright</h3>
                         <div class="mb-4">
                             <label for="copyright" class="form-label">Copyright declaration</label>
-                            <input name="copyright" type="text" class="form-control" id="copyright" data-dmmapp="copyright"
+                            <input name="copyright" type="text" class="form-control" id="copyright"
+                                   data-dmmapp="copyright"
                                    placeholder="CC-0, CC-BY-SA, etc."
                                    value="{{ old('copyright') ? old('copyright') : '' }}" required>
                             <div id="copyrightNote" class="form-text">Required</div>
@@ -208,7 +212,8 @@
                             <div class="form-check">
                                 <input type="hidden" name="is_free_cultural_works_license" value="0">
                                 <input name="is_free_cultural_works_license" class="form-check-input" type="checkbox"
-                                       id="is_free_cultural_works_license" data-dmmapp="is-free-cultural-license" value="1">
+                                       id="is_free_cultural_works_license" data-dmmapp="is-free-cultural-license"
+                                       value="1">
                                 <label class="form-check-label" for="is_free_cultural_works_license">Copyright is
                                     approved for Free
                                     Cultural Works</label>
@@ -225,7 +230,8 @@
                         <div class="mb-4">
                             <div class="form-check">
                                 <input type="hidden" name="has_post" value="0">
-                                <input name="has_post" class="form-check-input" type="checkbox" id="has_post" data-dmmapp="has-post" value="1">
+                                <input name="has_post" class="form-check-input" type="checkbox" id="has_post"
+                                       data-dmmapp="has-post" value="1">
                                 <label class="form-check-label" for="has_post">Has a Sexy Codicology Blog post</label>
                             </div>
                         </div>
@@ -233,7 +239,8 @@
                         <div id="has_post_display">
                             <div class="mb-4">
                                 <label for="post_url" class="form-label">Sexy Codicology Blog post URL</label>
-                                <input name="post_url" type="text" class="form-control" id="post_url" data-dmmapp="post-url"
+                                <input name="post_url" type="text" class="form-control" id="post_url"
+                                       data-dmmapp="post-url"
                                        placeholder="https://"
                                        value="{{ old('post_url') ? old('post_url') : '' }}">
                                 <div class="invalid-feedback">
@@ -244,9 +251,11 @@
                         <hr>
                         <div class="col-12">
 
-                            <button class="btn btn-success" type="submit" data-dmmapp="submit"><i class="bi bi-plus-circle"></i> Add library
+                            <button class="btn btn-success" type="submit" data-dmmapp="submit"><i
+                                    class="bi bi-plus-circle"></i> Add library
                             </button>
-                            <a class="btn btn-danger float-end" href="{{ route('admin') }}"><i class="bi bi-slash-circle"></i> Cancel</a>
+                            <a class="btn btn-danger float-end" href="{{ route('admin') }}"><i
+                                    class="bi bi-slash-circle"></i> Cancel</a>
                         </div>
                     </form>
                 </div>
