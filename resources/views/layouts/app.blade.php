@@ -181,7 +181,7 @@
 {{-- !SECTION Header --}}
 
 <main id="main">
-    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow rounded">
+    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow-sm rounded">
         <div class="container ">
 
             @yield('breadcrumbs')

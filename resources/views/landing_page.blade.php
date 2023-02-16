@@ -137,7 +137,7 @@
                         data-aos-delay="100">
                         <div class="icon-box icon-box-blue">
                             <div class="icon"><i class="bx bx-data"></i></div>
-                            <h4 class="title"><a href="">Data</a></h4>
+                            <h4 class="title"><a href="{{ route('data') }}">Data</a></h4>
                             <p class="description">Search, filter, or simply browse all the digitized medieval manuscripts repositories we have added to the DMMapp.</p>
                         </div>
                     </div>
