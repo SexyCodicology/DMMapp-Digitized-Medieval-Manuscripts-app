@@ -40,8 +40,6 @@ Route::get('/explore', RandomInstitutionController::class)->name('random_library
 //SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 //SECTION Admin panel
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
