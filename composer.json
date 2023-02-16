@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "rap2hpoutre/laravel-log-viewer": "^2.2",
+        "romanzipp/laravel-queue-monitor": "^2.3",
         "spatie/laravel-query-builder": "^5.0",
         "spatie/laravel-sitemap": "^6.0",
         "twbs/bootstrap": "5.1.1",
