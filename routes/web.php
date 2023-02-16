@@ -57,6 +57,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/jobs/check-broken-links', [BrokenURLsController::class, 'executeJob'])->name('check_broken_links');
 
         Route::get('/logs', [LogViewerController::class, 'index'])->name('log_viewer');
+        Route::prefix('jobs')->group(function () {
+            Route::queueMonitor();
+        });
 
     });
 
