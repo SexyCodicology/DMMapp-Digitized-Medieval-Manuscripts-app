@@ -81,7 +81,6 @@
                 <div class="card-header">List of institutions</div>
                 <div class="card-body">
                     {{$dataTable->table()}}
-                    </div>
                 </div>
             </div>
         </div>
@@ -107,13 +106,13 @@
             <div class="toast-body text-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
                    rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
-                    <i class="bi bi-exclamation-circle-fill"></i> Report data issue <sup><i
+                    <i class="bi bi-exclamation-circle"></i> Report data issue <sup><i
                             class="bi bi-box-arrow-up-right fa-xs"></i></sup>
                 </a>
                 <a href="https://docs.google.com/forms/d/1EvEN3Ctzt1rQgGPPcyyAZ4UcSN3p-aqVqfOIUTE75Xk"
                    rel="noopener"
                    class="btn btn-danger mt-2" target="_blank" role="button" aria-pressed="true">
-                    <i class="bi bi-exclamation-circle-fill"></i> Report missing institution <sup><i
+                    <i class="bi bi-exclamation-circle "></i> Report missing institution <sup><i
                             class="bi bi-box-arrow-up-right fa-xs"></i></sup>
                 </a>
             </div>

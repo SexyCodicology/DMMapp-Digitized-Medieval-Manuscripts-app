@@ -33,20 +33,20 @@
  * ©2016 SpryMedia Ltd - datatables.net/license
  */
 
-/*! Buttons for DataTables 2.3.3
- * ©2016-2022 SpryMedia Ltd - datatables.net/license
+/*! Buttons for DataTables 2.3.4
+ * ©2016-2023 SpryMedia Ltd - datatables.net/license
  */
 
-/*! DataTables 1.13.1
- * ©2008-2022 SpryMedia Ltd - datatables.net/license
+/*! DataTables 1.13.2
+ * ©2008-2023 SpryMedia Ltd - datatables.net/license
  */
 
 /*! DataTables Bootstrap 5 integration
  * 2020 SpryMedia Ltd - datatables.net/license
  */
 
-/*! Select for DataTables 1.5.0
- * 2015-2021 SpryMedia Ltd - datatables.net/license/mit
+/*! Select for DataTables 1.6.0
+ * 2015-2023 SpryMedia Ltd - datatables.net/license/mit
  */
 
 /**

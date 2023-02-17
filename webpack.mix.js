@@ -22,6 +22,7 @@ mix.js('resources/js/app.js', 'public_html/js')
     .minify('resources/js/main.js', 'public_html/js/main.min.js')
     .sass('resources/sass/app.scss', 'public_html/css')
     .postCss('resources/css/app.css', 'public_html/css')
+    .postCss('resources/css/style.css', 'public_html/css')
     .sourceMaps();
 
 mix.browserSync('127.0.0.1:8000');
