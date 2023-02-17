@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -42,7 +43,7 @@ class BrokenURLsController extends Controller
         return view('admin.broken_links');
     }
 
-    public function executeJob()
+    public function executeJob(): RedirectResponse
     {
         CheckWebsitesInDatabaseJob::dispatch(BrokenLinksTask::class);
         return redirect()->route('admin')->with('success', 'Broken Links job initiated');
