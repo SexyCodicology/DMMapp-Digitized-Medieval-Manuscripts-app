@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\LibrariesDataTable;
 use App\Models\Library;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Throwable;
-use Yajra\DataTables\Facades\DataTables;
 
 class LibraryController extends Controller
 {
@@ -30,18 +28,12 @@ class LibraryController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param LibrariesDataTable $dataTable
      * @return Application|Factory|View|JsonResponse
-     * @throws Exception
      */
-    public function index(Request $request)
+    public function index(LibrariesDataTable $dataTable)
     {
-        if ($request->ajax()) {
-            $data = Library::all();
-            return Datatables::of($data)
-                ->make();
-        }
-        return view('public/data');
+        return $dataTable->render('public.data');
     }
 
     public function admin()
@@ -63,7 +55,7 @@ class LibraryController extends Controller
             //NOTE and now, we pass the library data to display it to the public.
 
         } catch (Throwable $e) {
-            //Log::notice('User landed on a institution that has not been added to the database:' . URL::current());
+            //Log::notice('User landed on an institution that has not been added to the database:' . URL::current());
             abort(404, 'No information about this institution is available at this time. ');
         }
         return view('public.single-institution', ['library_data' => $library_data]);
@@ -207,7 +199,7 @@ class LibraryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Application|RedirectResponse|Redirector
+     * @return RedirectResponse
      */
     public function destroy(int $id)
     {

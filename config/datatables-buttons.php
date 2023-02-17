@@ -57,7 +57,7 @@ return [
      * Default html builder parameters.
      */
     'parameters'    => [
-        'dom'     => 'Bfrtip',
+        'dom'     => 'PBfrtip',
         'order'   => [[0, 'desc']],
         'buttons' => [
             'create',
@@ -85,6 +85,6 @@ return [
         /*
          * Default DOM to generate when not set.
          */
-        'dom' => 'Bfrtip',
+        'dom' => 'PBfrtip',
     ],
 ];

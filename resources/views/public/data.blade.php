@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <ol>
@@ -81,32 +80,8 @@
             <div class="card">
                 <div class="card-header">List of institutions</div>
                 <div class="card-body">
-                    <table class="table table-bordered yajra-datatable table-responsive table-hover" style="width:100%">
-                        <noscript>
-                            <div class="alert alert-info">
-                                <h4>Your JavaScript is disabled</h4>
-                                <p>Please enable JavaScript to see the table.</p>
-                            </div>
-                        </noscript>
-                        <thead>
-                        <tr>
-                            <th>Institution name</th>
-                            <th>Link to digitized manuscripts</th>
-                            <th>Quantity of digitized items</th>
-                            <th>IIIF repository</th>
-                            <th>Digitized items' copyright</th>
-                            <th>Free Cultural Works License</th>
-                            <th>Nation</th>
-                            <th>City</th>
-                            <th>lat</th>
-                            <th>lng</th>
-                            <th>Full DMMapp data</th>
-                            <th>Sexy Codicology blog post</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    {{$dataTable->table()}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,16 +123,17 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
 @endsection
 
 
 @push('scripts')
-    @env('production')
+    {{--@env('production')
         <script type="text/javascript" src="{{asset('/js/data.min.js')}}"></script>
     @endenv
     @env(['local','staging'])
         <script type="text/javascript" src="{{asset('/js/data.js')}}"></script>
-    @endenv
+    @endenv--}}
+    {{$dataTable->scripts()}}
+    <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 @endpush
