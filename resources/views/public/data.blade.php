@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <ol>
@@ -29,14 +30,14 @@
                 <i class="bi bi-info-circle-fill"></i> About
             </button>
             <a class="btn btn-primary border-light" href="#dmmapp-datatable" type="button">
-                <i class="bi bi-link"></i> Go to links</a>
+                <i class="bi bi-arrow-down-square"></i> Go to list</a>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="bi bi-shuffle"></i> Explore a random library!</a>
             <a class="btn btn-primary border-light" href="#cta" type="button">
                 <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
         </div>
 
-        <div class="collapse" id="collapsible" >
+        <div class="collapse" id="collapsible">
             <div class="card card-body text-start">
                 <h3>The "DMMapp data" page</h3>
                 <strong>The full DMMapp data!</strong> Here you can browse, search, and filter all the data we
@@ -56,7 +57,8 @@
                 <dd>The copyright applied to the digitized items in a repository.</dd>
                 <dt>Free Cultural Works License</dt>
                 <dd>Indicates if the copyright used in a repository is a Creative Commons' Free Cultural Works
-                    License.</dd>
+                    License.
+                </dd>
                 <dt>Country</dt>
                 <dd>The country where an institution is located.</dd>
                 <dt>City</dt>
@@ -77,9 +79,9 @@
     <div id="main-data">
         <div class="container">
             <div class="card">
-                <div class="card-header">List of institutions</div>
+                <div class="card-header">List and filters</div>
                 <div class="card-body">
-                    <table class="table table-bordered dmmapp-datatable" id="dmmapp-datatable" style="width: 100%">
+                    <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable" style="width: 100%">
                         <noscript>
                             <div class="alert alert-info">
                                 <h4>Your JavaScript is disabled</h4>
@@ -112,9 +114,9 @@
         </div>
     </div>
 
-    <x-disclaimer />
+    <x-disclaimer/>
     <x-patreon/>
-    <x-feedback />
+    <x-feedback/>
 
 @endsection
 {{-- Optional JavaScript --}}
@@ -123,7 +125,8 @@
 
 
 @push('scripts')
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
     {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
     @env('production')
         <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>

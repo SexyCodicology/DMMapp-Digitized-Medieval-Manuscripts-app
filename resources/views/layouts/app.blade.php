@@ -85,9 +85,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
-        {{-- Template Main CSS File --}}
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{-- Template Main CSS File --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -96,7 +96,7 @@
 <body>
 
 {{-- SECTION -  Header --}}
-<header id="header" class="fixed-top d-flex align-items-center shadow-sm">
+<header id="header" class="d-flex align-items-center shadow-sm">
     <div class="container d-flex align-items-center">
 
         <div class="logo me-auto">
@@ -110,20 +110,22 @@
             <ul>
                 <li><a class="nav-link" href="/">Home</a></li>
                 @if (Request::is('/'))
-                <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a class="nav-link" href="#tools">Tools</a></li>
-                        <li><a class="nav-link" href="#team">Team</a></li>
-                        <li><a class="nav-link" href="#cta">Support Us</a></li>
-                    </ul>
+                    <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="nav-link" href="#tools">Tools</a></li>
+                            <li><a class="nav-link" href="#team">Team</a></li>
+                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                        </ul>
                 @else
                     <li><a class="nav-link" href="#cta">Support Us</a></li>
                 @endif
                 <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
                 <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
-                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a></li>
+                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i
+                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 <li><a class="nav-link"
-                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a></li>
+                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
+                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -133,7 +135,8 @@
                             </li>
                             <li><a class="nav-link" href="{{ route('broken-links') }}">Broken links</a>
                             </li>
-                            <li><a class="nav-link" href="/admin/jobs/" target="_blank" rel="noopener noreferrer">Jobs Monitor</a>
+                            <li><a class="nav-link" href="/admin/jobs/" target="_blank" rel="noopener noreferrer">Jobs
+                                    Monitor</a>
                             </li>
                             <hr>
                             <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -150,7 +153,7 @@
                 @endauth
                 <li class="ml-4"></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i class="bi bi-list mobile-nav-toggle mx-3"></i>
         </nav>{{-- .navbar --}}
 
         <div class="header-social-links d-flex align-items-center">
@@ -166,8 +169,8 @@
 {{-- !SECTION Header --}}
 
 <main id="main">
-    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow-sm rounded">
-        <div class="container ">
+    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
+        <div class="container">
 
             @yield('breadcrumbs')
 
