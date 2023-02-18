@@ -120,7 +120,7 @@
     }, true)
 
     /**
-     * Scrool with ofset on links with a class name .scrollto
+     * Scroll with offset on links with a class name .scrollto
      */
     on('click', '.scrollto', function (e) {
         if (select(this.hash)) {

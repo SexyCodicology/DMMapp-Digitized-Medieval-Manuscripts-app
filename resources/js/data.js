@@ -85,7 +85,7 @@ $(function () {
                 target: 10,
                 orderable: false,
                 render: function (data, type, row) {
-                    return '<a class="btn btn-outline-secondary" href="' + row['library_name_slug'] + '" role="button"><i class="bi bi-search"></i> Explore</a>';
+                    return '<a class="btn btn-outline-secondary" data-dmmapp="explore" href="' + row['library_name_slug'] + '" role="button"><i class="bi bi-search"></i> Explore</a>';
                 }
             },
             {
