@@ -116,14 +116,14 @@
                         <li><a class="nav-link" href="#team">Team</a></li>
                         <li><a class="nav-link" href="#cta">Support Us</a></li>
                     </ul>
-                        @else
+                @else
                     <li><a class="nav-link" href="#cta">Support Us</a></li>
-                        @endif
-
+                @endif
+                <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
                 <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
-                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i class="bi bi-box-arrow-up-right"></i></sup></a></li>
+                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 <li><a class="nav-link"
-                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i class="bi bi-box-arrow-up-right"></i></sup></a></li>
+                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -216,6 +216,7 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Services</h4>
                     <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('map') }}">Map</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{ route('data') }}">Data</a></li>
                         <li><i class="bx bx-chevron-right disabled"></i> <a href="#">API (coming soon)</a></li>
 

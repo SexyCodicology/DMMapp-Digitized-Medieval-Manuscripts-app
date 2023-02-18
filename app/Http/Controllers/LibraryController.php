@@ -35,6 +35,16 @@ class LibraryController extends Controller
         return view('public/data', compact('libraries'));
     }
 
+    /**
+     * @return Application|Factory|View
+     */
+    public function map()
+    {
+        $libraries = Library::all();
+        return view('public/map', compact('libraries'));
+    }
+
+
     public function admin(): Factory|View|Application
     {
 

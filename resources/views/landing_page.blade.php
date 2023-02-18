@@ -132,7 +132,13 @@
                 </div>
 
                 <div class="row justify-content-center">
-
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+                        <div class="icon-box icon-box-blue">
+                            <div class="icon"><i class="bx bx-world"></i></div>
+                            <h4 class="title"><a href="">Map</a></h4>
+                            <p class="description">The world is full of manuscripts! Go explore hundreds of repositories thanks to our map.</p>
+                        </div>
+                    </div>
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                         data-aos-delay="100">
                         <div class="icon-box icon-box-blue">
