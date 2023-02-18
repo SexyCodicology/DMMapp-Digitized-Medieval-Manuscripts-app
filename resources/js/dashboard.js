@@ -29,6 +29,5 @@ $(function () {
         ]
 
     });
-    table.searchPanes.container().prependTo(table.table().container());
     table.searchPanes.resizePanes();
 });
