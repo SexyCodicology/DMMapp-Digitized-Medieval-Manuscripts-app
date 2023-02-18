@@ -1,8 +1,20 @@
 $(function () {
-    let table = $('.yajra-datatable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "/data",
+    let table = $('.dmmapp-datatable').DataTable({
+        dom: 'PBlfrtip',
+        data: libraries,
+        buttons: [
+            {
+                extend: 'csvHtml5',
+                text: '<span class="bi bi-download pull-left"></span> Download CSV</button>',
+                className: 'mb-3',
+                title: 'DMMapp data export'
+            },
+        ],
+        responsive: true,
+        searchPanes: {
+            threshold: 1,
+            initCollapsed: true
+        },
         columns: [
             {data: 'library'}, //0
             {data: 'website'}, //1
@@ -14,32 +26,27 @@ $(function () {
             {data: 'city'}, //7
             {data: 'lat'}, //8
             {data: 'lng'}, //9
-            {data: 'website'}, //10
-            {data: 'library_name_slug'}, //11
+            {data: 'has_post'}, //1
+            {data: 'library_name_slug'}, //10
         ],
-        responsive: true,
-        searchPanes: true,
-        searchPanes: {
-            threshold: 1,
-            initCollapsed: true
-        },
-
         columnDefs: [
-            {className: "dt-center", "targets": "_all"},
-
             {
-                targets: [4, 6, 7, 8, 9],
-                visible: false,
-                searchable: true
+                className: "dt-center", "targets": "_all"
             },
             {
-                targets: [8, 9],
-                visible: false,
-                searchable: false
-            },
-            {
+                target: 0,
                 responsivePriority: 1,
-                targets: 0
+                searchPanes: {
+                    viewCount: false
+                }
+            },
+            {
+                target: 1,
+                responsivePriority: 2,
+                render: function (data, type, row) {
+                    return '<p style="display:none">' + row['website'] + '</p> <a class="btn btn-outline-primary" href="' + row['website'] + '" role="button">Digitized manuscripts <sup><i class="bi bi-box-arrow-up-right"></i> </sup></a>';
+
+                }
             },
             {
                 targets: [3, 5],
@@ -54,41 +61,43 @@ $(function () {
                 }
             },
             {
-                targets: 10,
-                render: function (data, type, row) {
-                    return '<a class="btn btn-secondary" href="' + row['library_name_slug'] + '" role="button"><i class="bi bi-search"></i> Explore</a>';
-                }
+                targets: [4, 6, 7, 8, 9],
+                visible: false,
+                searchable: true
             },
             {
-                targets: 11,
-                render: function (data, type, row) {
-                    if (row['has_post'] === 1) {
-                        return '<a href="' + row['post_url'] + '" role="btn btn-link">Read <sup><i class="bi bi-box-arrow-up-right"></i></sup></a>';
-                    } else {
-                        return '<p class="text-dark">No post available</p>';
-                    }
-                },
-            },
-            {
-                targets: 1,
-                render: function (data, type, row) {
-                    return '<a class="btn btn-primary" href="' + row['website'] + '" role="button">Digitized manuscripts <sup><i class="bi bi-box-arrow-up-right"></i> </sup></a>';
-
-                }
-            },
-            {
+                targets: [4, 8, 9, 10, 11],
                 searchPanes: {
                     show: false
-                },
-                targets: [4, 8, 9, 10, 11]
+                }
             },
             {
-                searchPanes: {
-                    viewCount: false
+                targets: [8, 9],
+                visible: false,
+                searchable: false
+            },
+            {
+                target: 10,
+                render: function (data, type, row) {
+                    return '<a class="btn btn-outline-secondary" href="' + row['library_name_slug'] + '" role="button"><i class="bi bi-search"></i> Explore</a>';
+                }
+            },
+            {
+                target: 11,
+                render: function (data, type, row) {
+                    if (row['has_post'] === 1) {
+                        return '<a class="btn btn-outline-secondary" href="' + row['post_url'] + '" role="button">Read <sup><i class="bi bi-box-arrow-up-right"></i></sup></a>';
+                    } else {
+                        return '<p>No post available</p>';
+                    }
                 },
-                targets: [0],
             }
-        ],
+        ]
     });
+
+    table.searchPanes.container();
+    table.responsive.recalc();
+    table.columns.adjust()
+    table.searchPanes.resizePanes();
 });
 
