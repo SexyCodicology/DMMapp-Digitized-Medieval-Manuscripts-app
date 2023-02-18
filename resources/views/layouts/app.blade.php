@@ -276,7 +276,7 @@
 <script type="text/javascript" src="{{asset('/js/manifest.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
 
 @yield('javascript')
 @stack('scripts')

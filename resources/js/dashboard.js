@@ -3,9 +3,9 @@ $(function () {
     var table = $('#dashboard').DataTable({
         data: libraries,
         columns: [
-            { "data": "id"},
-            { "data": "library" },
-            { "defaultContent": "" },
+            {"data": "id"},
+            {"data": "library"},
+            {"defaultContent": ""},
         ],
 
         responsive: true,
