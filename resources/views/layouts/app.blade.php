@@ -169,6 +169,8 @@
 {{-- !SECTION Header --}}
 
 <main id="main">
+    @if (Request::is('/'))
+    @else
     <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
         <div class="container">
 
@@ -176,6 +178,7 @@
 
         </div>
     </section>
+    @endif
     <section class="inner-page">
         <div class="container border py-4 shadow rounded">
 
