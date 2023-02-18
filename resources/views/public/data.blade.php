@@ -19,11 +19,11 @@
     </div>
 @endsection
 @section('content')
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-in">
         <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
     </div>
     <div class="text-center">
-        <div class="btn-group my-3" role="group" aria-label="additional options">
+        <div class="btn-group my-4" role="group" aria-label="additional options" data-aos="fade-in">
             <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsible"
                     aria-expanded="false" aria-controls="collapsible">
@@ -78,10 +78,11 @@
     </div>
     <div id="main-data">
         <div class="container">
-            <div class="card">
+            <div class="card shadow-sm" data-aos="fade-up">
                 <div class="card-header">List and filters</div>
                 <div class="card-body">
-                    <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable" style="width: 100%">
+                    <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable"
+                           style="width: 100%">
                         <noscript>
                             <div class="alert alert-info">
                                 <h4>Your JavaScript is disabled</h4>
