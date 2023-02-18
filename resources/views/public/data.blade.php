@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <ol>
@@ -29,7 +28,7 @@
                     aria-expanded="false" aria-controls="collapsible">
                 <i class="bi bi-info-circle-fill"></i> About
             </button>
-            <a class="btn btn-primary border-light" href="#dmmtable_filter" type="button">
+            <a class="btn btn-primary border-light" href="#dmmapp-datatable" type="button">
                 <i class="bi bi-link"></i> Go to links</a>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="bi bi-shuffle"></i> Explore a random library!</a>
@@ -57,8 +56,7 @@
                 <dd>The copyright applied to the digitized items in a repository.</dd>
                 <dt>Free Cultural Works License</dt>
                 <dd>Indicates if the copyright used in a repository is a Creative Commons' Free Cultural Works
-                    License.
-                </dd>
+                    License.</dd>
                 <dt>Country</dt>
                 <dd>The country where an institution is located.</dd>
                 <dt>City</dt>
@@ -81,7 +79,7 @@
             <div class="card">
                 <div class="card-header">List of institutions</div>
                 <div class="card-body">
-                    <table class="table table-bordered yajra-datatable table-responsive table-hover" style="width:100%">
+                    <table class="table table-bordered dmmapp-datatable" id="dmmapp-datatable" style="width: 100%">
                         <noscript>
                             <div class="alert alert-info">
                                 <h4>Your JavaScript is disabled</h4>
@@ -90,21 +88,23 @@
                         </noscript>
                         <thead>
                         <tr>
-                            <th>Institution name</th>
-                            <th>Link to digitized manuscripts</th>
+                            <th>Institutions</th>
+                            <th>Links</th>
                             <th>Quantity of digitized items</th>
-                            <th>IIIF repository</th>
-                            <th>Digitized items' copyright</th>
-                            <th>Free Cultural Works License</th>
-                            <th>Nation</th>
+                            <th>IIIF</th>
+                            <th>Copyright</th>
+                            <th>Free Cultural Works license</th>
+                            <th>Country</th>
                             <th>City</th>
                             <th>lat</th>
                             <th>lng</th>
-                            <th>Full DMMapp data</th>
-                            <th>Sexy Codicology blog post</th>
+                            <th>Additional data</th>
+                            <th>Post</th>
+
                         </tr>
                         </thead>
                         <tbody>
+
                         </tbody>
                     </table>
                 </div>
@@ -132,13 +132,13 @@
             <div class="toast-body text-center">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform"
                    rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
-                    <i class="bi bi-exclamation-circle-fill"></i> Report data issue <sup><i
+                    <i class="bi bi-exclamation-circle"></i> Report data issue <sup><i
                             class="bi bi-box-arrow-up-right fa-xs"></i></sup>
                 </a>
                 <a href="https://docs.google.com/forms/d/1EvEN3Ctzt1rQgGPPcyyAZ4UcSN3p-aqVqfOIUTE75Xk"
                    rel="noopener"
                    class="btn btn-danger mt-2" target="_blank" role="button" aria-pressed="true">
-                    <i class="bi bi-exclamation-circle-fill"></i> Report missing institution <sup><i
+                    <i class="bi bi-exclamation-circle "></i> Report missing institution <sup><i
                             class="bi bi-box-arrow-up-right fa-xs"></i></sup>
                 </a>
             </div>
@@ -148,16 +148,19 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 @endsection
 
 
 @push('scripts')
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
+    {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
     @env('production')
-        <script type="text/javascript" src="{{asset('/js/data.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
     @endenv
-    @env(['local','staging'])
-        <script type="text/javascript" src="{{asset('/js/data.js')}}"></script>
+    @env(['local', 'staging'])
+        <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
     @endenv
+    <script type="text/javascript">
+        let libraries = {!! json_encode($libraries->toArray()) !!}
+    </script>
 @endpush

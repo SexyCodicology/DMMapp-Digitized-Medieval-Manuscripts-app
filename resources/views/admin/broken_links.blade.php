@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-header">Broken links</div>
                 <div class="card-body">
-                    <table class="table table-bordered yajra-datatable">
+                    <table class="table table-bordered dmmapp-datatable">
                         <thead>
                         <tr>
                             <th>Institution</th>
@@ -46,7 +46,7 @@
     <script type="text/javascript">
         $(function () {
 
-            var table = $('.yajra-datatable').DataTable({
+            var table = $('.dmmapp-datatable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('broken-links') }}",

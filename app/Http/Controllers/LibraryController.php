@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Library;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Throwable;
-use Yajra\DataTables\Facades\DataTables;
 
 class LibraryController extends Controller
 {
@@ -22,7 +19,7 @@ class LibraryController extends Controller
     /**
      * @var Library
      */
-    private $library;
+    private Library $library;
 
     public function __construct(Library $library)
     {
@@ -30,40 +27,31 @@ class LibraryController extends Controller
     }
 
     /**
-     * @param Request $request
      * @return Application|Factory|View|JsonResponse
-     * @throws Exception
      */
-    public function index(Request $request)
+    public function index(): View|Factory|JsonResponse|Application
     {
-        if ($request->ajax()) {
-            $data = Library::all();
-            return Datatables::of($data)
-                ->make();
-        }
-        return view('public/data');
+        $libraries = Library::all();
+        return view('public/data', compact('libraries'));
     }
 
-    public function admin()
+    public function admin(): Factory|View|Application
     {
 
-        $data = [];
-
-        $data['libraries'] = $this->library->all();
-
-        return view('admin/admin', $data);
+        $libraries = Library::all();
+        return view('admin/admin', compact('libraries'));
 
     }
 
-    public function show($library_name_slug)
+    public function show($library_name_slug): Factory|View|Application
     {
         try {
             //NOTE find a library in the database that contains the slug in the URL
             $library_data = Library::where('library_name_slug', $library_name_slug)->firstOrFail();
             //NOTE and now, we pass the library data to display it to the public.
 
-        } catch (Throwable $e) {
-            //Log::notice('User landed on a institution that has not been added to the database:' . URL::current());
+        } catch (Throwable) {
+            //Log::notice('User landed on an institution that has not been added to the database:' . URL::current());
             abort(404, 'No information about this institution is available at this time. ');
         }
         return view('public.single-institution', ['library_data' => $library_data]);
@@ -75,7 +63,7 @@ class LibraryController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create()
+    public function create(): View|Factory|Application
     {
         return view('admin.create');
     }
@@ -142,7 +130,7 @@ class LibraryController extends Controller
      * @param  int  $id
      * @return Application|Factory|View
      */
-    public function edit(int $id)
+    public function edit(int $id): View|Factory|Application
     {
         $library = Library::where('id', $id)->first();
         //dd($library);
@@ -150,7 +138,7 @@ class LibraryController extends Controller
         return view('admin.update', ['library' => $library]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
         {
             $request->validate([
@@ -207,9 +195,9 @@ class LibraryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Application|RedirectResponse|Redirector
+     * @return RedirectResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): RedirectResponse
     {
         $library = Library::findOrFail($id);
 

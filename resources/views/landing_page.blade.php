@@ -14,8 +14,8 @@
                     <div>
                         <h1>We help you find digitized medieval manuscripts</h1>
                         <h2>We have collected 500+ links to fully digitized books, fragments, IIIF repositories, etc.</h2>
-                        <a href="{{ route('data') }}" class="btn-get-started">Get Started</a>
-                        <a href="{{ route('random_library') }}" class="btn-get-started">Discover a random repository</a>
+                        <a href="{{ route('data') }}" class="btn-get-started mt-3">Get Started <i class="bi bi-book"></i></a>
+                        <a href="{{ route('random_library') }}" class="btn-get-started mt-3">Discover a random repository <i class="bi bi-shuffle"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
@@ -645,4 +645,5 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
+    <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
 @endsection

@@ -1,9 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
-    "/js/data.js": "/js/data.js",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/js/main.js": "/js/main.js",
+    "/css/style.css": "/css/style.css",
+    "/js/vendor.js": "/js/vendor.js",
     "/js/data.min.js": "/js/data.min.js",
     "/js/dashboard.min.js": "/js/dashboard.min.js",
     "/js/main.min.js": "/js/main.min.js"
