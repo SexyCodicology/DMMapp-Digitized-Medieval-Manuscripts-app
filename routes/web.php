@@ -31,12 +31,13 @@ Route::get('/', function () {
     return view('landing_page');
 });
 
+//SECTION random repository
+Route::get('/explore', RandomInstitutionController::class)->name('random_library');
+
 //SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'map'])->name('map');
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
-
-Route::get('/explore', RandomInstitutionController::class)->name('random_library');
 
 //SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
@@ -53,7 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('delete_library');
 
         Route::get('/broken-links', [BrokenURLsController::class, 'index'])->name('broken-links');
-        Route::get('/jobs/check-broken-links', [BrokenURLsController::class, 'executeJob'])->name('check_broken_links');
+        Route::get('/job/check-broken-links', [BrokenURLsController::class, 'executeJob'])->name('check_broken_links');
 
         Route::get('/logs', [LogViewerController::class, 'index'])->name('log_viewer');
         Route::prefix('jobs')->group(function () {
