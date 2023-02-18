@@ -119,8 +119,8 @@
                 @else
                     <li><a class="nav-link" href="#cta">Support Us</a></li>
                 @endif
-                <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
                 <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
+                <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
                 <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i
                                 class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 <li><a class="nav-link"
@@ -207,21 +207,21 @@
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
                                 href="https://blog.digitizedmedievalmanuscripts.org/about/">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a
+                        <li><i class="bi bi-chevron-right"></i> <a
                                 href="https://blog.digitizedmedievalmanuscripts.org">Blog</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('map') }}">Map</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('data') }}">Data</a></li>
-                        <li><i class="bx bx-chevron-right disabled"></i> <a href="#">API (coming soon)</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('map') }}">Map</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('data') }}">Data</a></li>
+                        <li><i class="bi bi-chevron-right disabled"></i> <a href="#">API (coming soon)</a></li>
 
                     </ul>
                 </div>

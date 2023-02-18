@@ -134,15 +134,16 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bx-world"></i></div>
-                            <h4 class="title"><a href="">Map</a></h4>
+                            <div class="icon mb-3"><i class="bi bi-pin-map"></i></div>
+                            <h4 class="title"><a href="{{ route('map') }}">Map</a></h4>
                             <p class="description">The world is full of manuscripts! Go explore hundreds of repositories thanks to our map.</p>
                         </div>
                     </div>
+
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                         data-aos-delay="100">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bx-data"></i></div>
+                            <div class="icon mb-3"><i class="bi bi-database"></i></div>
                             <h4 class="title"><a href="{{ route('data') }}">Data</a></h4>
                             <p class="description">Search, filter, or simply browse all the digitized medieval manuscripts repositories we have added to the DMMapp.</p>
                         </div>
@@ -151,7 +152,7 @@
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                         data-aos-delay="200">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bxl-dev-to"></i></div>
+                            <div class="icon mb-3"><i class="bi bi-bezier2"></i></div>
                             <h4 class="title"><a href="">API (coming soon)</a></h4>
                             <p class="description">Need the DMMapp data for your own application? We are working at API just for you!</p>
                         </div>
@@ -241,8 +242,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -255,8 +256,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -269,8 +270,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -283,8 +284,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -297,8 +298,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -311,8 +312,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -325,8 +326,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -339,8 +340,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -353,8 +354,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -382,11 +383,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
                                     rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
                                     risus at semper.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                                 <h3>Saul Goodman</h3>
@@ -397,11 +398,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
                                     cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
                                     legam anim culpa.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                                 <h3>Sara Wilsson</h3>
@@ -412,10 +413,10 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
                                     duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                                 <h3>Jena Karlis</h3>
@@ -426,11 +427,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
                                     minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore
                                     labore illum veniam.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                                 <h3>Matt Brandon</h3>
@@ -441,11 +442,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
                                     veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
                                     culpa fore nisi cillum quid.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                                 <h3>John Larson</h3>
