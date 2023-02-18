@@ -51,7 +51,7 @@
         </div>
     </div>
     <hr>
-    <div id="main-map">
+    <div id="main-map" class="main-map">
         <div class="container">
             <div class="card">
                 <div class="card-header">Map and filters</div>
