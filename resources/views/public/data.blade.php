@@ -125,16 +125,12 @@
 
 
 @push('scripts')
+
     <script type="text/javascript"
             src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
-    {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
-    @env('production')
-        <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
-    @endenv
-    @env(['local', 'staging'])
-        <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
-    @endenv
+    {{-- NOTE this transforms our libraries to json, which can then be read by datatables - in data.min.js --}}
     <script type="text/javascript">
         let libraries = {!! json_encode($libraries->toArray()) !!}
     </script>
+    <script type="text/javascript" src="{{ asset('/js/data.min.js') }}"></script>
 @endpush
