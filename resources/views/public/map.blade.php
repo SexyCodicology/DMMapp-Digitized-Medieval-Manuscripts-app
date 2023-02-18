@@ -100,8 +100,10 @@
                 inaccuracies.</p>
         </div>
     </div>
-    <x-patreon />
-    <x-feedback />
+
+    <x-disclaimer/>
+    <x-patreon/>
+    <x-feedback/>
 
 @endsection
 {{-- Optional JavaScript --}}
@@ -110,8 +112,10 @@
 
 @push('scripts')
     <script type="text/javascript">let libraries = {!! json_encode($libraries->toArray()) !!}</script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.2/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.2/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
     <script type="text/javascript" src="{{ asset('/js/map-data.min.js') }}"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbFwvj_8iz-56H2YYRdOPqxphj01fWdw&callback=initMap"></script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbFwvj_8iz-56H2YYRdOPqxphj01fWdw&callback=initMap"></script>
 @endpush
 
