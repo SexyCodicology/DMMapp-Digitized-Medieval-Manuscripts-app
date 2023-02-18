@@ -17,10 +17,7 @@
         "romanzipp/laravel-queue-monitor": "^2.3",
         "spatie/laravel-query-builder": "^5.0",
         "spatie/laravel-sitemap": "^6.0",
-        "twbs/bootstrap": "5.1.1",
-        "yajra/laravel-datatables": "9.0",
-        "yajra/laravel-datatables-buttons": "9.0",
-        "yajra/laravel-datatables-oracle": "10.0"
+        "twbs/bootstrap": "5.1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
