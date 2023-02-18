@@ -26,8 +26,8 @@ $(function () {
             {data: 'city'}, //7
             {data: 'lat'}, //8
             {data: 'lng'}, //9
-            {data: 'has_post'}, //1
-            {data: 'library_name_slug'}, //10
+            {data: 'has_post'}, //10
+            {data: 'library_name_slug'}, //11
         ],
         columnDefs: [
             {
@@ -43,6 +43,11 @@ $(function () {
             {
                 target: 1,
                 responsivePriority: 2,
+                searchable: false,
+                searchPanes: {
+                    show: false
+                },
+                orderable: false,
                 render: function (data, type, row) {
                     return '<p style="display:none">' + row['website'] + '</p> <a class="btn btn-outline-primary" href="' + row['website'] + '" role="button">Digitized manuscripts <sup><i class="bi bi-box-arrow-up-right"></i> </sup></a>';
 
@@ -78,12 +83,14 @@ $(function () {
             },
             {
                 target: 10,
+                orderable: false,
                 render: function (data, type, row) {
                     return '<a class="btn btn-outline-secondary" href="' + row['library_name_slug'] + '" role="button"><i class="bi bi-search"></i> Explore</a>';
                 }
             },
             {
                 target: 11,
+                orderable: false,
                 render: function (data, type, row) {
                     if (row['has_post'] === 1) {
                         return '<a class="btn btn-outline-secondary" href="' + row['post_url'] + '" role="button">Read <sup><i class="bi bi-box-arrow-up-right"></i></sup></a>';
