@@ -21,7 +21,7 @@
             <div class="d-flex align-items-center justify-content-center vh-100">
                 <div class="text-center row">
                     <div class="col-md-6" data-aos="fade-right">
-                        <img src="/img/hero-img.png" alt="DMMapp image"
+                        <img src="{{asset('img/hero-img.png')}}" alt="DMMapp image"
                              class="img-fluid">
                     </div>
                     <div class="col-md-6 mt-5">

@@ -8,4 +8,7 @@
 @section('source', __('It is issued by the Master of the Papal Liturgical Celebrations before a session of the papal conclave which will elect a new pope'))
 
 @section('button')
+    <button class="btn btn-primary" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
 @endsection

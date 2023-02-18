@@ -8,5 +8,5 @@
 @section('source', __('Virgil'))
 
 @section('button')
-    <a href="/" class="btn btn-primary">Go home</a>
+    <a href="/" type="button" type="button" class="btn btn-primary">Go home</a>
 @endsection

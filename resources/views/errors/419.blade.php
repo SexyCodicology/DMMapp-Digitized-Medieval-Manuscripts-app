@@ -8,5 +8,5 @@
 @section('source', __('Ipse dixit'))
 
 @section('button')
-    <a href="/" class="btn btn-primary">Go home</a>
+    <a href="/" type="button" class="btn btn-primary">Go home</a>
 @endsection
