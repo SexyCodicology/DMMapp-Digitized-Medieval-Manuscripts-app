@@ -29,14 +29,5 @@
         "webpack-cli": "^4.8.0"
     },
     "dependencies": {
-        "datatables.net-autofill-bs5": "^2.5.2",
-        "datatables.net-bs5": "^1.13.2",
-        "datatables.net-buttons": "^2.3.4",
-        "datatables.net-buttons-bs5": "^2.3.4",
-        "datatables.net-responsive-bs5": "^2.4.0",
-        "datatables.net-searchpanes-bs5": "^2.1.1",
-        "datatables.net-select-bs5": "^1.6.0",
-        "jszip": "^3.10.1",
-        "pdfmake": "^0.2.7"
     }
 }
