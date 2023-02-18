@@ -126,7 +126,7 @@ function initMap() {
                     visible: false
                 },
                 {
-                    targets: [1, 3, 7, 8, 9, 10, 11, 12, 13],
+                    targets: [3, 7, 8, 9, 10, 11, 12, 13],
                     searchable: false
                 },
                 {
@@ -138,7 +138,7 @@ function initMap() {
                 },
                 {
                     responsivePriority: 2,
-                    targets: 2
+                    target: 2
                 },
                 {
                     targets: [3, 7, 8, 9, 10, 11, 12, 13],
