@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 0;
     font-weight: 600;
     letter-spacing: 1px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 #header .logo h1 a, #header .logo h1 a:hover {
@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     padding: 10px 0 10px 30px;
     font-size: 15px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
     color: #7b909a;
     white-space: nowrap;
     transition: 0.3s;
@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
     font-weight: 600;
     font-size: 13px;
     text-transform: uppercase;
@@ -429,8 +429,7 @@ section {
     font-weight: 400;
     margin-bottom: 20px;
     padding-bottom: 0;
-    font-family: "Open Sans", sans-serif;
-    color: #627680;
+    font-family: "Nunito", sans-serif;
 }
 
 .section-title p {
@@ -460,7 +459,7 @@ section {
     font-weight: 400;
     font-size: 32px;
     color: #364146;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 .about .content ul {
@@ -925,7 +924,7 @@ section {
     font-size: 36px;
     color: #006699;
     font-weight: 600;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
     margin-bottom: 20px;
 }
 
@@ -1305,7 +1304,7 @@ section {
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
     color: #576971;
 }
 
