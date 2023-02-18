@@ -108,24 +108,22 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                {{-- TODO fix nav links --}}
                 <li><a class="nav-link" href="/">Home</a></li>
+                @if (Request::is('/'))
                 <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        @if (Request::is('/'))
-                            <li><a class="nav-link" href="#tools">Tools</a></li>
-                            <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                        <li><a class="nav-link" href="#tools">Tools</a></li>
+                        <li><a class="nav-link" href="#team">Team</a></li>
+                        <li><a class="nav-link" href="#cta">Support Us</a></li>
+                    </ul>
                         @else
-                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                    <li><a class="nav-link" href="#cta">Support Us</a></li>
                         @endif
 
-                    </ul>
-                </li>
                 <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
-                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/">Blog</a></li>
+                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i class="bi bi-box-arrow-up-right"></i></sup></a></li>
                 <li><a class="nav-link"
-                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/">Contact</a></li>
+                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i class="bi bi-box-arrow-up-right"></i></sup></a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
