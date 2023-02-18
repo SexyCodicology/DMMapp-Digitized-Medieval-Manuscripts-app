@@ -48,7 +48,7 @@ describe('Admin functionality', () => {
     it('checks if admin can view an institution', () => {
         cy.login({email: Cypress.env('username')});
         cy.visit('/data');
-        cy.get('#DataTables_Table_0 > tbody > .odd:nth-child(1) > .dt-center > .btn-secondary').click({force: true})
+        cy.get('[data-dmmapp=explore]').first().click({force: true})
         cy.get('[data-dmmapp=library-info]').should('be.visible')
         cy.get('[data-dmmapp=institution-card]').should('exist')
         cy.get('[data-dmmapp=library]').should('not.be.empty')
@@ -106,7 +106,4 @@ describe('Admin functionality', () => {
         cy.url().should('include', '/admin/home')
         cy.contains('An institution has been successfully deleted.')
     })
-
-
 })
-

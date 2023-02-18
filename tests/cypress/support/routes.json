@@ -187,11 +187,31 @@
       "HEAD"
     ]
   },
+  "random_library": {
+    "name": "random_library",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RandomInstitutionController",
+    "uri": "explore",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
   "data": {
     "name": "data",
     "domain": null,
     "action": "App\\Http\\Controllers\\LibraryController@index",
     "uri": "data",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "map": {
+    "name": "map",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\LibraryController@map",
+    "uri": "map",
     "method": [
       "GET",
       "HEAD"
@@ -207,31 +227,11 @@
       "HEAD"
     ]
   },
-  "random_library": {
-    "name": "random_library",
-    "domain": null,
-    "action": "App\\Http\\Controllers\\RandomInstitutionController",
-    "uri": "explore",
-    "method": [
-      "GET",
-      "HEAD"
-    ]
-  },
   "redirect": {
     "name": "redirect",
     "domain": null,
     "action": "App\\Http\\Controllers\\RedirectController",
     "uri": "record/{id}",
-    "method": [
-      "GET",
-      "HEAD"
-    ]
-  },
-  "home": {
-    "name": "home",
-    "domain": null,
-    "action": "App\\Http\\Controllers\\HomeController@index",
-    "uri": "home",
     "method": [
       "GET",
       "HEAD"
@@ -290,7 +290,7 @@
     "name": "check_broken_links",
     "domain": null,
     "action": "App\\Http\\Controllers\\BrokenURLsController@executeJob",
-    "uri": "admin/jobs/check-broken-links",
+    "uri": "admin/job/check-broken-links",
     "method": [
       "GET",
       "HEAD"
@@ -304,6 +304,34 @@
     "method": [
       "GET",
       "HEAD"
+    ]
+  },
+  "queue-monitor::index": {
+    "name": "queue-monitor::index",
+    "domain": null,
+    "action": "\\romanzipp\\QueueMonitor\\Controllers\\ShowQueueMonitorController",
+    "uri": "admin/jobs",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "queue-monitor::destroy": {
+    "name": "queue-monitor::destroy",
+    "domain": null,
+    "action": "\\romanzipp\\QueueMonitor\\Controllers\\DeleteMonitorController",
+    "uri": "admin/jobs/monitors/{monitor}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "queue-monitor::purge": {
+    "name": "queue-monitor::purge",
+    "domain": null,
+    "action": "\\romanzipp\\QueueMonitor\\Controllers\\PurgeMonitorsController",
+    "uri": "admin/jobs/purge",
+    "method": [
+      "DELETE"
     ]
   }
 }
