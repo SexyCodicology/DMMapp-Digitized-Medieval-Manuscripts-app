@@ -49,7 +49,7 @@ $(function () {
                 },
                 orderable: false,
                 render: function (data, type, row) {
-                    return '<p style="display:none">' + row['website'] + '</p> <a class="btn btn-outline-primary" href="' + row['website'] + '" role="button">Digitized manuscripts <sup><i class="bi bi-box-arrow-up-right"></i> </sup></a>';
+                    return '<p style="display:none">' + row['website'] + '</p><a class="btn btn-outline-primary" href="' + row['website'] + '" role="button"><i class="bi bi-link-45deg"></i> Digitized manuscripts  <sup><i class="bi bi-box-arrow-up-right"></i></sup></a>';
 
                 }
             },
