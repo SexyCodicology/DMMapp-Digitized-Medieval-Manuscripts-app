@@ -29,5 +29,6 @@
         "webpack-cli": "^4.8.0"
     },
     "dependencies": {
+        "laravel-mix-imagemin": "^1.0.3"
     }
 }
