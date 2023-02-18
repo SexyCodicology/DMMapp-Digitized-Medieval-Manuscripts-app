@@ -91,16 +91,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
-    @env('production')
-        {{-- Template Main CSS File --}}
-        <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-    @endenv
-    @env(['local', 'staging'])
         {{-- Template Main CSS File --}}
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    @endenv
 
     @yield('css')
 
@@ -282,8 +275,10 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script type="text/javascript" src="{{asset('/js/manifest.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/vendor.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
 @yield('javascript')
 @stack('scripts')

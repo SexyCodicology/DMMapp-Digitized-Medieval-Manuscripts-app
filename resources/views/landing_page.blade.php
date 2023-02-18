@@ -645,4 +645,5 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
+    <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
 @endsection
