@@ -138,7 +138,6 @@
                             <li><a class="nav-link" href="/admin/jobs/" target="_blank" rel="noopener noreferrer">Jobs
                                     Monitor</a>
                             </li>
-                            <hr>
                             <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

@@ -6,5 +6,6 @@
     "/js/bootstrap.min.js": "/js/bootstrap.min.js",
     "/js/data.min.js": "/js/data.min.js",
     "/js/dashboard.min.js": "/js/dashboard.min.js",
-    "/js/main.min.js": "/js/main.min.js"
+    "/js/main.min.js": "/js/main.min.js",
+    "/js/map-data.min.js": "/js/map-data.min.js"
 }
