@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.setPublicPath('public_html/');
 
 mix.js('resources/js/app.js', 'public_html/js')
-    .extract(['jquery','bootstrap'])
+    .extract(['bootstrap'], 'public_html/js/bootstrap.min.js')
 
     .minify('resources/js/data.js', 'public_html/js/data.min.js')
     .minify('resources/js/dashboard.js', 'public_html/js/dashboard.min.js')

@@ -3,7 +3,7 @@
     "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
-    "/js/vendor.js": "/js/vendor.js",
+    "/js/bootstrap.min.js": "/js/bootstrap.min.js",
     "/js/data.min.js": "/js/data.min.js",
     "/js/dashboard.min.js": "/js/dashboard.min.js",
     "/js/main.min.js": "/js/main.min.js"
