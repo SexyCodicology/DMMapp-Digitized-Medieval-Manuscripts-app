@@ -73,7 +73,7 @@
             <div class="my-3">
                 <a href="{{ $library_data->website }}" target="_blank" class="btn btn-success" rel="noopener">Go to the
                     digitized manuscripts <sup><i
-                            class="bi bi-box-arrow-up-right fa-xs"></i></sup></a>
+                            class="bi bi-box-arrow-up-right small"></i></sup></a>
             </div>
         </div>
     </div>
@@ -214,7 +214,7 @@
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform?entry.310414793={{ $library_data->library }}&entry.1084339932={{ $library_data->id }}"
                    rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                     <i class="bi bi-exclamation-circle-fill"></i> Report data issue <sup><i
-                            class="bi bi-box-arrow-up-right fa-xs"></i></sup>
+                            class="bi bi-box-arrow-up-right small"></i></sup>
                 </a>
                 <p class="small text-muted mt-4">The DMMapp data is crowdsourced. Help us keep it up-to-date by
                     reporting
@@ -237,13 +237,13 @@
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_TNstBIoCI9mBhA81cN7XxASGx4cLknBOuyp44Tm7Qh9_g/viewform?entry.310414793={{ $library_data->library }}&entry.1084339932={{ $library_data->id }}"
                        rel="noopener" class="btn btn-warning" target="_blank" role="button" aria-pressed="true">
                         <i class="bi bi-exclamation-circle-fill"></i> Report data issue <sup><i
-                                class="bi bi-box-arrow-up-right fa-xs"></i></sup>
+                                class="bi bi-box-arrow-up-right small"></i></sup>
                     </a>
                     <a href="https://docs.google.com/forms/d/1EvEN3Ctzt1rQgGPPcyyAZ4UcSN3p-aqVqfOIUTE75Xk"
                        rel="noopener"
                        class="btn btn-danger mt-2" target="_blank" role="button" aria-pressed="true">
                         <i class="bi bi-exclamation-circle-fill"></i> Report missing institution <sup><i
-                                class="bi bi-box-arrow-up-right fa-xs"></i></sup>
+                                class="bi bi-box-arrow-up-right small"></i></sup>
                     </a>
                 </div>
             </div>
