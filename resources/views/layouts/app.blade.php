@@ -135,8 +135,11 @@
                             </li>
                             <li><a class="nav-link" href="{{ route('broken-links') }}">Broken links</a>
                             </li>
-                            <li><a class="nav-link" href="/admin/jobs/" target="_blank" rel="noopener noreferrer">Jobs
-                                    Monitor</a>
+                            <li><a class="nav-link" href="/admin/jobs" target="_blank" rel="noopener noreferrer">Jobs
+                                    monitor</a>
+                            </li>
+                            <li><a class="nav-link" href="/admin/log-viewer" rel="noopener noreferrer">Logs
+                                    viewer</a>
                             </li>
                             <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
