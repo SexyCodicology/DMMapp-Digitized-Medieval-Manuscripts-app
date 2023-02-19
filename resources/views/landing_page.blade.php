@@ -10,16 +10,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
-                    data-aos="fade-up">
+                     data-aos="fade-up">
                     <div>
                         <h1>We help you find digitized medieval manuscripts</h1>
-                        <h2>We have collected 500+ links to fully digitized books, fragments, IIIF repositories, etc.</h2>
-                        <a href="{{ route('data') }}" class="btn-get-started">Get Started</a>
-                        <a href="{{ route('random_library') }}" class="btn-get-started">Discover a random repository</a>
+                        <h2>We have collected 500+ links to fully digitized books, fragments, IIIF repositories,
+                            etc.</h2>
+                        <a href="{{ route('data') }}" class="btn-get-started mt-3">Get Started <i
+                                class="bi bi-book"></i></a>
+                        <a href="{{ route('random_library') }}" class="btn-get-started mt-3">Discover a random
+                            repository <i class="bi bi-shuffle"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="img/hero-img.png" class="img-fluid" alt="">
+                    <img src="{{asset('/img/hero-img.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
@@ -128,33 +131,37 @@
 
                 <div id="tools" class="section-title" data-aos="fade-up">
                     <h2>Tools</h2>
-                    <p>Every year, hundreds of new manuscripts are made available online, repositories change URLs, new catalogs appear. The DMMapp collects and makes available as many links as possible.</p>
+                    <p>Every year, hundreds of new manuscripts are made available online, repositories change URLs, new
+                        catalogs appear. The DMMapp collects and makes available as many links as possible.</p>
                 </div>
 
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bx-world"></i></div>
-                            <h4 class="title"><a href="">Map</a></h4>
-                            <p class="description">The world is full of manuscripts! Go explore hundreds of repositories thanks to our map.</p>
+                            <div class="icon mb-3"><i class="bi bi-pin-map"></i></div>
+                            <h4 class="title"><a href="{{ route('map') }}">Map</a></h4>
+                            <p class="description">The world is full of manuscripts! Go explore hundreds of repositories
+                                thanks to our map.</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                        data-aos-delay="100">
+                         data-aos-delay="100">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bx-data"></i></div>
-                            <h4 class="title"><a href="">Data</a></h4>
-                            <p class="description">Search, filter, or simply browse all the digitized medieval manuscripts repositories we have added to the DMMapp.</p>
+                            <div class="icon mb-3"><i class="bi bi-database"></i></div>
+                            <h4 class="title"><a href="{{ route('data') }}">Data</a></h4>
+                            <p class="description">Search, filter, or simply browse all the digitized medieval
+                                manuscripts repositories we have added to the DMMapp.</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                        data-aos-delay="200">
+                         data-aos-delay="200">
                         <div class="icon-box icon-box-blue">
-                            <div class="icon"><i class="bx bxl-dev-to"></i></div>
+                            <div class="icon mb-3"><i class="bi bi-bezier2"></i></div>
                             <h4 class="title"><a href="">API (coming soon)</a></h4>
-                            <p class="description">Need the DMMapp data for your own application? We are working at API just for you!</p>
+                            <p class="description">Need the DMMapp data for your own application? We are working at API
+                                just for you!</p>
                         </div>
                     </div>
 
@@ -164,7 +171,7 @@
         </section>{{-- End Services Section --}}
 
         {{-- ======= Team Section ======= --}}
-        <section id="team" class="team mt-3">
+        <section id="team" class="team mt-3 shadow">
             <div class="container ">
 
                 <div class="section-title" data-aos="fade-up">
@@ -173,17 +180,16 @@
                 </div>
 
                 <div class="row justify-content-center">
-
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in">
-                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
-                            </div>
+                            {{--<div class="pic"><img src="{{asset("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
                             <div class="member-info">
                                 <h4>Giulio Menna</h4>
                                 <span>The developer</span>
                                 <div class="social">
-                                    <a href="https://twitter.com/Giulio_Menna"><i class="bi bi-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/in/giuliomenna/"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/in/giuliomenna/"><i
+                                            class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -191,13 +197,11 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="img/team/reference.jpg" class="img-fluid" alt="" style="display: none">
-                            </div>
+                            {{--<div class="pic"><img src="{{asset("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
                             <div class="member-info">
                                 <h4>Marjolein de Vos</h4>
                                 <span>The editor</span>
-                                <div class="social">
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +214,7 @@
 
         {{-- ======= Cta Section ======= --}}
         <div class="mt-3">
-            <x-patreon />
+            <x-patreon/>
         </div>
 
         {{-- End Cta Section --}}
@@ -245,8 +249,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -259,8 +263,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -273,8 +277,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -287,8 +291,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -301,8 +305,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -315,8 +319,8 @@
                     <p>App</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -329,8 +333,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -343,8 +347,8 @@
                     <p>Card</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -357,8 +361,8 @@
                     <p>Web</p>
                   </div>
                   <div class="portfolio-links">
-                    <a href="img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                   </div>
                 </div>
               </div>
@@ -386,11 +390,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
                                     rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
                                     risus at semper.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                                 <h3>Saul Goodman</h3>
@@ -401,11 +405,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
                                     cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
                                     legam anim culpa.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                                 <h3>Sara Wilsson</h3>
@@ -416,10 +420,10 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
                                     duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                                 <h3>Jena Karlis</h3>
@@ -430,11 +434,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
                                     minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore
                                     labore illum veniam.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                                 <h3>Matt Brandon</h3>
@@ -445,11 +449,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <i class="bi bi-quote-alt-left quote-icon-left"></i>
                                     Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
                                     veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
                                     culpa fore nisi cillum quid.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    <i class="bi bi-quote-alt-right quote-icon-right"></i>
                                 </p>
                                 <img src="img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                                 <h3>John Larson</h3>
@@ -534,41 +538,48 @@
         End Clients Section --}}
 
         {{-- ======= F.A.Q Section ======= --}}
-        <section id="faq" class="faq">
+        <section id="faq" class="faq" data-aos="fade-up">
             <div class="container">
 
-                <div class="section-title" data-aos="fade-up">
+                <div class="section-title">
                     <h2>Frequently Asked Questions</h2>
                 </div>
 
                 <ul class="faq-list">
 
                     <li>
-                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Is the DMMapp owned by an institution? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Is the DMMapp owned by an
+                            institution? <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                No, the DMMapp (and the Sexy Codicology blog) are privately maintained and supported by the donations coming via Patreon, or our RedBubble store.
+                                No, the DMMapp (and the Sexy Codicology blog) are privately maintained and supported by
+                                the donations coming via Patreon, or our RedBubble store.
                             </p>
                         </div>
                     </li>
 
                     <li>
-                        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Are the DMMapp and its data free? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Are the DMMapp and its
+                            data free? <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Yes, the DMMapp data, its code, and basically everything we do is shared with an Attribution 2.0 Generic (CC BY 2.0) License.
+                                Yes, the DMMapp data, its code, and basically everything we do is shared with an
+                                Attribution 2.0 Generic (CC BY 2.0) License.
                             </p>
                         </div>
                     </li>
 
                     <li>
-                        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Where do you get your data and links from? <i class="bi bi-chevron-down icon-show"></i><i
+                        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Where do you get your
+                            data and links from? <i class="bi bi-chevron-down icon-show"></i><i
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Some links were easy to find via a search engine, other links came from a list we created while studying, but many links are crowd-sourced: users inform us of a new repository, we test test, collect information, and add it to our database.
+                                Some links were easy to find via a search engine, other links came from a list we
+                                created while studying, but many links are crowdsourced: users inform us of a new
+                                repository, we test, collect information, and add it to our database.
                             </p>
                         </div>
                     </li>
@@ -655,4 +666,5 @@
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
+    <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
 @endsection
