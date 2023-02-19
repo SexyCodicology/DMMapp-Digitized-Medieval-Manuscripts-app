@@ -67,37 +67,41 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
     public function handle()
     {
         BrokenLink::truncate();
+        //get only the id, url, and institution name from the database
         $libraries = Library::all();
         $urls = $libraries->map->only(['id', 'website', 'library']);
 
         foreach ($urls as $url) {
-            try{
+            try {
                 $response = Http::get($url['website'])->failed();
 
                 if ($response !== false) {
                     /* If the response from the URL is not within the 200's, we'll add the details into the 'broken urls' table */
-                    $library = $url['library'];
                     $status_code = Http::withOptions([
                         'connect_timeout' => 3,
-                        'timeout' => 3
+                        'timeout' => 3,
                     ])->get($url['website'])->status();
+
+                    $library = $url['library'];
+                    $brokenUrl = $url['website'];
                     $dmmapp_id = $url['id'];
-                    $url = $url['website'];
+
                     BrokenLink::updateOrCreate([
                         'dmmapp_id' => $dmmapp_id
                     ],
-                        ['status_code' => $status_code, 'url' => $url, 'library' => $library]
+                        ['status_code' => $status_code, 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                     );
                 }
-            } catch (Exception $e)
-            {
+            } catch (Exception $e) {
+
                 $library = $url['library'];
+                $brokenUrl = $url['website'];
                 $dmmapp_id = $url['id'];
-                $url = $url['website'];
+
                 BrokenLink::updateOrCreate([
                     'dmmapp_id' => $dmmapp_id
                 ],
-                    ['status_code' => $e->getMessage(), 'url' => $url, 'library' => $library]
+                    ['status_code' => $e->getMessage(), 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                 );
 
             }
