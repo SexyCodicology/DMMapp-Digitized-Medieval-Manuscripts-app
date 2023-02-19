@@ -63,8 +63,7 @@
 
         let elementPos = select(el).offsetTop
         window.scrollTo({
-            top: elementPos - offset,
-            behavior: 'smooth'
+            top: elementPos - offset, behavior: 'smooth'
         })
     }
 
@@ -155,8 +154,7 @@
         let portfolioContainer = select('.portfolio-container');
         if (portfolioContainer) {
             let portfolioIsotope = new Isotope(portfolioContainer, {
-                itemSelector: '.portfolio-item',
-                layoutMode: 'fitRows'
+                itemSelector: '.portfolio-item', layoutMode: 'fitRows'
             });
 
             let portfolioFilters = select('#portfolio-flters li', true);
@@ -184,10 +182,7 @@
      */
     window.addEventListener('load', () => {
         AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            duration: 1000, easing: 'ease-in-out', once: true, mirror: false
         })
     });
 
