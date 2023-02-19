@@ -40,7 +40,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
      *
      * @var int
      */
-    public int $timeout = 600; //10 minutes
+    public int $timeout = 3000; //50 minutes = 5 seconds to timeout per link in the db
 
     /**
      * Indicate if the job should be marked as failed on timeout.
@@ -66,26 +66,20 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
      */
     public function handle()
     {
-        Log::info('Checking URLs validity in the DMMapp database...');
-        Log::info('Emptying Broken Links database');
         BrokenLink::truncate();
-        Log::info('Broken Links database emptied');
         $libraries = Library::all();
         $urls = $libraries->map->only(['id', 'website', 'library']);
-        Log::info('Initiating URLs checks');
 
         foreach ($urls as $url) {
             try{
                 $response = Http::get($url['website'])->failed();
 
                 if ($response !== false) {
-                    Log::info('Broken link detected.');
-                    error_log('logging broken link');
                     /* If the response from the URL is not within the 200's, we'll add the details into the 'broken urls' table */
                     $library = $url['library'];
                     $status_code = Http::withOptions([
-                        'connect_timeout' => 5,
-                        'timeout' => 5
+                        'connect_timeout' => 3,
+                        'timeout' => 3
                     ])->get($url['website'])->status();
                     $dmmapp_id = $url['id'];
                     $url = $url['website'];
@@ -94,9 +88,6 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                     ],
                         ['status_code' => $status_code, 'url' => $url, 'library' => $library]
                     );
-                }
-                else {
-                    error_log('working URL detected');
                 }
             } catch (Exception $e)
             {
@@ -114,7 +105,5 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
         Log::info('Broken URLs check complete.');
         //TODO send email notification to sexycodicology@gmail.com once the job is complete.
         //Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
-
-        //$this->release();
     }
 }
