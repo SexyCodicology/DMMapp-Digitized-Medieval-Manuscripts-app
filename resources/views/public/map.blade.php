@@ -110,9 +110,9 @@
 
     <x-disclaimer/>
     <x-patreon/>
-    <x-feedback/>
-
 @endsection
+
+<x-feedback/>
 {{-- Optional JavaScript --}}
 @section('javascript')
 @endsection
