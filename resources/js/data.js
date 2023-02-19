@@ -2,7 +2,7 @@ $(function () {
     let table = $('.dmmapp-datatable').DataTable({
         dom: 'PBlfrtip',
         data: libraries,
-        order: [],
+        aaSorting: [],
         buttons: [
             {
                 extend: 'csvHtml5',
