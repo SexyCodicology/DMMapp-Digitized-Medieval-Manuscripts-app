@@ -1,7 +1,7 @@
 @extends('errors::bootstrap')
 
 
-@if(Request::url('https://beta.digitizedmedievalmanuscripts.org/'))
+@if(Request::url() === 'https://beta.digitizedmedievalmanuscripts.org/')
     @section('title', __('Service Unavailable'))
     @section('code', '503')
     @section('message', __('The DMMapp beta environment is currently closed'))
