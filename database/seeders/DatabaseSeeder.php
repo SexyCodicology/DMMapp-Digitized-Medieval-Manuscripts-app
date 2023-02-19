@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         if (App::environment(['local', 'staging'])) {
             Library::factory(100)->create();
             DB::table('users')->insert([
-                'name' => 'admin',
-                'email' => 'admin@example.com',
-                'password' => bcrypt('password'),
+                'name' => 'SexyCodicologist',
+                'email' => 'sexycodicology@digitizedmedievalmanuscripts.org',
+                'password' => bcrypt(env('STAGING_PASSWORD')),
             ]);
         }
 
