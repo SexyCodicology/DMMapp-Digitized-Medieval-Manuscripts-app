@@ -22,7 +22,13 @@
             <div class="card">
                 <div class="card-header">Broken links</div>
                 <div class="card-body">
-                    <table id="dashboard" class="table table-bordered dmmapp-datatable">
+                    <noscript>
+                        <div class="alert alert-info">
+                            <h4>Your JavaScript is disabled</h4>
+                            <p>Please enable JavaScript to see the table.</p>
+                        </div>
+                    </noscript>
+                    <table id="dashboard" class="table table-bordered my-3" style="width: 100%">
                         <thead>
                         <tr>
                             <th>Institution</th>
