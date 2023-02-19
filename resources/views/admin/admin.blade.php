@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('css')
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <ol>
         <li><a href="/">Home</a></li>
-        <li>Admin</li>
+        <li>Dashboard</li>
     </ol>
-    <h2>Admin</h2>
+    <h2>Dashboard</h2>
 @endsection
 @section('content')
     @if (session('success'))
@@ -37,7 +39,6 @@
                     <table id="dashboard" class="table table-striped table-bordered align-middle text-center">
                         <thead>
                         <tr>
-                            <th>DMMapp ID</th>
                             <th>Institution</th>
                             <th>Edit</th>
                         </tr>
@@ -52,16 +53,14 @@
     </div>
 @endsection
 @section('javascript')
+@endsection
+
+@push('scripts')
     <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.11.3/r-2.2.9/sp-1.4.0/sl-1.3.3/datatables.min.js"></script>
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
     {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
     <script type="text/javascript">
-        var libraries = {!! json_encode($libraries->toArray()) !!}
+        let libraries = {!! json_encode($libraries->toArray()) !!}
     </script>
-    @env('production')
-        <script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
-    @endenv
-    @env(['local', 'staging'])
-        <script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
-    @endenv
-@endsection
+    <script defer type="text/javascript" src="{{ asset('/js/dashboard.min.js') }}"></script>
+@endpush

@@ -124,20 +124,20 @@
                        href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
                                 class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 @auth
-                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="{{ route('admin') }}"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a class="nav-link" href="{{ route('create_library') }}">Create institution</a>
                             </li>
-                            <li><a class="nav-link" href="{{ route('admin') }}">List institutions</a>
-                            </li>
                             <li><a class="nav-link" href="{{ route('broken-links') }}">Broken links</a>
                             </li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="nav-link" href="/admin/jobs" target="_blank" rel="noopener noreferrer">Jobs
                                     monitor</a>
                             </li>
                             <li><a class="nav-link" href="/admin/log-viewer" rel="noopener noreferrer">Logs
                                     viewer</a>
                             </li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
