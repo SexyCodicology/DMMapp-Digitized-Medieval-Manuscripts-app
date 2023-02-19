@@ -82,7 +82,6 @@
 
     {{-- Vendor CSS Files --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -280,7 +279,6 @@
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script type="text/javascript" src="{{asset('/js/manifest.js')}}"></script>
