@@ -2,13 +2,12 @@
 $(function () {
     var table = $('#dashboard').DataTable({
         data: libraries,
-        columns: [
-            {"data": "id"},
-            {"data": "library"},
-            {"defaultContent": ""},
-        ],
-
         responsive: true,
+        columns: [
+            {data: "id"},
+            {data: "library"},
+            {data: "dmmapp_id"},
+        ],
         columnDefs: [
             {
                 responsivePriority: 1,
@@ -22,12 +21,14 @@ $(function () {
             {
                 targets: 2,
                 render: function (data, type, row, meta) {
-                    return '<a class="btn btn-primary" href="/admin/edit/' + row['id'] + '" role="button">Edit</a>';
+                    return '<a class="btn btn-primary" href="/admin/edit/' + row['dmmapp_id'] + '" role="button">Edit</a>';
 
                 }
             }
         ]
 
     });
+    table.responsive.recalc();
+    table.columns.adjust()
     table.searchPanes.resizePanes();
 });
