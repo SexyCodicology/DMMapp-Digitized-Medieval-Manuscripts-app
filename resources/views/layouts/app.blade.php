@@ -4,11 +4,11 @@
 <head>
     {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to config rather than env --}}
     @production
-        @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
+        @empty(config('google-analytics.ga-id'))
         @else
             {{-- Global site tag (gtag.js) - Google Analytics --}}
             <script async
-                    src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
+                    src="https://www.googletagmanager.com/gtag/js?id={{ config('google-analytics.ga-id') }}">
             </script>
             <script>
                 window.dataLayer = window.dataLayer || [];
@@ -18,7 +18,7 @@
                 }
 
                 gtag('js', new Date());
-                gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
+                gtag('config', '{{ config('google-analytics.ga-id') }}');
             </script>
         @endempty
     @endproduction
