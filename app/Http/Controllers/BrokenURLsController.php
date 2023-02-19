@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\CheckWebsitesInDatabaseJob;
 use App\Models\BrokenLink;
 use App\Models\BrokenLinksTask;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -28,8 +29,11 @@ class BrokenURLsController extends Controller
 
     public function executeJob(): RedirectResponse
     {
-        CheckWebsitesInDatabaseJob::dispatch(BrokenLinksTask::class);
-        return redirect()->route('admin')->with('success', 'Broken Links job initiated');
-
+        try {
+            CheckWebsitesInDatabaseJob::dispatch(BrokenLinksTask::class);
+            return redirect()->route('admin')->with('success', 'Broken Links job initiated');
+        } catch (Exception $e){
+            return redirect()->route('admin')->with('error', 'Unable to initiate job: '.$e);
+        }
     }
 }
