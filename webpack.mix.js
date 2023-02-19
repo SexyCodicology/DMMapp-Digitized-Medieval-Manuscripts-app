@@ -20,10 +20,13 @@ mix.js('resources/js/app.js', 'public_html/js')
     .minify('resources/js/dashboard.js', 'public_html/js/dashboard.min.js')
     .minify('resources/js/main.js', 'public_html/js/main.min.js')
     .minify('resources/js/map-data.js', 'public_html/js/map-data.min.js')
+    .minify('resources/js/broken-links.js', 'public_html/js/broken-links.min.js')
 
     .sass('resources/sass/app.scss', 'public_html/css')
 
     .postCss('resources/css/app.css', 'public_html/css')
     .postCss('resources/css/style.css', 'public_html/css')
+
+    .copyDirectory('resources/img', 'public_html/img');
 
 mix.browserSync('127.0.0.1:8000');

@@ -2,13 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to config rather than env --}}
     @production
-        @empty(env('GOOGLE_ANALYTICS_TRACKING_ID'))
+        @empty(config('google-analytics.ga-id'))
         @else
             {{-- Global site tag (gtag.js) - Google Analytics --}}
             <script async
-                    src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}">
+                    src="https://www.googletagmanager.com/gtag/js?id={{ config('google-analytics.ga-id') }}">
             </script>
             <script>
                 window.dataLayer = window.dataLayer || [];
@@ -18,7 +17,7 @@
                 }
 
                 gtag('js', new Date());
-                gtag('config', '{{ env('GOOGLE_ANALYTICS_TRACKING_ID', 'undefined') }}');
+                gtag('config', '{{ config('google-analytics.ga-id') }}');
             </script>
         @endempty
     @endproduction
@@ -83,7 +82,6 @@
 
     {{-- Vendor CSS Files --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
     {{-- Template Main CSS File --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -99,11 +97,10 @@
 <header id="header" class="d-flex align-items-center shadow-sm">
     <div class="container d-flex align-items-center">
 
-        <div class="logo me-auto">
-            <h2><a href="{{ url('/') }}">DMMapp</a></h2>
-            {{-- TODO image logo --}}
-            {{-- <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="DMMapp Logo"
-                    class="img-fluid"></a> --}}
+        <div class="logo me-auto d-flex justify-content-around">
+            <a href="{{ url('/') }}"><img src="{{ asset('img/small-logo.png') }}" alt="DMMapp Logo"
+                                          class="img-fluid" width="30" height="24"></a>
+            <h2 class="ms-3"><a href="{{ url('/') }}">DMMapp</a></h2>
         </div>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
@@ -127,17 +124,20 @@
                        href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
                                 class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 @auth
-                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="{{ route('admin') }}"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a class="nav-link" href="{{ route('create_library') }}">Create institution</a>
                             </li>
-                            <li><a class="nav-link" href="{{ route('admin') }}">List institutions</a>
-                            </li>
                             <li><a class="nav-link" href="{{ route('broken-links') }}">Broken links</a>
                             </li>
-                            <li><a class="nav-link" href="/admin/jobs/" target="_blank" rel="noopener noreferrer">Jobs
-                                    Monitor</a>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link" href="/admin/jobs" target="_blank" rel="noopener noreferrer">Jobs
+                                    monitor</a>
                             </li>
+                            <li><a class="nav-link" href="/admin/log-viewer" rel="noopener noreferrer">Logs
+                                    viewer</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -170,16 +170,21 @@
 <main id="main">
     @if (Request::is('/'))
     @else
-    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
-        <div class="container">
+        <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
+            <div class="container">
 
-            @yield('breadcrumbs')
+                @yield('breadcrumbs')
 
-        </div>
-    </section>
+            </div>
+        </section>
     @endif
     <section class="inner-page">
-        <div class="container border py-4 shadow rounded">
+        <div class="text-center">
+            <div class="spinner-border text-primary mt-5" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="container border py-4 shadow rounded" data-aos="fade-up">
 
             @yield('content')
         </div>
@@ -274,13 +279,15 @@
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script type="text/javascript" src="{{asset('/js/manifest.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
+<script type="text/javascript"> $(function () {
+        $('.spinner-border').hide();
+    });</script>
 
 @yield('javascript')
 @stack('scripts')

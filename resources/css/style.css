@@ -224,6 +224,10 @@ h1, h2, h3, h4, h5, h6 {
     visibility: visible;
 }
 
+.navbar .dropdown-divider {
+    border-top: 1px solid #dae1e6;
+}
+
 @media (max-width: 1366px) {
     .navbar .dropdown .dropdown ul {
         left: -90%;
@@ -743,23 +747,6 @@ section {
     position: relative;
     border-radius: 6px;
     z-index: 1;
-}
-
-.testimonials .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    opacity: 1;
-    border: 1px solid #006699;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #006699;
 }
 
 /*--------------------------------------------------------------

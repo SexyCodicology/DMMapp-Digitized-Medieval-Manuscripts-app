@@ -1,40 +1,28 @@
 function initMap() {
     let customMapType = new google.maps.StyledMapType([{
-        featureType: 'administrative',
-        elementType: 'all',
-        stylers: [{
+        featureType: 'administrative', elementType: 'all', stylers: [{
             visibility: 'on'
         }]
     }, {
-        featureType: 'poi',
-        elementType: 'all',
-        stylers: [{
+        featureType: 'poi', elementType: 'all', stylers: [{
             visibility: 'off'
         }]
     }, {
-        featureType: 'road',
-        elementType: 'all',
-        stylers: [{
+        featureType: 'road', elementType: 'all', stylers: [{
             color: '#bfbfbf'
         }]
     }, {
-        featureType: 'landscape',
-        elementType: 'all',
-        stylers: [{
+        featureType: 'landscape', elementType: 'all', stylers: [{
             color: '#ebebeb'
         }]
     }, {
-        featureType: 'water',
-        elementType: 'all',
-        stylers: [{
+        featureType: 'water', elementType: 'all', stylers: [{
             visibility: 'simplified'
         }, {
             color: '#006699'
         }]
     }, {
-        featureType: 'road',
-        elementType: 'labels',
-        stylers: [{
+        featureType: 'road', elementType: 'labels', stylers: [{
             visibility: 'off'
         }]
     }]);
@@ -42,8 +30,7 @@ function initMap() {
     let customMapTypeId = 'custom_style';
 
     let center = {
-        lat: 48.76034594263708,
-        lng: 8.609468946875056
+        lat: 48.76034594263708, lng: 8.609468946875056
     };
 
     let map = new google.maps.Map(document.getElementById('map'), {
@@ -71,8 +58,7 @@ function initMap() {
         //Here we are trying to click on the table, center our map on the clicked library, and pass the data.
         let clickToggle = function () { //when clicked, do this:
             map.setCenter({
-                lat: parseFloat((place.lat)),
-                lng: parseFloat((place.lng)),
+                lat: parseFloat((place.lat)), lng: parseFloat((place.lng)),
             });
             infowindow.setContent(infowindowContent);
             infowindow.open(map, marker);
@@ -80,11 +66,8 @@ function initMap() {
         };
         let marker = new google.maps.Marker({ //here we are adding the pins for every library.
             position: {
-                lat: parseFloat((place.lat)),
-                lng: parseFloat((place.lng)),
-            },
-            map: map,
-            data: place.library
+                lat: parseFloat((place.lat)), lng: parseFloat((place.lng)),
+            }, map: map, data: place.library
         });
 
         marker.addListener('click', clickToggle);
@@ -93,19 +76,12 @@ function initMap() {
 
     libraries.map(addMarker);
 
-
     //Datatables
     $(function () {
         let table = $('#dmmtable').DataTable({
-            dom: 'PBlfrtip',
-            data: libraries,
-            responsive: true,
-            searchPanes: {
-                threshold: 1,
-                initCollapsed: true
-            },
-            columns: [
-                {data: 'library'}, //0
+            dom: 'PBlfrtip', data: libraries, order: [], responsive: true, searchPanes: {
+                threshold: 1, initCollapsed: true
+            }, columns: [{data: 'library'}, //0
                 {data: 'iiif'}, //1
                 {data: 'quantity'}, //2
                 {data: 'copyright'}, //3
@@ -119,47 +95,33 @@ function initMap() {
                 {data: 'has_post'}, // 11
                 {data: 'post_url'}, // 12
                 {data: 'library_name_slug'}, //13
-            ],
-            columnDefs: [
-                {
-                    targets: [3, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-                    visible: false
+            ], columnDefs: [{
+                targets: [3, 5, 6, 7, 8, 9, 10, 11, 12, 13], visible: false
+            }, {
+                targets: [3, 7, 8, 9, 10, 11, 12, 13], searchable: false
+            }, {
+                target: 0, responsivePriority: 1, searchPanes: {
+                    viewCount: false
                 },
-                {
-                    targets: [3, 7, 8, 9, 10, 11, 12, 13],
-                    searchable: false
+            }, {
+                responsivePriority: 2, target: 2
+            }, {
+                targets: [3, 7, 8, 9, 10, 11, 12, 13], searchPanes: {
+                    show: false
                 },
-                {
-                    target: 0,
-                    responsivePriority: 1,
-                    searchPanes: {
-                        viewCount: false
-                    },
-                },
-                {
-                    responsivePriority: 2,
-                    target: 2
-                },
-                {
-                    targets: [3, 7, 8, 9, 10, 11, 12, 13],
-                    searchPanes: {
-                        show: false
-                    },
-                },
-                {
-                    targets: [1, 4],
-                    render: function (data) {
+            }, {
+                targets: [1, 4], render: function (data) {
 
-                        if (data === 1) {
-                            return "<p style='display:none'>yes</p><i class='bi bi-check-circle-fill text-success' style='font-size: 1.5rem;'></i>";
+                    if (data === 1 || data === "1") {
+                        return "<p style='display:none'>yes</p><i class='bi bi-check-circle-fill text-success' style='font-size: 1.5rem;'></i>";
 
-                        } else {
-                            return "<p style='display:none'>no</p><i class='bi bi-x-circle-fill text-danger' style='font-size: 1.5rem;'></i>";
-                        }
+                    } else {
+                        return "<p style='display:none'>no</p><i class='bi bi-x-circle-fill text-danger' style='font-size: 1.5rem;'></i>";
                     }
-                },
-            ],
+                }
+            },],
         });
+
         table.searchPanes.container();
         table.searchPanes.resizePanes();
 
@@ -170,16 +132,12 @@ function initMap() {
             let marker = new google.maps.Marker({
                 //here we are adding the pins for every library.
                 position: {
-                    lat: parseFloat((data.lat)),
-                    lng: parseFloat((data.lng)),
-                },
-                map: map,
-                data: data.library,
+                    lat: parseFloat((data.lat)), lng: parseFloat((data.lng)),
+                }, map: map, data: data.library,
             });
 
             map.setCenter({
-                lat: parseFloat((data.lat)),
-                lng: parseFloat((data.lng)),
+                lat: parseFloat((data.lat)), lng: parseFloat((data.lng)),
             });
 
             map.setZoom(12);
@@ -188,27 +146,22 @@ function initMap() {
             infowindow.open(map, marker);
 
             $('html, body').animate({
-                    scrollTop: $('#main-map').offset().top
-                },
-                300);
+                scrollTop: $('#main-map').offset().top
+            }, 300);
         });
 
     });
 }
 
 $.fn.DataTable.ext.type.search.string = function (data) {
-    return !data ?
-        '' :
-        typeof data === 'string' ?
-            data
-                .replace(/[áÁàÀâÂäÄãÃåÅæÆ]/g, 'a')
-                .replace(/[çÇ]/g, 'c')
-                .replace(/[éÉèÈêÊëË]/g, 'e')
-                .replace(/[íÍìÌîÎïÏĩĨĬĭ]/g, 'i')
-                .replace(/[ñÑ]/g, 'n')
-                .replace(/[óÓòÒôÔöÖœŒ]/g, 'o')
-                .replace(/[ß]/g, 's')
-                .replace(/[úÚùÙûÛüÜ]/g, 'u')
-                .replace(/[ýÝŷŶŸÿ]/g, 'n') :
-            data;
+    return !data ? '' : typeof data === 'string' ? data
+        .replace(/[áÁàÀâÂäÄãÃåÅæÆ]/g, 'a')
+        .replace(/[çÇ]/g, 'c')
+        .replace(/[éÉèÈêÊëË]/g, 'e')
+        .replace(/[íÍìÌîÎïÏĩĨĬĭ]/g, 'i')
+        .replace(/[ñÑ]/g, 'n')
+        .replace(/[óÓòÒôÔöÖœŒ]/g, 'o')
+        .replace(/[ß]/g, 's')
+        .replace(/[úÚùÙûÛüÜ]/g, 'u')
+        .replace(/[ýÝŷŶŸÿ]/g, 'n') : data;
 };

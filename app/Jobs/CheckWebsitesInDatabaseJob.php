@@ -26,28 +26,28 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
      *
      * @var int
      */
-    public $tries = 1;
+    public int $tries = 1;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.
      *
      * @var int
      */
-    public $maxExceptions = 3;
+    public int $maxExceptions = 3;
 
     /**
      * The number of seconds the job can run before timing out.
      *
      * @var int
      */
-    public $timeout = 300; //5 minutes
+    public int $timeout = 3000; //50 minutes = 5 seconds to timeout per link in the db
 
     /**
      * Indicate if the job should be marked as failed on timeout.
      *
      * @var bool
      */
-    public $failOnTimeout = true;
+    public bool $failOnTimeout = true;
 
     /**
      * Create a new job instance.
@@ -66,47 +66,42 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
      */
     public function handle()
     {
-        Log::info('Checking URLs validity in the DMMapp database...');
-        Log::info('Emptying Broken Links database');
         BrokenLink::truncate();
-        Log::info('Broken Links database emptied');
+        //get only the id, url, and institution name from the database
         $libraries = Library::all();
         $urls = $libraries->map->only(['id', 'website', 'library']);
-        Log::info('Initiating URLs checks');
 
         foreach ($urls as $url) {
-            try{
+            try {
                 $response = Http::get($url['website'])->failed();
 
                 if ($response !== false) {
-                    Log::info('Broken link detected.');
-                    error_log('logging broken link');
                     /* If the response from the URL is not within the 200's, we'll add the details into the 'broken urls' table */
-                    $library = $url['library'];
                     $status_code = Http::withOptions([
-                        'connect_timeout' => 5,
-                        'timeout' => 5
+                        'connect_timeout' => 3,
+                        'timeout' => 3,
                     ])->get($url['website'])->status();
+
+                    $library = $url['library'];
+                    $brokenUrl = $url['website'];
                     $dmmapp_id = $url['id'];
-                    $url = $url['website'];
+
                     BrokenLink::updateOrCreate([
                         'dmmapp_id' => $dmmapp_id
                     ],
-                        ['status_code' => $status_code, 'url' => $url, 'library' => $library]
+                        ['status_code' => $status_code, 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                     );
                 }
-                else {
-                    error_log('working URL detected');
-                }
-            } catch (Exception $e)
-            {
+            } catch (Exception $e) {
+
                 $library = $url['library'];
+                $brokenUrl = $url['website'];
                 $dmmapp_id = $url['id'];
-                $url = $url['website'];
+
                 BrokenLink::updateOrCreate([
                     'dmmapp_id' => $dmmapp_id
                 ],
-                    ['status_code' => $e->getMessage(), 'url' => $url, 'library' => $library]
+                    ['status_code' => $e->getMessage(), 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                 );
 
             }
@@ -114,7 +109,5 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
         Log::info('Broken URLs check complete.');
         //TODO send email notification to sexycodicology@gmail.com once the job is complete.
         //Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
-
-        //$this->release();
     }
 }

@@ -31,7 +31,7 @@ class LibraryController extends Controller
      */
     public function index(): View|Factory|JsonResponse|Application
     {
-        $libraries = Library::all();
+        $libraries = Library::inRandomOrder()->get();
         return view('public/data', compact('libraries'));
     }
 
@@ -40,7 +40,7 @@ class LibraryController extends Controller
      */
     public function map()
     {
-        $libraries = Library::all();
+        $libraries = Library::inRandomOrder()->get();
         return view('public/map', compact('libraries'));
     }
 

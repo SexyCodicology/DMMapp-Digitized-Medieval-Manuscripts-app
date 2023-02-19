@@ -63,8 +63,7 @@
 
         let elementPos = select(el).offsetTop
         window.scrollTo({
-            top: elementPos - offset,
-            behavior: 'smooth'
+            top: elementPos - offset, behavior: 'smooth'
         })
     }
 
@@ -138,7 +137,7 @@
     }, true)
 
     /**
-     * Scroll with ofset on page load with hash links in the url
+     * Scroll with offset on page load with hash links in the url
      */
     window.addEventListener('load', () => {
         if (window.location.hash) {
@@ -149,14 +148,13 @@
     });
 
     /**
-     * Porfolio isotope and filter
+     * Portfolio isotope and filter
      */
     window.addEventListener('load', () => {
         let portfolioContainer = select('.portfolio-container');
         if (portfolioContainer) {
             let portfolioIsotope = new Isotope(portfolioContainer, {
-                itemSelector: '.portfolio-item',
-                layoutMode: 'fitRows'
+                itemSelector: '.portfolio-item', layoutMode: 'fitRows'
             });
 
             let portfolioFilters = select('#portfolio-flters li', true);
@@ -180,60 +178,11 @@
     });
 
     /**
-     * Portfolio details slider
-     */
-    new Swiper('.portfolio-details-slider', {
-        speed: 400,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        }
-    });
-
-    /**
-     * Testimonials slider
-     */
-    new Swiper('.testimonials-slider', {
-        speed: 600,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        slidesPerView: 'auto',
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-
-            1200: {
-                slidesPerView: 3,
-                spaceBetween: 20
-            }
-        }
-    });
-
-    /**
      * Animation on scroll
      */
     window.addEventListener('load', () => {
         AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            duration: 1000, easing: 'ease-in-out', once: true, mirror: false
         })
     });
 

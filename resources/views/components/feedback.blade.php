@@ -1,10 +1,10 @@
-<div class="position-fixed bottom-0 start-50 translate-middle-x" style="z-index: 11">
+<div class="position-fixed bottom-0 start-50 translate-middle-x" style="z-index: 11" data-aos="fade-up">
     <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true"
          data-bs-autohide="false">
         <div class="toast-header">
+            <img src="{{asset('img/logo.png')}}" width="30" height="24" class="rounded me-2 img-fluid" alt="DMMapp logo">
             <i class="bi bi-check-double"></i>
-            <strong class="me-auto ms-2">Improve the DMMapp!</strong>
-            <strong class="me-auto"></strong>
+            <strong class="me-auto ms-1">Improve the DMMapp!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body text-center">
