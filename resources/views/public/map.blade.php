@@ -60,7 +60,7 @@
     </div>
     <div id="main-map" class="main-map">
         <div class="container">
-            <div class="card shadow-sm" data-aos="fade-up">
+            <div class="card shadow-sm">
                 <div class="card-header">Map and filters</div>
                 <div class="card-body">
                     <div id="map" style="height:50em; width:100%;">

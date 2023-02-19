@@ -61,7 +61,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="alert alert-light text-center" role="alert" data-aos="fade-up" data-dmmapp="library-info">
+        <div class="alert alert-light text-center" role="alert" data-dmmapp="library-info">
 
             <div class="my-1">
                 <a href="{{ $library_data->website }}" target="_blank" class="btn btn-success" rel="noopener">Go to the
@@ -72,7 +72,7 @@
     </div>
     <div id="main-data">
         <div class="container">
-            <div class="card" data-aos="fade-up">
+            <div class="card">
                 <div class="card-header" data-dmmapp="institution-card">Institution details</div>
                 <div class="card-body">
                     <div class="table-responsive mb-4">

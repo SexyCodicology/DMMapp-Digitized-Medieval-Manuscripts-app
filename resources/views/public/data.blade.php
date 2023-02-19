@@ -85,7 +85,7 @@
     </div>
     <div id="main-data">
         <div class="container">
-            <div class="card shadow-sm" data-aos="fade-up">
+            <div class="card shadow-sm">
                 <div class="card-header">List and filters</div>
                 <div class="card-body">
                     <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable"
