@@ -27,4 +27,6 @@ mix.js('resources/js/app.js', 'public_html/js')
     .postCss('resources/css/app.css', 'public_html/css')
     .postCss('resources/css/style.css', 'public_html/css')
 
+    .copyDirectory('resources/img', 'public_html/img');
+
 mix.browserSync('127.0.0.1:8000');

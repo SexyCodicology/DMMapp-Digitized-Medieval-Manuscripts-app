@@ -99,11 +99,10 @@
 <header id="header" class="d-flex align-items-center shadow-sm">
     <div class="container d-flex align-items-center">
 
-        <div class="logo me-auto">
-            <h2><a href="{{ url('/') }}">DMMapp</a></h2>
-            {{-- TODO image logo --}}
-            {{-- <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="DMMapp Logo"
-                    class="img-fluid"></a> --}}
+        <div class="logo me-auto d-flex justify-content-around">
+            <a href="{{ url('/') }}"><img src="{{ asset('img/small-logo.png') }}" alt="DMMapp Logo"
+                                          class="img-fluid" width="30" height="24"></a>
+            <h2 class="ms-3"><a href="{{ url('/') }}">DMMapp</a></h2>
         </div>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
