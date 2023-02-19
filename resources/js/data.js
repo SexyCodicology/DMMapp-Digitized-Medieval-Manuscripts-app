@@ -57,7 +57,7 @@ $(function () {
                 targets: [3, 5],
                 render: function (data) {
 
-                    if (data === 1) {
+                    if (data === 1 || data === "1") {
                         return "<p style='display:none'>yes</p><i class='bi bi-check-circle-fill text-success' style='font-size: 2rem;'></i>";
 
                     } else {
@@ -92,7 +92,7 @@ $(function () {
                 target: 11,
                 orderable: false,
                 render: function (data, type, row) {
-                    if (row['has_post'] === 1) {
+                    if (row['has_post'] === 1 || row['has_post'] === 1 ) {
                         return '<a class="btn btn-outline-secondary" href="' + row['post_url'] + '" role="button">Read <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a>';
                     } else {
                         return '<p>No post available</p>';

@@ -150,7 +150,7 @@ function initMap() {
                     targets: [1, 4],
                     render: function (data) {
 
-                        if (data === 1) {
+                        if (data === 1 || data === "1") {
                             return "<p style='display:none'>yes</p><i class='bi bi-check-circle-fill text-success' style='font-size: 1.5rem;'></i>";
 
                         } else {
