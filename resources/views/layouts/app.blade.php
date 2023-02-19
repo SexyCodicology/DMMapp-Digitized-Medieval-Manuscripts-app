@@ -182,6 +182,11 @@
     </section>
     @endif
     <section class="inner-page">
+        <div class="text-center">
+            <div class="spinner-border text-primary mt-5" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <div class="container border py-4 shadow rounded" data-aos="fade-up">
 
             @yield('content')
@@ -284,6 +289,9 @@
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
+<script type="text/javascript"> $(function() {
+        $('.spinner-border').hide();
+    });</script>
 
 @yield('javascript')
 @stack('scripts')
