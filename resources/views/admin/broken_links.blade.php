@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('css')
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css"/>
+          href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
 @section('breadcrumbs')
     <ol>
@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-header">Broken links</div>
                 <div class="card-body">
-                    <table class="table table-bordered dmmapp-datatable">
+                    <table id="dashboard" class="table table-bordered dmmapp-datatable">
                         <thead>
                         <tr>
                             <th>Institution</th>
@@ -37,31 +37,16 @@
         </div>
     </div>
 @endsection
+{{-- Optional JavaScript --}}
 @section('javascript')
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 @endsection
 
 @push('scripts')
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.js"></script>
+    {{-- NOTE this transforms our libraries to json, which can then be read by Google maps - in dmmapp.js --}}
     <script type="text/javascript">
-        $(function () {
-
-            var table = $('.dmmapp-datatable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('broken-links') }}",
-                columns: [
-                    {data: 'library', name: 'Institution'},
-                    {data: 'status_code', name: 'Status Code'},
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            });
-
-        });
+        let brokenLinks = {!! json_encode($brokenLinks->toArray()) !!}
     </script>
+    <script type="text/javascript" src="{{ asset('/js/broken-links.min.js') }}"></script>
 @endpush
