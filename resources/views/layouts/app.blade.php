@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    {{-- TODO add GOOGLE_ANALYTICS_TRACKING_ID to config rather than env --}}
     @production
         @empty(config('google-analytics.ga-id'))
         @else
@@ -172,13 +171,13 @@
 <main id="main">
     @if (Request::is('/'))
     @else
-    <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
-        <div class="container">
+        <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
+            <div class="container">
 
-            @yield('breadcrumbs')
+                @yield('breadcrumbs')
 
-        </div>
-    </section>
+            </div>
+        </section>
     @endif
     <section class="inner-page">
         <div class="text-center">
@@ -288,7 +287,7 @@
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
-<script type="text/javascript"> $(function() {
+<script type="text/javascript"> $(function () {
         $('.spinner-border').hide();
     });</script>
 
