@@ -15,7 +15,8 @@
     {{-- Content here --}}
     <div id="main-data">
         <div class="container">
-            <a class="btn btn-primary my-3" href="{{route('check_broken_links')}}" role="button">Start Broken Links
+            <a class="btn btn-primary my-3" href="{{route('check_broken_links')}}" role="button" id="JobButton"><i class="bi bi-check2-circle"></i> Start
+                Broken Links
                 checker</a>
 
             <div class="card">
@@ -49,4 +50,9 @@
         let brokenLinks = {!! json_encode($brokenLinks->toArray()) !!}
     </script>
     <script type="text/javascript" src="{{ asset('/js/broken-links.min.js') }}"></script>
+    <script type="text/javascript">
+        $("#JobButton").on("click", function () {
+            $(this).prop("disabled", true);
+        });
+    </script>
 @endpush
