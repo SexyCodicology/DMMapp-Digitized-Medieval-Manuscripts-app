@@ -99,6 +99,7 @@ function initMap() {
         let table = $('#dmmtable').DataTable({
             dom: 'PBlfrtip',
             data: libraries,
+            order: [],
             responsive: true,
             searchPanes: {
                 threshold: 1,

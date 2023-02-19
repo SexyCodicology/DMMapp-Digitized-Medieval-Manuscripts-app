@@ -40,7 +40,7 @@ class LibraryController extends Controller
      */
     public function map()
     {
-        $libraries = Library::all();
+        $libraries = Library::inRandomOrder();
         return view('public/map', compact('libraries'));
     }
 
@@ -48,7 +48,7 @@ class LibraryController extends Controller
     public function admin(): Factory|View|Application
     {
 
-        $libraries = Library::all();
+        $libraries = Library::inRandomOrder();
         return view('admin/admin', compact('libraries'));
 
     }
