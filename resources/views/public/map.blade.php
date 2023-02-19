@@ -1,27 +1,36 @@
 @extends('layouts.app')
 
+@section('title')
+    Digitized medieval manuscripts map - DMMapp
+@endsection
+@section('title-meta')
+    Digitized medieval manuscripts map - DMMapp
+@endsection
+@section('description-meta')
+    Browse the map and discover thousands of digitized medieval manuscripts around the world!
+@endsection
+
 @section('css')
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs5/dt-1.13.2/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
+
 @section('breadcrumbs')
     <ol>
         <li><a href="/">Home</a></li>
         <li>Map</li>
     </ol>
     <div class="row">
-        <div class="col">
-            <h5>Digitized Medieval Manuscripts map</h5>
-            <h6>Browse the map and discover thousands of digitized medieval manuscripts around the world</h6>
+        <div class="col text-center my-3">
+            <h1>Digitized medieval manuscripts map</h1>
+            <h4>Browse the map and discover thousands of digitized medieval manuscripts around the world</h4>
         </div>
     </div>
 @endsection
+
 @section('content')
-    <div class="text-center" data-aos="fade-in">
-        <h1 class="display-3">Digitized Medieval Manuscripts map</h1>
-    </div>
     <div class="text-center">
-        <div class="btn-group my-4" role="group" aria-label="additional options" data-aos="fade-in">
+        <div class="btn-group my-4" role="group" aria-label="additional options">
             <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsible"
                     aria-expanded="false" aria-controls="collapsible">
@@ -36,7 +45,7 @@
         </div>
 
         <div class="collapse" id="collapsible">
-            <div class="card card-body">
+            <div class="card card-body text-start">
                 <h3>The DMMapp Map</h3>
                 <strong>The classic DMMapp experience!</strong> Browse a map containing all the institutions that are
                 some

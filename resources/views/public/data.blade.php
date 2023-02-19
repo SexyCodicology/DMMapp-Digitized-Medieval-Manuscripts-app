@@ -4,26 +4,33 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs5/dt-1.13.2/b-2.3.4/b-html5-2.3.4/r-2.4.0/sp-2.1.1/sl-1.6.0/datatables.min.css"/>
 @endsection
+
+@section('title')
+    Digitized medieval manuscripts database - DMMapp
+@endsection
+@section('title-meta')
+    Digitized medieval manuscripts database - DMMapp
+@endsection
+@section('description-meta')
+    Browse the digitized medieval manuscripts database links and explore thousands of digitized books
+@endsection
+
 @section('breadcrumbs')
     <ol>
         <li><a href="/">Home</a></li>
         <li>Data</li>
     </ol>
     <div class="row">
-        <div class="col">
-
-            <h5>Digitized Medieval Manuscripts database</h5>
-            <h6>Explore all the institutions added to the DMMapp database</h6>
+        <div class="col text-center my-3">
+            <h1>Digitized medieval manuscripts database</h1>
+            <h4>Browse the digitized medieval manuscripts database links and explore thousands of digitized books</h4>
 
         </div>
     </div>
 @endsection
 @section('content')
-    <div class="text-center" data-aos="fade-in">
-        <h1 class="display-3">Digitized Medieval Manuscripts database</h1>
-    </div>
     <div class="text-center">
-        <div class="btn-group my-4" role="group" aria-label="additional options" data-aos="fade-in">
+        <div class="btn-group my-4" role="group" aria-label="additional options">
             <button class="btn btn-primary border-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsible"
                     aria-expanded="false" aria-controls="collapsible">

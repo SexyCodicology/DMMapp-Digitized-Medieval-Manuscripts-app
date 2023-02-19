@@ -182,7 +182,7 @@
     </section>
     @endif
     <section class="inner-page">
-        <div class="container border py-4 shadow rounded">
+        <div class="container border py-4 shadow rounded" data-aos="fade-up">
 
             @yield('content')
         </div>
