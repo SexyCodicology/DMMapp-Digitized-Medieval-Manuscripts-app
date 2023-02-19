@@ -55,12 +55,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/broken-links', [BrokenURLsController::class, 'index'])->name('broken-links');
         Route::get('/job/check-broken-links', [BrokenURLsController::class, 'executeJob'])->name('check_broken_links');
-        //TODO remove /logs, we have installed something prettier
-        Route::get('/logs', [LogViewerController::class, 'index'])->name('log_viewer');
+
         Route::prefix('jobs')->group(function () {
             Route::queueMonitor();
         });
 
+        //NOTE: /admin/log-viewer is managed in 'config/log-viewer.php'
     });
 
 });
