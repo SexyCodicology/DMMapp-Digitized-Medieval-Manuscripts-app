@@ -1,39 +1,48 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Library;
+namespace Database\Factories;
+
 use Illuminate\Support\Str;
-use Faker\Generator as Faker;
+use App\Models\Library;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
+class LibraryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Library::class;
 
-/* NOTE Here you can define the dummy data that you want entered in your database. If you made modifications in the
-        "database\migrations\2018_10_16_105239_create_libraries_table.php" file by renaming, adding, or removing folders
-        you will have to make similar changes here too.*/
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition(): array
+    {
+        return [
 
-$factory->define(Library::class, function () {
-    return [
-
-        'nation' => 'Italy',
-        'city' => 'Rome',
-        'library' => 'Library Name',
-        'lat' => '41.902782',
-        'lng' => '12.496365',
-        'quantity' => 'Hundreds',
-        'website' => 'https://example.com',
-        'copyright' => 'Public domain',
-        'notes' => 'This is a sample library. You can edit or delete it.',
-        'IIIF' => 'iiif conform',
-        'is_part_of' => 'Part of the Sexy Codicology Family!',
-
-    ];
-});
+                'nation' => $this->faker->country(),
+                'city' => $this->faker->city(),
+                'library' => $this->faker->company(),
+                'lat' => $this->faker->latitude($min = -90, $max = 90),
+                'lng' => $this->faker->longitude($min = -180, $max = 180),
+                'quantity' => $this->faker->numberBetween($min = 1000, $max = 9000),
+                'website' => $this->faker->url(),
+                'copyright' => $this->faker->sentence(),
+                'is_free_cultural_works_license' => $this->faker->boolean(),
+                'notes' => $this->faker->sentence(),
+                'IIIF' => $this->faker->boolean(),
+                'has_post' => $this->faker->boolean(),
+                'post_url' => $this->faker->url(),
+                'library_name_slug'=>Str::slug($this->faker->unique()->company()),
+                'is_part_of' => $this->faker->boolean(),
+                'is_part_of_project_name' => $this->faker->company(),
+                'is_part_of_url' => $this->faker->url(),
+                'is_disabled' => $this->faker->boolean(),
+                'last_edited' => $this->faker->date()
+        ];
+    }
+}

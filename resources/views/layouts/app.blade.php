@@ -1,247 +1,315 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head prefix="og: //ogp.me/ns#">
+<head>
+    @production
+        @empty(config('google.ga-id'))
+        @else
+            {{-- Global site tag (gtag.js) - Google Analytics --}}
+            <script async
+                    src="https://www.googletagmanager.com/gtag/js?id={{ config('google.ga-id') }}">
+            </script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+                gtag('config', '{{ config('google.ga-id') }}');
+            </script>
+        @endempty
+    @endproduction
+    {{-- metadata --}}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@if(View::hasSection('title'))@yield('title')
-        @else{{ config('app.name', 'DMMapp - Open Source Edition') }}@endif</title>
-    <link rel="canonical" href={{URL::current()}}>
-    <meta name="application-name"
-        content="@if(View::hasSection('title'))@yield('title') @else{{ config('app.name', 'DMMapp - Open Source Edition') }}@endif" />
-    <link rel="apple-touch-icon" sizes="57x57" href="{{{ asset('img/apple-icon-57x57.png') }}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{{ asset('img/apple-icon-60x60.png') }}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{{ asset('img/apple-icon-72x72.png') }}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{{ asset('img/apple-icon-76x76.png') }}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{{ asset('img/apple-icon-114x114.png') }}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{{ asset('img/apple-icon-120x120.png') }}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{{ asset('img/apple-icon-144x144.png') }}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{{ asset('img/apple-icon-152x152.png') }}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{{ asset('img/apple-icon-180x180.png') }}}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{{ asset('img/android-icon-192x192.png') }}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{{ asset('img/favicon-32x32.png') }}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{{ asset('img/favicon-96x96.png') }}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{{ asset('img/favicon-16x16.png') }}}">
-    <link rel="manifest" href="{{{ asset('img/manifest.json') }}}">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @env(['local', 'staging'])
+        <meta name="robots" content="none"/>
+    @endenv
+
+    {{-- Primary Meta Tags --}}
+    <title>
+        @hasSection('title')
+            @yield('title')
+        @else
+            {{ config('app.name', 'Digitized Medieval Manuscripts app - DMMapp') }}
+        @endif
+    </title>
+    <meta name="title"
+          content="@hasSection('title-meta')@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta name="description"
+          content="@hasSection('description-meta')@yield('description-meta')@else{{ 'Discover the beauty of digitized medieval manuscripts with the DMMapp. Our platform collects links to digitized collections from around the world, providing a gateway to the past. ' }}@endif">
+    @hasSection('last-edited')
+        @yield('last-edited')
+    @endif
+
+    <link rel="canonical" href={{ URL::current() }}>
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ URL::current() }}">
+    <meta property="og:title"
+          content="@hasSection('title-meta')@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta property="og:description"
+          content="@hasSection('description-meta')@yield('description-meta')@else{{ 'Discover the beauty of digitized medieval manuscripts with the DMMapp. Our platform collects links to digitized collections from around the world, providing a gateway to the past. ' }}@endif">
+    <meta property="og:image" content="{{ mix('img/dmmapp.png') }}">
+
+    {{-- Twitter --}}
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ URL::current() }}">
+    <meta property="twitter:title"
+          content="@hasSection('title-meta')@yield('title-meta')@else{{ config('app.name', 'DMMapp - Digitized Medieval Manuscripts app') }}@endif">
+    <meta property="twitter:description"
+          content="@hasSection('description-meta')@yield('description-meta')@else{{ 'Discover the beauty of digitized medieval manuscripts with the DMMapp. Our platform collects links to digitized collections from around the world, providing a gateway to the past. ' }}@endif">
+    <meta property="twitter:image" content="{{ mix('img/dmmapp.png') }}">
+
+    {{-- Icons --}}
+    <link href="{{mix('img/favicon.ico')}}" rel="icon">
+    <link rel="manifest" href="{{ mix('img/manifest.json') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ mix('img/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ mix('img/apple-touch-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ mix('img/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ mix('img/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ mix('img/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ mix('img/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ mix('img/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ mix('img/apple-touch-icon-152x152.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ mix('img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ mix('img/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ mix('img/favicon-16x16.png') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{{ asset('img/ms-icon-144x144.png') }}}">
+    <meta name="msapplication-TileImage" content="{{ mix('img/mstile-310x310.png') }}">
     <meta name="theme-color" content="#ffffff">
 
 
+    {{-- Vendor CSS Files --}}
+    {{-- Template Main CSS File --}}
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
 
-
-    <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     @yield('css')
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+
 </head>
 
 <body>
-    <!--SECTION NAV -->
-    <div class="wrapper">
-        <!--SECTION Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header"><a href="/">
-                    <img src="{{{ asset('img/logo.png') }}}" alt="logo"
-                        style="width:50%; display: block; margin:0 auto;"></a>
-            </div>
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="/" class="active">
-                        <i class="fas fa-atlas"></i>
-                        DMMapp - Open Source
-                    </a>
-                </li>
-                <li>
-                    <a href="/data/">
-                        <i class="fas fa-database"></i>
-                        Data
-                    </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-hands-helping"></i> Contribute
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="https://docs.google.com/forms/d/e/****************************/viewform?"
-                                target="_blank" rel="noopener">Report data issue <sup><i
-                                        class="fas fa-external-link-alt fa-xs"></i></sup></a>
-                        </li>
-                        <li>
-                            <a href="https://example.com/" target="_blank" rel="noopener">Report
-                                missing repository <sup><i class="fas fa-external-link-alt fa-xs"></i></sup></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="https://example.com/" target="_blank" rel="noopener">
-                        <i class="fas fa-question"></i>
-                        Link <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-                    </a>
-                </li>
-                <li>
-                <li>
-                    <a href="https://example.com/" target="_blank" rel="noopener">
-                        <i class="fas fa-book"></i>
-                        Link <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://example.com/" target="_blank" rel="noopener">
-                        <i class="far fa-newspaper"></i>
-                        Link <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://example.com/" target="_blank" rel="noopener">
-                        <i class="far fa-id-badge"></i>
-                        Link <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://example.com/" target="_blank" rel="noopener">
-                        <i class="far fa-comment-alt"></i>
-                        Contact Us <sup><i class="fas fa-external-link-alt fa-xs"></i></sup>
-                    </a>
-                </li>
-            </ul>
-            <ul class="list-unstyled CTAs">
-                <li>
-                </li>
-                <li>
-                </li>
-            </ul>
-        </nav>
-        <!-- SECTION End nav -->
-        <!--SECTION Page Content  -->
-        <div id="content">
-            <!-- SECTION Page nav -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-sm btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/">DMMapp - Open Source</a>
+
+{{-- SECTION -  Header --}}
+<header id="header" class="d-flex align-items-center shadow-sm">
+    <div class="container d-flex align-items-center">
+
+        <div class="logo me-auto d-flex justify-content-around">
+            <a href="{{ url('/') }}"><img src="{{ mix('img/small-logo.png') }}" alt="DMMapp Logo"
+                                          class="img-fluid" width="30" height="24"></a>
+            <h2 class="ms-3"><a href="{{ url('/') }}">DMMapp</a></h2>
+        </div>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="nav-link" href="/">Home</a></li>
+                @if (Request::is('/'))
+                    <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="nav-link" href="#tools">Tools</a></li>
+                            <li><a class="nav-link" href="#team">Team</a></li>
+                            <li><a class="nav-link" href="#cta">Support Us</a></li>
+                        </ul>
+                @else
+                    <li><a class="nav-link" href="#cta">Support Us</a></li>
+                @endif
+                <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
+                <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
+                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i
+                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
+                <li><a class="nav-link"
+                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
+                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
+                @auth
+                    <li class="dropdown"><a href="#"><span>Admin</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('admin') }}">Manage institutions</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/data/">Data</a>
+                            <li><a class="nav-link" href="{{ route('create_library') }}">Add institution</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://example.com/" target="_blank" rel="noopener">Link
-                                    <sup><i class="fas fa-external-link-alt fa-xs"></i></sup></a>
+                            <li>
+                                <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://example.com/" target="_blank"
-                                    rel="noopener">Link<sup><i class="fas fa-external-link-alt fa-xs"></i></sup></a>
+                            <li><a class="nav-link" href="{{ route('broken-links') }}">Manage broken links</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="nav-link" href="/admin/jobs" target="_blank" rel="noopener noreferrer">Jobs
+                                    monitor</a>
+                            </li>
+                            <li><a class="nav-link" href="/admin/log-viewer" rel="noopener noreferrer">Logs
+                                    monitor</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
+                    </li>
+                @endauth
+                <li class="ml-4"></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle mx-3"></i>
+        </nav>{{-- .navbar --}}
+
+        <div class="header-social-links d-flex align-items-center">
+            <a href="https://www.patreon.com/join/424150" class="patreon" data-dmmapp="patreon-top-icon"><i
+                    class="bi bi-chat-left-heart-fill"></i></a>
+            <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
+                    class="bi bi-linkedin"></i></a>
+
+        </div>
+
+    </div>
+</header>
+{{-- !SECTION Header --}}
+
+<main id="main">
+    @if (Request::is('/'))
+    @else
+        <section id="breadcrumbs" class="breadcrumbs border-bottom shadow">
+            <div class="container">
+
+                @yield('breadcrumbs')
+
+            </div>
+        </section>
+    @endif
+    <section class="inner-page">
+        <div class="text-center">
+            <div class="spinner-border text-primary mt-5" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="container border py-4 shadow rounded" data-aos="fade-up">
+
+            @yield('content')
+        </div>
+    </section>
+
+</main>{{-- !SECTION #main --}}
+
+{{-- SECTION -  Footer --}}
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-info">
+                        <h3>DMMapp</h3>
+                        <div class="social-links mt-3">
+                            <a href="https://www.patreon.com/join/424150" class="patreon"
+                               data-dmmapp="patreon-footer-icon"><i
+                                    class="bi bi-chat-left-heart-fill"></i></a>
+                            <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
+                                    class="bi bi-linkedin"></i></a>
+                        </div>
                     </div>
                 </div>
-            </nav>
-            <!-- SECTION End page nav -->
-            <div class="container">
-                <h1 class="text-center">{{ config('app.name', 'DMMapp - Open Source Edition') }}</h1>
-                <h6 class="text-muted text-center">Enim sint veniam</h6>
-                <div class="row">
-                    <!-- SECTION Yield Content -->
-                    @yield('content')
-                    <!-- SECTION End Yield Content -->
-                    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6 col-md">
-                                    <h5>Voluptate nostrud eu ipsum veniam.</h5>
-                                    <ul class="list-unstyled text-small">
-                                        <li><a class="text-muted" href="/">Home</a></li>
-                                        <li><a class="text-muted" href="https://example.com/" target="_blank"
-                                                rel="noopener">Link</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-md">
-                                    <h5>Resources</h5>
-                                    <ul class="list-unstyled text-small">
-                                        <li><a class="text-muted"
-                                                href="https://docs.google.com/forms/d/e/*****************************/viewform"
-                                                target="_blank" rel="noopener">Report data issue </a></li>
-                                        <li><a class="text-muted"
-                                                href="https://docs.google.com/forms/d/e/*****************************/viewform"
-                                                target="_blank" rel="noopener">Submit a missing repository</a></li>
-                                        <li><a class="text-muted" href="/login">Admin
-                                                login</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-md">
-                                    <h5>About</h5>
-                                    <ul class="list-unstyled text-small">
-                                        <li><a class="text-muted" href="https://example.com/" target="_blank"
-                                                rel="noopener">Link</a></li>
-                                        <li><a class="text-muted" href="https://example.com/" target="_blank"
-                                                rel="noopener">Link</a></li>
-                                        <li><a class="text-muted" href="https://example.com/" target="_blank"
-                                                rel="noopener">Link</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="text-muted">Designed and built with all the love in the world by <a
-                                        href="https://www.linkedin.com/in/giuliomenna" target="_blank"
-                                        rel="noopener">Giulio Menna</a> and <a
-                                        href="https://www.linkedin.com/in/mjtdevos/" target="_blank"
-                                        rel="noopener">Marjolein de Vos</a> - A.K.A. the Sexy Codicology
-                                    Team.
-                                    <br />Made possible with the help of our <a
-                                        href="https://www.patreon.com/SexyCodicology" target="_blank"
-                                        rel="noopener">patrons</a>. Become
-                                    one of them over at <a href="https://www.patreon.com/join/SexyCodicology?"
-                                        target="_blank" rel="noopener">Patreon</a>.</p>
-                                <p class="text-muted">The DMMapp - Open Source is shared under a <a
-                                        href="https://github.com/SexyCodicology/DMMapp-Open-Source/blob/master/LICENSE"
-                                        target="_blank" rel="noopener">MIT License</a>.</p>
-                            </div>
-                        </div>
-                    </footer>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                href="https://blog.digitizedmedievalmanuscripts.org/about/">About us</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                href="https://blog.digitizedmedievalmanuscripts.org">Blog</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
                 </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('map') }}">Map</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('data') }}">Data</a></li>
+                        <li><i class="bi bi-chevron-right disabled"></i> <a href="#">API (coming soon)</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-patreon">
+                    <h4>Support us</h4>
+                    <p>The DMMapp lives on donations by manuscripts lovers like yourself!</p>
+                    <a href="https://www.patreon.com/join/424150"
+                       data-patreon-widget-type="become-patron-button" data-dmmapp="patreon-footer-link">Become a
+                        Patron!</a>
+
+                </div>
+
             </div>
         </div>
     </div>
-    <!-- SECTION addtional JS Jquery, popper, bootstrap, sidebar's sidebar -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
-    @yield('javascript')
-    <script type="text/javascript" async defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"
-        integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" async defer>
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
+
+    <div class="container">
+        <div class="copyright">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+                <a rel="license"
+                   href="https://creativecommons.org/publicdomain/zero/1.0/">
+                    <img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;"
+                         alt="CC0"/>
+                </a>
+                <br/>
+                To the extent possible under law,
+                <a rel="dct:publisher"
+                   href="https://digitizedmedievalmanuscripts.org/">
+                    <span property="dct:title">we</span></a>
+                have waived all copyright and related or neighboring rights to
+                <span property="dct:title">the DMMapp</span>.
+                This work is published from:
+                <span property="vcard:Country" datatype="dct:ISO3166"
+                      content="NL" about="https://digitizedmedievalmanuscripts.org/">
+  The Netherlands</span>.
+            </p>
+            @guest
+                <div>
+                    <a class="fw-lighter text-center" data-dmmapp="login" rel="nofollow"
+                       href="{{ route('login') }}">{{ __('Login') }}</a>
+                </div>
+            @endguest
+        </div>
+        {{-- <div class="credits">
+             All the links in the footer should remain intact.
+             You can delete the links only if you purchased the pro version.
+             Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/DMMapp-bootstrap-metro-style-template/
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div> --}}
+    </div>
+</footer>
+@yield('feedback')
+{{-- !SECTION Footer --}}
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+<script type="text/javascript" src="{{mix('js/manifest.js')}}"></script>
+<script type="text/javascript" src="{{mix('js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{mix('js/app.js')}}"></script>
+<script type="text/javascript" src="{{mix('js/main.min.js')}}"></script>
+<script type="text/javascript"> $(function () {
+        $('.spinner-border').hide();
+    });</script>
+
+@yield('javascript')
+@stack('scripts')
+
 </body>
 
 </html>

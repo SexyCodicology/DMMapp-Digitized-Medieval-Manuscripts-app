@@ -1,8 +1,22 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.bunny.net/css?family=noto-sans');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Datatables
+// Datatables - `npm i datatables.net-bs5` - `npm i datatables.net-responsive-bs5` - `npm i datatables.net-searchbuilder-bs5` required
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.css';
+@import 'datatables.net-searchpanes-bs5/css/searchPanes.bootstrap5.css';
+@import 'datatables.net-buttons-bs5/css/buttons.bootstrap5.css';
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+
+// AOS
+// AOS - `npm i aos` required
+@import 'aos/dist/aos.css';
