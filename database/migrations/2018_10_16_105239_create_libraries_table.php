@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
- 
-/* NOTE Here you can define what your database should look like. You can define the table name ("libraries", in this case) and the columns ("id", "nation", etc.)" */
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
 class CreateLibrariesTable extends Migration
 {
     /**
@@ -24,9 +23,7 @@ class CreateLibrariesTable extends Migration
             $table->string('quantity');
             $table->string('website');
             $table->string('copyright');
-            $table->string('notes');
-            $table->string('iiif');
-            $table->string('is_part_of');
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }

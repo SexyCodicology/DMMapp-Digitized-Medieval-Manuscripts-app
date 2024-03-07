@@ -1,0 +1,157 @@
+# Project information
+site_name: DMMapp - Digitized Medieval Manuscripts app
+site_url: https://digitizedmedievalmanuscripts.org/
+site_description: The DMMapp (Digitized Medieval Manuscripts app) links to more than 500 libraries in the world. Each one of these contains digitized medieval manuscripts that can be browsed for free.
+
+# Repository details
+repo_name: New DMMapp
+repo_url: https://github.com/SecyCodicology/new-DMMapp
+edit_uri: ''  #disables edit button
+
+# Configuration
+
+## Theme configuration
+theme:
+  #favicon: /assets/images/favicon.png
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - toc.integrate
+  font:
+    code: Roboto Mono
+    text: Poppins
+  #logo: /assets/images/favicon.png
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      accent: indigo
+      primary: indigo
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      accent: indigo
+      primary: indigo
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+## Markdown extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+  - toc:
+      permalink: true
+
+## Plugins
+plugins:
+  - search
+  - social
+
+## Extras
+extra:
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful!
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback, it has been recorded! We'll analyze this page and improve it in the future.
+    provider: google
+    property: UA-XXXXXXX-X
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  social:
+    - icon: fontawesome/solid/house
+      link: https://www.digitizedmedievalmanuscripts.org
+    - icon: fontawesome/brands/patreon
+      link: https://www.patreon.com/sexycodicology
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/SexyCodicology
+    - icon: fontawesome/brands/threads
+      link: https://www.threads.net/@sexycodicology
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/sexy-codicology/
+
+## Copyright
+copyright: GNU General Public License v3.0 - Sexy Codicology
+
+## Extra CSS
+extra_css:
+  - assets/css/custom.css
+
+# Navigation
+nav:
+  - Home: index.md
+  - Get started:
+      - Get started: pages/get-started/get-started.md
+  - User guide:
+      - Data:
+          - Finding manuscripts: pages/user-guide/data-manuscripts.md
+      - Map:
+          - Finding manuscripts: pages/user-guide/map-manuscripts.md
+  - Developer guide:
+      - Installing: pages/developer-guide/installation.md
+      - Contributing: pages/developer-guide/contributing.md
+      - Customizing: pages/developer-guide/customization.md
+      - API: pages/developer-guide/api.md
+  - More info:
+      - About us: pages/about.md
+      - Data privacy: pages/data-privacy.md
+      - License: pages/license.md
+      - Disclaimer: pages/disclaimer.md
