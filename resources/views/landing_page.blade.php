@@ -9,7 +9,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+                <div class="col-lg-6 pt-lg-0 order-1 order-lg-1 d-flex flex-column justify-content-center"
                      data-aos="fade-up">
                     <div class="ms-5">
                         <h1>We help you find digitized medieval manuscripts</h1>
@@ -17,12 +17,14 @@
                             etc.</h2>
                         <a href="{{ route('data') }}" class="btn-get-started mt-3"><i
                                 class="bi bi-book"></i> Get Started</a>
-                        <a href="{{ route('random_library') }}" class="btn-get-started mt-3"><i class="bi bi-shuffle"></i> Discover a random
+                        <a href="{{ route('random_library') }}" class="btn-get-started mt-3"><i
+                                class="bi bi-shuffle"></i> Discover a random
                             repository</a>
                     </div>
                 </div>
-                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-                    <img src="{{mix('img/hero-img.png')}}" class="img-fluid" alt="">
+
+                <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left">
+                    <x-latest :latestChanges="$latest_changes"/>
                 </div>
             </div>
         </div>
@@ -124,6 +126,47 @@
 
             </div>
         </section>End Features Section --}}
+        {{-- ======= Team Section ======= --}}
+        <section id="team" class="team mt-3 shadow">
+            <div class="container ">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>DMMapp Team</h2>
+                    <p>Medieval manuscript lovers at your service!</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member" data-aos="zoom-in">
+                            {{--<div class="pic"><img src="{{mix("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
+                            <div class="member-info">
+                                <h4>Giulio Menna</h4>
+                                <span>The developer</span>
+                                <div class="social">
+                                    <a href="https://www.linkedin.com/in/giuliomenna/"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                            {{--<div class="pic"><img src="{{mix("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
+                            </div>--}}
+                            <div class="member-info">
+                                <h4>Marjolein de Vos</h4>
+                                <span>The editor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        {{-- End Team Section --}}
 
         {{-- ======= Services Section ======= --}}
         <section id="services" class="services section-bg">
@@ -170,47 +213,7 @@
             </div>
         </section>{{-- End Services Section --}}
 
-        {{-- ======= Team Section ======= --}}
-        <section id="team" class="team mt-3 shadow">
-            <div class="container ">
 
-                <div class="section-title" data-aos="fade-up">
-                    <h2>DMMapp Team</h2>
-                    <p>Medieval manuscript lovers at your service!</p>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="member" data-aos="zoom-in">
-                            {{--<div class="pic"><img src="{{mix("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
-                            </div>--}}
-                            <div class="member-info">
-                                <h4>Giulio Menna</h4>
-                                <span>The developer</span>
-                                <div class="social">
-                                    <a href="https://www.linkedin.com/in/giuliomenna/"><i
-                                            class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            {{--<div class="pic"><img src="{{mix("/img/team/reference.jpg")}}" class="img-fluid" alt="" style="display: none">
-                            </div>--}}
-                            <div class="member-info">
-                                <h4>Marjolein de Vos</h4>
-                                <span>The editor</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        {{-- End Team Section --}}
 
         {{-- ======= Cta Section ======= --}}
         <div class="mt-3">
@@ -565,7 +568,8 @@
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Our content is available under a CC-0 license, meaning it's free for anyone to use, share, and adapt.
+                                Our content is available under a CC-0 license, meaning it's free for anyone to use,
+                                share, and adapt.
                             </p>
                         </div>
                     </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrokenURLsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\RandomInstitutionController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +28,7 @@ Auth::routes([
 ]);
 
 //SECTION Homepage
-Route::get('/', function () {
-    return view('landing_page');
-});
-
+Route::get('/', [HomepageController::class, 'index']);
 //SECTION random repository
 Route::get('/explore', RandomInstitutionController::class)->name('random_library');
 

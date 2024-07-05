@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Log;
 
 class LibraryController extends Controller
 {
-
     private Library $library;
 
     /**
@@ -42,8 +41,9 @@ class LibraryController extends Controller
     public function index(): View|Factory|JsonResponse|Application
     {
         $libraries = $this->getLibrariesInRandomOrder();
+        $latest_changes = $this->library->orderBy('last_edited', 'desc')->take(5)->get();
 
-        return view('public/data', compact('libraries'));
+        return view('public/data', compact('libraries', 'latest_changes'));
     }
 
     /**
@@ -52,8 +52,9 @@ class LibraryController extends Controller
     public function map(): View|Factory|Application
     {
         $libraries = $this->getLibrariesInRandomOrder();
+        $latest_changes = $this->library->orderBy('last_edited', 'desc')->take(5)->get();
 
-        return view('public/map', compact('libraries'));
+        return view('public/map', compact('libraries', 'latest_changes'));
     }
 
     /**

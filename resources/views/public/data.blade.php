@@ -4,10 +4,10 @@
 @endsection
 
 @section('title')
-    Digitized medieval manuscripts database - DMMapp
+    Digitized Medieval Manuscripts database - DMMapp
 @endsection
 @section('title-meta')
-    Digitized medieval manuscripts database - DMMapp
+    Digitized Medieval Manuscripts database - DMMapp
 @endsection
 @section('description-meta')
     Browse the digitized medieval manuscripts database links and explore thousands of digitized books
@@ -20,9 +20,8 @@
     </ol>
     <div class="row">
         <div class="col text-center my-3">
-            <h1>Digitized medieval manuscripts database</h1>
+            <h1>Digitized Medieval Manuscripts database</h1>
             <h4>Browse the digitized medieval manuscripts database links and explore thousands of digitized books</h4>
-
         </div>
     </div>
 @endsection
@@ -65,7 +64,7 @@
                     License.
                 </dd>
                 <dt>Country</dt>
-                <dd>The country where an institution is located.</dd>
+                <dd>The country where an institution is located.</
                 <dt>City</dt>
                 <dd>The city where an institution is located.</dd>
                 <dt>Blog Post</dt>
@@ -83,43 +82,44 @@
     </div>
     <div id="main-data">
         <div class="container">
-            <div class="card shadow-sm">
-                <div class="card-header">List and filters</div>
-                <div class="card-body">
-                    <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable"
-                           style="width: 100%">
-                        <noscript>
-                            <div class="alert alert-info">
-                                <h4>Your JavaScript is disabled</h4>
-                                <p>Please enable JavaScript to see the table.</p>
-                            </div>
-                        </noscript>
-                        <thead>
-                        <tr>
-                            <th>Institutions</th>
-                            <th>Links</th>
-                            <th>Quantity of digitized items</th>
-                            <th>IIIF</th>
-                            <th>Copyright</th>
-                            <th>Free Cultural Works license</th>
-                            <th>Country</th>
-                            <th>City</th>
-                            <th>lat</th>
-                            <th>lng</th>
-                            <th>Additional data</th>
-                            <th>Post</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
+            <table class="table table-bordered dmmapp-datatable my-3" id="dmmapp-datatable"
+                   style="width: 100%">
+                <noscript>
+                    <div class="alert alert-info">
+                        <h4>Your JavaScript is disabled</h4>
+                        <p>Please enable JavaScript to see the table.</p>
+                    </div>
+                </noscript>
+                <thead>
+                <tr>
+                    <th>Institutions</th>
+                    <th>Links</th>
+                    <th>Quantity of digitized items</th>
+                    <th>IIIF</th>
+                    <th>Copyright</th>
+                    <th>Free Cultural Works license</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>lat</th>
+                    <th>lng</th>
+                    <th>Additional data</th>
+                    <th>Post</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
-
+    <div class="d-flex justify-content-center">
+        <hr class="col-4">
+    </div>
+    <x-latest :latestChanges="$latest_changes"/>
+    <div class="d-flex justify-content-center">
+        <hr class="col-4">
+    </div>
     <x-disclaimer/>
     <x-patreon/>
 @endsection
