@@ -3,7 +3,6 @@ import './bootstrap';
 // Import Datatables and related plugins
 import DataTable from 'datatables.net-bs5';
 import 'datatables.net-responsive-bs5';
-import 'datatables.net-searchpanes-bs5';
 import 'datatables.net-select-bs5'
 import 'datatables.net-buttons-bs5';
 import 'datatables.net-buttons/js/buttons.colVis.mjs';

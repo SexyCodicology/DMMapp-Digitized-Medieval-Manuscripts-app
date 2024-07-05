@@ -16,5 +16,4 @@ $(function () {
     });
     table.responsive.recalc();
     table.columns.adjust()
-    table.searchPanes.resizePanes();
 });
