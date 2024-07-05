@@ -3,7 +3,10 @@ $(function () {
     let table = $('#dashboard').DataTable({
         data: brokenLinks,
         responsive: true,
-        columns: [{data: "library"}, {data: "status_code"}, {data: "dmmapp_id"},],
+        columns: [
+            {data: "library"},
+            {data: "status_code"},
+            {data: "dmmapp_id"},],
         columnDefs: [{
             className: "dt-center", "targets": "_all"
         }, {
@@ -16,5 +19,4 @@ $(function () {
     });
     table.responsive.recalc();
     table.columns.adjust()
-    table.searchPanes.resizePanes();
 });

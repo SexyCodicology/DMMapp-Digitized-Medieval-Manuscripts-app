@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-    Digitized medieval manuscripts map - DMMapp
+    Digitized Medieval Manuscripts map - DMMapp
 @endsection
 @section('title-meta')
-    Digitized medieval manuscripts map - DMMapp
+    Digitized Medieval Manuscripts map - DMMapp
 @endsection
 @section('description-meta')
     Browse the map and discover thousands of digitized medieval manuscripts around the world!
@@ -20,12 +20,11 @@
     </ol>
     <div class="row">
         <div class="col text-center my-3">
-            <h1>Digitized medieval manuscripts map</h1>
+            <h1>Digitized Medieval Manuscripts map</h1>
             <h4>Browse the map and discover thousands of digitized medieval manuscripts around the world</h4>
         </div>
     </div>
 @endsection
-
 @section('content')
     <div class="text-center">
         <div class="btn-group my-4" role="group" aria-label="additional options">
@@ -41,7 +40,6 @@
             <a class="btn btn-primary border-light" href="#cta" type="button">
                 <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
         </div>
-
         <div class="collapse" id="collapsible">
             <div class="card card-body text-start">
                 <h3>The DMMapp Map</h3>
@@ -58,54 +56,53 @@
     </div>
     <div id="main-map" class="main-map">
         <div class="container">
-            <div class="card shadow-sm">
-                <div class="card-header">Map and filters</div>
-                <div class="card-body">
-                    <div id="map" style="height:50em; width:100%;">
-                        <noscript>
-                            <div class="alert alert-info">
-                                <h4>Your JavaScript is disabled</h4>
-                                <p>Please enable JavaScript to view the map.</p>
-                            </div>
-                        </noscript>
+            <div id="map" style="height:50em; width:100%;">
+                <noscript>
+                    <div class="alert alert-info">
+                        <h4>Your JavaScript is disabled</h4>
+                        <p>Please enable JavaScript to view the map.</p>
                     </div>
-
-                    <div id="map-table" class="my-3">
-                        <noscript>
-                            <div class="alert alert-info">
-                                <h4>Your JavaScript is disabled</h4>
-                                <p>Please enable JavaScript to see the table.</p>
-                            </div>
-                        </noscript>
-                        <table id="dmmtable" class="table table-striped table-bordered align-middle text-center"
-                               style="width:100%;">
-                            <thead>
-                            <tr>
-                                <th>Institution</th>
-                                <th>IIIF repository</th>
-                                <th>Quantity of digitized items</th>
-                                <th>Digitized items' copyright</th>
-                                <th>Free Cultural Works License</th>
-                                <th>Nation</th>
-                                <th>City</th>
-                                <th>lat</th>
-                                <th>lng</th>
-                                <th>Notes</th>
-                                <th>Link</th>
-                                <th>Has a blog post</th>
-                                <th>Blog post</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-
-                        </table>
+                </noscript>
+            </div>
+            <div id="map-table" class="my-3">
+                <noscript>
+                    <div class="alert alert-info">
+                        <h4>Your JavaScript is disabled</h4>
+                        <p>Please enable JavaScript to see the table.</p>
                     </div>
-                </div>
+                </noscript>
+                <table id="dmmtable" class="table table-striped table-bordered align-middle text-center"
+                       style="width:100%;">
+                    <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>IIIF repository</th>
+                        <th>Quantity of digitized items</th>
+                        <th>Digitized items' copyright</th>
+                        <th>Free Cultural Works License</th>
+                        <th>Nation</th>
+                        <th>City</th>
+                        <th>lat</th>
+                        <th>lng</th>
+                        <th>Notes</th>
+                        <th>Link</th>
+                        <th>Has a blog post</th>
+                        <th>Blog post</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
+    <div class="d-flex justify-content-center">
+        <hr class="col-4">
+    </div>
+    <x-latest :latestChanges="$latest_changes"/>
+    <div class="d-flex justify-content-center">
+        <hr class="col-4">
+    </div>
     <x-disclaimer/>
     <x-patreon/>
 @endsection

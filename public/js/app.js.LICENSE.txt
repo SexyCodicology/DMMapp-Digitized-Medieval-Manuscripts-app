@@ -33,10 +33,6 @@
  * © SpryMedia Ltd - datatables.net/license
  */
 
-/*! Bootstrap 5 integration for DataTables' SearchPanes
- * © SpryMedia Ltd - datatables.net/license
- */
-
 /*! Bootstrap integration for DataTables' Buttons
  * © SpryMedia Ltd - datatables.net/license
  */
@@ -53,15 +49,7 @@
  * © SpryMedia Ltd - datatables.net/license
  */
 
-/*! SearchPanes 2.2.0
-     * © SpryMedia Ltd - datatables.net/license
-     */
-
-/*! SearchPanes 2.2.0
- * © SpryMedia Ltd - datatables.net/license
- */
-
-/*! Select for DataTables 1.7.0
+/*! Select for DataTables 1.7.0-dev
  * © SpryMedia Ltd - datatables.net/license/mit
  */
 

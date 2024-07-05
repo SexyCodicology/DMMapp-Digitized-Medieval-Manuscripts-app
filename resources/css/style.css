@@ -346,10 +346,6 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
     width: 100%;
-    background-image: url("../img/hero-bg.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right top;
 }
 
 #hero h1 {
@@ -1406,6 +1402,17 @@ section {
     font-size: 13px;
     color: #364146;
 }
+
+/*-- Additional CSS --*/
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(90%) contrast(88%);
+}
+.carousel-control-prev, .carousel-control-next {
+    background-color: #f8fafc;
+    opacity: 100%;
+}
+
 
 /*-- Spinner --*/
 

@@ -13,8 +13,9 @@ class RandomInstitutionController extends Controller
      */
     public function __invoke(Request $request): RedirectResponse
     {
-        //NOTE fetch a random library from the database
-        $get_random_library = Library::inRandomOrder()
+        //NOTE fetch a random library from the database that has not been disabled
+        $get_random_library = Library::where('is_disabled', false)
+            ->inRandomOrder()
             ->limit(1)
             ->get();
 
