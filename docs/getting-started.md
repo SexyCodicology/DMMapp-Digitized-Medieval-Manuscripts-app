@@ -69,6 +69,13 @@ The DMMapp documentation is written in Markdown and compiled to HTML using [MkDo
 This documentation is hosted on GitHub Pages and can be found [here](https://dmmapp.github.io/docs/).
 We use the official Material for MkDocs Docker image as it comes with all the required dependencies pre-installed and is the easiest way to get started.
 
+### Local documentation
+
+1. Clone the repository to your local machine.
+2. Run `docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material` to start the MkDocs server.
+3. Open `http://localhost:8000` in your browser.
+4. Edit the Markdown files in the `docs` folder and see the changes live in your browser.
+5. Press `Ctrl + C` to stop the server.
 
 
 [^1]: You can also upload `composer.phar` to the server and run it from there. See [here](https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable) for more information.
