@@ -124,6 +124,10 @@
                 <li><a class="nav-link"
                        href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
                                 class="bi bi-box-arrow-up-right small"></i></sup></a></li>
+                <li><a class="nav-link"
+                       href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app"
+                       target="_blank">GitHub <sup><i
+                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>Admin</span> <i
                                 class="bi bi-chevron-down"></i></a>
@@ -168,9 +172,13 @@
         </nav>{{-- .navbar --}}
 
         <div class="header-social-links d-flex align-items-center">
-            <a href="https://www.patreon.com/join/424150" class="patreon" data-dmmapp="patreon-top-icon"><i
+            <a href="https://www.patreon.com/join/424150" target="_blank" class="patreon"
+               data-dmmapp="patreon-top-icon"><i
                     class="bi bi-chat-left-heart-fill"></i></a>
-            <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
+            <a href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app" target="_blank"
+               class="github"><i
+                    class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/company/sexy-codicology" target="_blank" class="linkedin"><i
                     class="bi bi-linkedin"></i></a>
 
         </div>
@@ -217,6 +225,9 @@
                             <a href="https://www.patreon.com/join/424150" class="patreon"
                                data-dmmapp="patreon-footer-icon"><i
                                     class="bi bi-chat-left-heart-fill"></i></a>
+                            <a href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app"
+                               class="github"><i
+                                    class="bi bi-github"></i></a>
                             <a href="https://www.linkedin.com/company/sexy-codicology" class="linkedin"><i
                                     class="bi bi-linkedin"></i></a>
                         </div>
@@ -228,9 +239,16 @@
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a
-                                href="https://blog.digitizedmedievalmanuscripts.org/about/">About us</a></li>
+                                href="https://blog.digitizedmedievalmanuscripts.org/about/" target="_blank">About us</a>
+                        </li>
                         <li><i class="bi bi-chevron-right"></i> <a
-                                href="https://blog.digitizedmedievalmanuscripts.org">Blog</a></li>
+                                href="https://blog.digitizedmedievalmanuscripts.org" target="_blank">Blog</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app"
+                                target="_blank">GitHub</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a
+                                href="https://dmmapp.statuspage.io/" target="_blank">Status Page</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
                     </ul>
                 </div>
@@ -247,11 +265,11 @@
 
                 <div class="col-lg-4 col-md-6 footer-patreon">
                     <h4>Support us</h4>
-                    <p>The DMMapp lives on donations by manuscripts lovers like yourself!</p>
+                    <p>Love manuscripts? Help us continue our mission by becoming a Patron today!</p>
                     <a href="https://www.patreon.com/join/424150"
-                       data-patreon-widget-type="become-patron-button" data-dmmapp="patreon-footer-link">Become a
-                        Patron!</a>
-
+                       data-patreon-widget-type="become-patron-button" target="_blank"
+                       data-dmmapp="patreon-footer-link">Join on
+                        Patreon!</a>
                 </div>
 
             </div>
