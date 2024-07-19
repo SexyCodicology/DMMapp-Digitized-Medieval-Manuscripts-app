@@ -89,7 +89,7 @@ markdown_extensions:
 ## Plugins
 plugins:
   - search
-  - social
+  # - social
 
 ## Extras
 extra:
@@ -150,6 +150,7 @@ nav:
       - Contributing: pages/developer-guide/contributing.md
       - Customizing: pages/developer-guide/customization.md
       - API: pages/developer-guide/api.md
+      - Status monitoring: pages/developer-guide/monitoring.md
   - More info:
       - About us: pages/about.md
       - Data privacy: pages/data-privacy.md

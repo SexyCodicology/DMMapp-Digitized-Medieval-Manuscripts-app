@@ -41,6 +41,9 @@
                                 <figcaption class="blockquote-footer mt-2">
                                     <cite title="Source Title">@yield('source')</cite>
                                 </figcaption>
+                                <figcaption class="blockquote-footer mt-2">
+                                    <p title="Status Page">@yield('status')</p>
+                                </figcaption>
                             </figure>
                             @yield('button')
                         </div>

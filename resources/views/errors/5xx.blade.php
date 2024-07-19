@@ -1,7 +1,7 @@
 @extends('errors::bootstrap')
 
 @section('title', __('Server Error'))
-@section('code', '500')
+@section('code', '5xx')
 @section('message', __('An error has occurred'))
 @section('latin-message', __('horresco referens'))
 @section('translation', __('I shudder as I tell'))

@@ -1,117 +1,59 @@
-# DMMapp Open Source
+<div align=center>
 
-## Overview
+# Digitized Medieval Manuscripts app (DMMapp)
 
-**DMMapp Open Source is a simple-to-implement interactive map & web-application.**
+<a href="https://dmmapp.statuspage.io/" target="_blank">
+<img alt="Uptime Robot status" src="https://img.shields.io/uptimerobot/status/m795328302-488002bb75aab1b795177fb5?up_message=available&style=for-the-badge&label=DMMapp%20status">
+</a>
 
-![DMMapp_GitHub](https://user-images.githubusercontent.com/6100093/74037375-68422280-49be-11ea-851e-0e8593957950.gif)
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/sexycodicology/DMMapp-Digitized-Medieval-Manuscripts-app?style=for-the-badge&logo=github&label=commits">
 
-It does three things:
+<a href="https://sexycodicology.github.io/DMMapp-Digitized-Medieval-Manuscripts-app/" target="_blank">
+<img alt="Static Badge" src="https://img.shields.io/badge/Documentation-white?style=for-the-badge&logo=materialformkdocs&link=https%3A%2F%2Fsexycodicology.github.io%2FDMMapp-Digitized-Medieval-Manuscripts-app%2F">
+</a>
 
-- Allows admins to create and fill databases that can interact with Google Maps, creating interactive pins for every entry.
-- Gives the final users a clear and fun way to interact with data.
-- Guides developers in adapting the code for your own needs with a detailed Wiki and comments in the code.
+</div>
 
-To see it in action, please check out the [DMMapp website](https://digitizedmedievalmanuscripts.org/), and don't forget to check out the [DMMapp Open Source Wiki](https://digitizedmedievalmanuscripts.org/) to know more.
+---
 
-## Table of Contents
+Welcome to the Digitized Medieval Manuscripts app (DMMapp) repository! This project is designed to simplify access to
+digitized medieval manuscripts: it provides a user-friendly interface for browsing and searching through a vast
+collection of digitized repositories and providing links to the collections.
 
-- [DMMapp Open Source](#dmmapp-open-source)
-  - [Overview](#overview)
-  - [Table of Contents](#table-of-contents)
-    - [Requirements](#requirements)
-    - [Quickstart](#quickstart)
-    - [Contributing](#contributing)
-    - [Questions and help](#questions-and-help)
-    - [Acknowledgements](#acknowledgements)
-    - [Copyright and license](#copyright-and-license)
+<a href="https://digitizedmedievalmanuscripts.org" target="_blank">
 
-### Requirements
+![DMMapp Landing Page](.README_images/intro-image.png)
 
-The DMMapp Open Source is based on Laravel 6.x. As a consequence, your server must meet the following requirements:
+</a>
 
-- PHP >= 7.2.0
-- BCMath PHP Extension
-- Ctype PHP Extension
-- JSON PHP Extension
-- Mbstring PHP Extension
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
+Whether you're a developer looking to contribute to the app or simply want to submit data, or you're simply curious
+about how it all works, you can learn all there is to know about how to use and contribute to the DMMapp by visiting
+[our documentation](https://sexycodicology.github.io/DMMapp-Digitized-Medieval-Manuscripts-app/).
 
-To use Google Maps:
+<div align=center>
 
-- A valid Google Maps API key
+<a href="https://sexycodicology.github.io/DMMapp-Digitized-Medieval-Manuscripts-app/">
+<img alt="Static Badge" src="https://img.shields.io/badge/Get_Started-white?style=for-the-badge&logo=materialformkdocs&link=https%3A%2F%2Fsexycodicology.github.io%2FDMMapp-Digitized-Medieval-Manuscripts-app%2F">
+</a>
 
-### Quickstart
+and
 
-> **IMPORTANT:** this quickstart guide is meant for local development only. It will create a generic admin user that uses `admin@example.com` and `password`. **Do not use in production environments.**
 
-Assuming you have [Composer](https://getcomposer.org/) installed on your machine:
+<a href="https://www.patreon.com/join/424150">
+<img alt="Static Badge" src="https://img.shields.io/badge/support-red?style=for-the-badge&logo=patreon">
+</a>
 
-```shell
-git clone DMMappOpenSource https://github.com/SexyCodicology/DMMapp-Open-Source.git
-cd DMMappOpenSource
-composer install
-```
+</div>
 
-- copy the contents of ".env.example" into ".env". If no ".env" is present, simply rename ".env.example" to ".env"
+---
+<div align=center>
 
-- (optional) Review the contents of the .env file and enter your Google API where requested.
+## Questions and help
 
-  - Note: The application will still work if you do not enter the Google API key at this stage, but you will not be able to see the map and the pins.
+</div>
 
-```shell
-php artisan key:generate
-```
-
-- create file "database.sqlite" in "DMMappOpenSource\database"
-
-```php
-php artisan migrate --seed
-php artisan serve
-```
-
-A more detailed guide for setting up the app for both local and production environments is present in the [DMMapp Open Source Wiki](https://digitizedmedievalmanuscripts.org/).
-
-### Contributing
-
-The DMMapp Open Source is for everyone to modify and improve. We welcome  contributions and tips! Please check our Contributing page on the wiki. (coming soon)
-
-### Questions and help
-
-Check out the Talk to us page on our wiki, or head to the Sexy Codicology website to find all the channels where you can reach us.
-
-### Acknowledgements
-
-The DMMapp Open Source is based on, or makes use of:
-
-- [Laravel 6.x](https://laravel.com/docs/6.x)
-- [Bootstrap](https://getbootstrap.com/)
-- [jQuery](https://jquery.com/)
-- [FontAwesome](https://fontawesome.com/)
-
-### Copyright and license
-
-DMMapp Open Source is licensed under the MIT License:
-
-> Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
->
-> The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
->
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Have fun!
+Check out
+the [Discussions page here on GitHub](https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app/discussions)
+if you have technical questions, or head to
+the [Digitized Medieval Manuscripts app website](https://digitizedmedievalmanuscripts.org/) to find all the channels
+where you can reach us.
