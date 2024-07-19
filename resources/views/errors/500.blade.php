@@ -7,6 +7,10 @@
 @section('translation', __('I shudder as I tell'))
 @section('source', __('Virgil'))
 
+@section('status')
+    <a href="https://dmmapp.statuspage.io/" target="_blank" type="button" class="btn btn-primary">Check the DMMapp status</a>
+@endsection
+
 @section('button')
     <a href="/" type="button" class="btn btn-primary">Go home</a>
 @endsection
