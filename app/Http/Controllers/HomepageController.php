@@ -3,15 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Library;
+use Exception;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Log;
 
 class HomepageController extends Controller
 {
-    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    /**
+     * Display the homepage with the latest library changes.
+     */
+    public function index(): View
     {
-        // Fetch the latest edited libraries from the database
-        $latest_changes = Library::orderBy('last_edited', 'desc')->take(5)->get();
+        try {
+            // Get the latest changes directly from the database
+            $latest_changes = Library::orderBy('last_edited', 'desc')->take(5)->get();
 
-        // Pass the data to the view
-        return view('landing_page', compact('latest_changes'));
+            // Pass the data to the view
+            return view('landing_page', compact('latest_changes'));
+        } catch (Exception $e) {
+            // Log the error
+            Log::error('Failed to load homepage data: ' . $e->getMessage());
+
+            // Return the view with an empty collection
+            return view('landing_page', ['latest_changes' => collect()]);
+        }
     }
 }

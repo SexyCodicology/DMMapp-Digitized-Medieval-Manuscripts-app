@@ -15,59 +15,47 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use romanzipp\QueueMonitor\Traits\IsMonitored;
 
-class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
+class CheckWebsitesInDatabaseJob implements ShouldBeUnique, ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, IsMonitored;
+    use Dispatchable, InteractsWithQueue, IsMonitored, Queueable, SerializesModels;
 
     /**
      * The number of times the job may be attempted.
-     *
-     * @var int
      */
     public int $tries = 1;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.
-     *
-     * @var int
      */
     public int $maxExceptions = 3;
 
     /**
      * The number of seconds the job can run before timing out.
-     *
-     * @var int
      */
-    public int $timeout = 3000; //50 minutes = 5 seconds to timeout per link in the db
+    public int $timeout = 3000; // 50 minutes = 5 seconds to timeout per link in the db
 
     /**
      * Indicate if the job should be marked as failed on timeout.
-     *
-     * @var bool
      */
     public bool $failOnTimeout = true;
 
     /**
      * Create a new job instance.
-     *
-     *
      */
     public function __construct()
     {
-        //$this->BrokenLinksTask = $BrokenLinksTask;
+        // $this->BrokenLinksTask = $BrokenLinksTask;
     }
 
     /**
      * Execute the job.
-     *
-     * @return void
      */
     public function handle(): void
     {
         Log::notice('Broken URL checker initiated');
         BrokenLink::truncate();
         Log::info('Broken Link table emptied');
-        //get only the id, url, and institution name from the database
+        // get only the id, url, and institution name from the database
         $libraries = Library::all();
         $urls = $libraries->map->only(['id', 'website', 'library', 'is_disabled']);
         foreach ($urls as $url) {
@@ -88,7 +76,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                         $dmmapp_id = $url['id'];
 
                         BrokenLink::updateOrCreate([
-                            'dmmapp_id' => $dmmapp_id
+                            'dmmapp_id' => $dmmapp_id,
                         ],
                             ['status_code' => $status_code, 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                         );
@@ -100,7 +88,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
                     $dmmapp_id = $url['id'];
 
                     BrokenLink::updateOrCreate([
-                        'dmmapp_id' => $dmmapp_id
+                        'dmmapp_id' => $dmmapp_id,
                     ],
                         ['status_code' => $e->getMessage(), 'url' => $brokenUrl, 'library' => $library, 'dmmapp_id' => $dmmapp_id]
                     );
@@ -109,7 +97,7 @@ class CheckWebsitesInDatabaseJob implements ShouldQueue, ShouldBeUnique
             }
         }
         Log::info('Broken URLs check complete.');
-        //TODO send email notification to sexycodicology@gmail.com once the job is complete.
-        //Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
+        // TODO send email notification to sexycodicology@gmail.com once the job is complete.
+        // Think about what you would like to see in the email (broken links list? number of broken links detected? etc.)
     }
 }

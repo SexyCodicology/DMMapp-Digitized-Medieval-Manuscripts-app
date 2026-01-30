@@ -80,9 +80,9 @@ function initMap() {
     //Datatables
     $(function () {
         let table = $('#dmmtable').DataTable({
-            dom: 'Blfrtip', data: libraries,
-            order: [], responsive: true,
-            columns: [{data: 'library'}, //0
+            dom: 'Blfrtip', data: libraries, order: [], responsive: true, searchPanes: {
+                threshold: 1, initCollapsed: true
+            }, columns: [{data: 'library'}, //0
                 {data: 'iiif'}, //1
                 {data: 'quantity'}, //2
                 {data: 'copyright'}, //3
@@ -101,11 +101,15 @@ function initMap() {
             }, {
                 targets: [3, 7, 8, 9, 10, 11, 12, 13], searchable: false
             }, {
-                target: 0, responsivePriority: 1,
+                target: 0, responsivePriority: 1, searchPanes: {
+                    viewCount: false
+                },
             }, {
                 responsivePriority: 2, target: 2
             }, {
-                targets: [3, 7, 8, 9, 10, 11, 12, 13],
+                targets: [3, 7, 8, 9, 10, 11, 12, 13], searchPanes: {
+                    show: false
+                },
             }, {
                 targets: [1, 4], render: function (data) {
 
@@ -118,6 +122,9 @@ function initMap() {
                 }
             },],
         });
+
+        table.searchPanes.container();
+        table.searchPanes.resizePanes();
 
         //SECTION when a user clicks on the table row, move to marker and open a particular infowindow.
         $('#dmmtable tbody').on('click', 'tr', function () {

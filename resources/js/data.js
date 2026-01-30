@@ -13,7 +13,10 @@ $(function () {
                 title: 'DMMapp data export'
             },
         ],
-        responsive: true,
+        responsive: true, searchPanes: {
+            threshold: 1,
+            initCollapsed: true
+        },
         columns: [
             {data: 'library'}, //0
             {data: 'website'}, //1
@@ -37,10 +40,16 @@ $(function () {
                 {
                     target: 0,
                     responsivePriority: 1,
+                    searchPanes: {
+                        viewCount: false
+                    }
                 },
                 {
                     target: 1,
                     responsivePriority: 2,
+                    searchPanes: {
+                        show: false
+                    },
                     orderable: false, render: function (data, type, row) {
                         return '<p style="display:none">' + row['website'] + '</p><a class="btn btn-outline-primary" href="' + row['website'] + '" id="dmmapp-link" role="button"><i class="bi bi-link-45deg"></i> Digitized manuscripts  <sup><i class="bi bi-box-arrow-up-right small"></i></sup></a>';
                     }
@@ -61,6 +70,9 @@ $(function () {
                 },
                 {
                     targets: [4, 8, 9, 10, 11, 12],
+                    searchPanes: {
+                        show: false
+                    }
                 },
                 {
                     targets: [8, 9],

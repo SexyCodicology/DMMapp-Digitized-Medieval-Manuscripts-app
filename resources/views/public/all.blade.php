@@ -60,10 +60,6 @@
         </div>
     </div>
 @endsection
-
-@section('feedback')
-    <x-feedback />
-@endsection
 {{-- Optional JavaScript --}}
 @section('javascript')
 @endsection

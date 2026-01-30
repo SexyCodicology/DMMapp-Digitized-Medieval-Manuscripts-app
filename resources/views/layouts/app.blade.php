@@ -104,77 +104,9 @@
             <h2 class="ms-3"><a href="{{ url('/') }}">DMMapp</a></h2>
         </div>
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-                <li><a class="nav-link" href="/">Home</a></li>
-                @if (Request::is('/'))
-                    <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a class="nav-link" href="#tools">Tools</a></li>
-                            <li><a class="nav-link" href="#team">Team</a></li>
-                            <li><a class="nav-link" href="#cta">Support Us</a></li>
-                        </ul>
-                @else
-                    <li><a class="nav-link" href="#cta">Support Us</a></li>
-                @endif
-                <li><a class="nav-link" href="{{ route('data') }}">Data</a></li>
-                <li><a class="nav-link" href="{{ route('map') }}">Map</a></li>
-                <li><a class="nav-link" href="https://blog.digitizedmedievalmanuscripts.org/" target="_blank">Blog <sup><i
-                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
-                <li><a class="nav-link"
-                       href="https://blog.digitizedmedievalmanuscripts.org/contact-us/" target="_blank">Contact <sup><i
-                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
-                <li><a class="nav-link"
-                       href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app"
-                       target="_blank">GitHub <sup><i
-                                class="bi bi-box-arrow-up-right small"></i></sup></a></li>
-                @auth
-                    <li class="dropdown"><a href="#"><span>Admin</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li>
-                                <a href="{{ route('admin') }}">Manage institutions</a>
-                            </li>
-                            <li><a class="nav-link" href="{{ route('create_library') }}">Add institution</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="nav-link" href="{{ route('broken-links') }}">Manage broken links</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="nav-link" href="/admin/jobs" target="_blank" rel="noopener noreferrer">Jobs
-                                    monitor</a>
-                            </li>
-                            <li><a class="nav-link" href="/admin/log-viewer" rel="noopener noreferrer">Logs
-                                    monitor</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endauth
-                <li class="ml-4"></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle mx-3"></i>
-        </nav>{{-- .navbar --}}
+        <x-layout.navigation />
 
         <div class="header-social-links d-flex align-items-center">
-            <a href="https://www.patreon.com/join/424150" target="_blank" class="patreon"
-               data-dmmapp="patreon-top-icon"><i
-                    class="bi bi-chat-left-heart-fill"></i></a>
             <a href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app" target="_blank"
                class="github"><i
                     class="bi bi-github"></i></a>
@@ -186,6 +118,13 @@
     </div>
 </header>
 {{-- !SECTION Header --}}
+
+<div class="container mt-3">
+    <div class="alert alert-warning text-center mb-0" role="alert" data-dmmapp="end-of-operations">
+        <strong>End of operations:</strong> This website will stop operating on 22/11/2026.
+        <a class="ms-2" href="https://blog.digitizedmedievalmanuscripts.org/the-end-of-an-era-saying-goodbye-to-the-dmmapp-after-12-years/" target="_blank" rel="noopener">More info</a>
+    </div>
+</div>
 
 <main id="main">
     @if (Request::is('/'))
@@ -222,9 +161,6 @@
                     <div class="footer-info">
                         <h3>DMMapp</h3>
                         <div class="social-links mt-3">
-                            <a href="https://www.patreon.com/join/424150" class="patreon"
-                               data-dmmapp="patreon-footer-icon"><i
-                                    class="bi bi-chat-left-heart-fill"></i></a>
                             <a href="https://github.com/SexyCodicology/DMMapp-Digitized-Medieval-Manuscripts-app"
                                class="github"><i
                                     class="bi bi-github"></i></a>
@@ -263,14 +199,6 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-patreon">
-                    <h4>Support us</h4>
-                    <p>Love manuscripts? Help us continue our mission by becoming a Patron today!</p>
-                    <a href="https://www.patreon.com/join/424150"
-                       data-patreon-widget-type="become-patron-button" target="_blank"
-                       data-dmmapp="patreon-footer-link">Join on
-                        Patreon!</a>
-                </div>
 
             </div>
         </div>
@@ -303,16 +231,8 @@
                 </div>
             @endguest
         </div>
-        {{-- <div class="credits">
-             All the links in the footer should remain intact.
-             You can delete the links only if you purchased the pro version.
-             Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/DMMapp-bootstrap-metro-style-template/
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div> --}}
     </div>
 </footer>
-@yield('feedback')
 {{-- !SECTION Footer --}}
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\BrokenURLsController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RandomInstitutionController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
-use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,28 +19,32 @@ use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 |
  */
 
-//SECTION Auth
+// SECTION Auth
 Auth::routes([
     'register' => false, // Registration Routes...
     'reset' => false, // Password Reset Routes...
     'verify' => false, // Email Verification Routes...
 ]);
 
-//SECTION Homepage
+// SECTION Homepage
 Route::get('/', [HomepageController::class, 'index']);
-//SECTION random repository
+// SECTION random repository
 Route::get('/explore', RandomInstitutionController::class)->name('random_library');
 
-//SECTION public views
+// Contact form routes
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::middleware(['throttle:contact'])->post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+// SECTION public views
 Route::get('/data', [LibraryController::class, 'index'])->name('data');
 Route::get('/map', [LibraryController::class, 'map'])->name('map');
 Route::get('/all', [LibraryController::class, 'all'])->name('all_libraries');
 Route::get('/{library:library_name_slug}', [LibraryController::class, 'show'])->name('show_library');
 
-//SECTION redirects from old DMMapp structure
+// SECTION redirects from old DMMapp structure
 Route::get('/record/{id}', RedirectController::class)->name('redirect');
 
-//SECTION Admin panel
+// SECTION Admin panel
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
 
@@ -59,7 +62,7 @@ Route::middleware('auth')->group(function () {
             Route::queueMonitor();
         });
 
-        //NOTE: /admin/log-viewer is managed in 'config/log-viewer.php'
+        // NOTE: /admin/log-viewer is managed in 'config/log-viewer.php'
     });
 
 });

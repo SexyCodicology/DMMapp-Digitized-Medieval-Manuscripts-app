@@ -37,8 +37,6 @@
                 <i class="bi bi-arrow-down-square"></i> Go to list</a>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="bi bi-shuffle"></i> Explore a random library!</a>
-            <a class="btn btn-primary border-light" href="#cta" type="button">
-                <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
         </div>
 
         <div class="collapse" id="collapsible">
@@ -121,11 +119,6 @@
         <hr class="col-4">
     </div>
     <x-disclaimer/>
-    <x-patreon/>
-@endsection
-
-@section('feedback')
-    <x-feedback/>
 @endsection
 {{-- Optional JavaScript --}}
 @section('javascript')

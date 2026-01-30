@@ -215,12 +215,7 @@
 
 
 
-        {{-- ======= Cta Section ======= --}}
-        <div class="mt-3">
-            <x-patreon/>
-        </div>
 
-        {{-- End Cta Section --}}
 
         {{-- ======= Portfolio Section =======
         <section id="portfolio" class="portfolio">
@@ -556,8 +551,7 @@
                                 class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                No, the DMMapp (and the Sexy Codicology blog) are privately maintained and supported by
-                                the donations coming via Patreon, or our RedBubble store.
+                                No, the DMMapp (and the Sexy Codicology blog) are privately maintained projects.
                             </p>
                         </div>
                     </li>

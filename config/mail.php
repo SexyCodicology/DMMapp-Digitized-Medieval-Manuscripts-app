@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -106,6 +105,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Global "To" Address for Contact Form
+    |--------------------------------------------------------------------------
+    |
+    | This address is used specifically for receiving contact form submissions.
+    |
+    */
+
+    'to' => [
+        'address' => env('MAIL_TO_ADDRESS', 'admin@example.com'),
+        'name' => env('MAIL_TO_NAME', 'Site Admin'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |
@@ -122,5 +135,4 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
 ];

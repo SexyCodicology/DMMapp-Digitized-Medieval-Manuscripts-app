@@ -4,44 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LibraryRequest;
 use App\Models\Library;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 
 class LibraryController extends Controller
 {
+    /**
+     * Number of latest libraries to display
+     */
+    private const LATEST_LIBRARIES_COUNT = 5;
+
+    /**
+     * Library model instance.
+     */
     private Library $library;
 
     /**
      * Constructor for the LibraryController.
      *
-     * @param  Library  $library  An instance of the Library model.
+     * @param Library $library An instance of the Library model.
      */
     public function __construct(Library $library)
     {
         $this->library = $library;
-    }
-
-    /**
-     * Fetches all libraries in a random order.
-     *
-     * Returns a collection of Library instances.
-     */
-    private function getLibrariesInRandomOrder()
-    {
-        return $this->library->inRandomOrder()->get();
+        $this->middleware('auth')->only(['admin', 'create', 'store', 'edit', 'update', 'destroy']);
     }
 
     /**
      * Displays a listing of the libraries.
      */
-    public function index(): View|Factory|JsonResponse|Application
+    public function index(): View
     {
-        $libraries = $this->getLibrariesInRandomOrder();
-        $latest_changes = $this->library->orderBy('last_edited', 'desc')->take(5)->get();
+        $libraries = $this->library->inRandomOrder()->get();
+        $latest_changes = $this->getLatestChanges();
 
         return view('public/data', compact('libraries', 'latest_changes'));
     }
@@ -49,10 +46,10 @@ class LibraryController extends Controller
     /**
      * Displays a map of the libraries.
      */
-    public function map(): View|Factory|Application
+    public function map(): View
     {
-        $libraries = $this->getLibrariesInRandomOrder();
-        $latest_changes = $this->library->orderBy('last_edited', 'desc')->take(5)->get();
+        $libraries = $this->library->inRandomOrder()->get();
+        $latest_changes = $this->getLatestChanges();
 
         return view('public/map', compact('libraries', 'latest_changes'));
     }
@@ -60,7 +57,7 @@ class LibraryController extends Controller
     /**
      * Displays a listing of the libraries for admin.
      */
-    public function admin(): Factory|View|Application
+    public function admin(): View
     {
         $libraries = $this->library->all();
 
@@ -70,25 +67,19 @@ class LibraryController extends Controller
     /**
      * Displays the specified library.
      *
-     * @param  string  $library_name_slug  The slug of the library to display.
+     * @param string $library_name_slug The slug of the library to display.
      */
-    public function show($library_name_slug): Factory|View|Application
+    public function show(string $library_name_slug): View
     {
-        //NOTE find a library in the database that contains the slug in the URL
-        $library_data = $this->library->where('library_name_slug', $library_name_slug)->first();
+        $library_data = $this->library->where('library_name_slug', $library_name_slug)->firstOrFail();
 
-        if ($library_data === null) {
-            // Log::notice('User landed on an institution that has not been added to the database:' . URL::current());
-            abort(404, 'No information about this institution is available at this time. ');
-        }
-
-        return view('public.single-institution', ['library_data' => $library_data]);
+        return view('public.single-institution', compact('library_data'));
     }
 
     /**
      * Shows the form for creating a new library.
      */
-    public function create(): View|Factory|Application
+    public function create(): View
     {
         return view('admin.create');
     }
@@ -96,35 +87,15 @@ class LibraryController extends Controller
     /**
      * Stores a newly created library in storage.
      *
-     * @param  LibraryRequest  $request  The validated request data.
+     * @param LibraryRequest $request The validated request data.
      */
     public function store(LibraryRequest $request): RedirectResponse
     {
-        $library = new Library([
-            'nation' => $request->input('nation'),
-            'city' => $request->input('city'),
-            'library' => $request->input('library'),
-            'lat' => $request->input('lat'),
-            'lng' => $request->input('lng'),
-            'quantity' => $request->input('quantity'),
-            'website' => $request->input('website'),
-            'copyright' => $request->input('copyright'),
-            'notes' => $request->input('notes'),
-            'iiif' => $request->input('iiif'),
-            'is_free_cultural_works_license' => $request->input('is_free_cultural_works_license'),
-            'has_post' => $request->input('has_post'),
-            'post_url' => $request->input('post_url'),
-            'library_name_slug' => $request->input('library_name_slug'),
-            'is_part_of_project_name' => $request->input('is_part_of_project_name'),
-            'is_part_of' => $request->input('is_part_of'),
-            'is_part_of_url' => $request->input('is_part_of_url'),
-            'is_disabled' => $request->input('is_disabled'),
-            'last_edited' => $request->input('last_edited'),
-        ]);
-
+        $library = new Library();
+        $this->setLibraryAttributes($library, $request);
         $library->save();
 
-        Log::info('Library created: '.$library->id);
+        Log::info('Library created', ['id' => $library->id, 'name' => $library->library]);
 
         return redirect()->route('admin')->with('success', 'A new institution has been successfully saved.');
     }
@@ -132,24 +103,80 @@ class LibraryController extends Controller
     /**
      * Shows the form for editing the specified library.
      *
-     * @param  int  $id  The ID of the library to edit.
+     * @param int $id The ID of the library to edit.
      */
-    public function edit(int $id): View|Factory|Application
+    public function edit(int $id): View
     {
-        $library = $this->library->where('id', $id)->first();
+        $library = $this->library->findOrFail($id);
 
-        return view('admin.update', ['library' => $library]);
+        return view('admin.update', compact('library'));
     }
 
     /**
      * Updates the specified library in storage.
      *
-     * @param  LibraryRequest  $request  The validated request data.
-     * @param  int  $id  The ID of the library to update.
+     * @param LibraryRequest $request The validated request data.
+     * @param int $id The ID of the library to update.
      */
     public function update(LibraryRequest $request, int $id): RedirectResponse
     {
-        $library = $this->library->where('id', $id)->first();
+        $library = $this->library->findOrFail($id);
+        $this->setLibraryAttributes($library, $request);
+        $library->save();
+
+        Log::info('Library updated', ['id' => $library->id, 'name' => $library->library]);
+
+        return redirect()->route('admin')->with('success', 'The institution has been successfully updated.');
+    }
+
+    /**
+     * Removes the specified library from storage.
+     *
+     * @param int $id The ID of the library to delete.
+     */
+    public function destroy(int $id): RedirectResponse
+    {
+        $library = $this->library->findOrFail($id);
+        $libraryName = $library->library;
+
+        $library->delete();
+
+        Log::info('Library deleted', ['id' => $id, 'name' => $libraryName]);
+
+        return redirect()->route('admin')->with('success', 'An institution has been successfully deleted.');
+    }
+
+    /**
+     * Displays a listing of all the libraries sorted by name.
+     */
+    public function all(): View
+    {
+        $libraries = $this->library->orderBy('library', 'asc')->get();
+
+        return view('public.all', compact('libraries'));
+    }
+
+    /**
+     * Gets the latest changed libraries.
+     *
+     * @return Collection
+     */
+    private function getLatestChanges()
+    {
+        return $this->library->orderBy('last_edited', 'desc')
+            ->take(self::LATEST_LIBRARIES_COUNT)
+            ->get();
+    }
+
+    /**
+     * Sets attributes on a library model from a request.
+     *
+     * @param Library $library The library model to update.
+     * @param LibraryRequest $request The request containing the new values.
+     * @return void
+     */
+    private function setLibraryAttributes(Library $library, LibraryRequest $request): void
+    {
         $library->nation = $request->input('nation');
         $library->city = $request->input('city');
         $library->library = $request->input('library');
@@ -169,37 +196,5 @@ class LibraryController extends Controller
         $library->is_part_of_project_name = $request->input('is_part_of_project_name');
         $library->is_disabled = $request->input('is_disabled');
         $library->last_edited = $request->input('last_edited');
-
-        $library->save();
-
-        Log::info('Library updated: '.$library->id);
-
-        return redirect()->back()->with('success', 'The institution has been successfully updated.');
-    }
-
-    /**
-     * Removes the specified library from storage.
-     *
-     * @param  int  $id  The ID of the library to delete.
-     */
-    public function destroy(int $id): RedirectResponse
-    {
-        $library = $this->library->findOrFail($id);
-
-        $library->delete();
-
-        Log::info('Library deleted: '.$id);
-
-        return redirect()->route('admin')->with('success', 'An institution has been successfully deleted.');
-    }
-
-    /**
-     * Displays a listing of all the libraries sorted by name.
-     */
-    public function all(): View|Factory|Application
-    {
-        $libraries = $this->library->orderBy('library', 'asc')->get();
-
-        return view('public.all', compact('libraries'));
     }
 }

@@ -20,7 +20,9 @@ collection of digitized repositories and providing links to the collections.
 
 ## ⚠️ Sunsetting Notice
 
-This project has entered its End-of-Life phase as of 2025-12-01.
+This project has entered its End-of-Life phase as of December 2025.
+
+**End of operations:** The website will stop operating on 22/11/2026. [More info](https://blog.digitizedmedievalmanuscripts.org/the-end-of-an-era-saying-goodbye-to-the-dmmapp-after-12-years/).
 
 **Future Strategy:** Future updates will focus strictly on making the application ready for adoption by other developers and maintainers. We encourage the community to fork and continue this work.
 
@@ -39,6 +41,8 @@ about how it all works, you can learn all there is to know about how to use and 
 <a href="https://sexycodicology.github.io/DMMapp-Digitized-Medieval-Manuscripts-app/">
 <img alt="Static Badge" src="https://img.shields.io/badge/Get_Started-white?style=for-the-badge&logo=materialformkdocs&link=https%3A%2F%2Fsexycodicology.github.io%2FDMMapp-Digitized-Medieval-Manuscripts-app%2F">
 </a>
+
+
 </div>
 
 ---

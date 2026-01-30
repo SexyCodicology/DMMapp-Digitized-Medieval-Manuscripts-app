@@ -32,20 +32,58 @@ Statuspage.
 
 ## Workflow
 
-1. **Monitoring by UptimeRobot**: UptimeRobot continuously monitors the DMMapp and the Blog.
-   - Checks are performed at predefined intervals.
-   - Any downtime or issues are detected and recorded.
+1. **Monitoring by UptimeRobot**: UptimeRobot continuously monitors the application.
+    - Checks are performed at predefined intervals.
+    - Any downtime or issues are detected and recorded.
 
 2. **Reporting to Statuspage**: UptimeRobot reports the status to Statuspage.
-   - Status updates are sent to Statuspage.
-   - Statuspage displays the current status and any incidents.
+    - Status updates are sent to Statuspage.
+    - Statuspage displays the current status and any incidents.
 
 3. **User Notification**: Users access Statuspage to view the application's status.
-   - Users can subscribe to updates and notifications.
-   - Statuspage provides a historical view of the application's uptime and incidents.
+    - Users can subscribe to updates and notifications.
+    - Statuspage provides a historical view of the application's uptime and incidents.
 
 ## Summary
 
 The combination of Statuspage and UptimeRobot ensures that the DMMapp monitoring system is both robust and
 user-friendly. Statuspage serves as the visible interface for users, while UptimeRobot performs the essential task of
 monitoring the application's health and reporting it accurately.
+
+## Questions
+
+### Multiple Choice
+
+1. Which component of the DMMapp monitoring system do users interact with to check the status of the application?
+    - A. UptimeRobot
+    - B. Statuspage
+    - C. Both UptimeRobot and Statuspage
+    - D. Neither UptimeRobot nor Statuspage
+
+2. What is the primary role of UptimeRobot in the DMMapp monitoring system?
+    - A. Displaying the status to users
+    - B. Checking the status of the application
+    - C. Providing a user interface for status updates
+    - D. Subscribing users to notifications
+
+### True/False
+
+1. Statuspage automatically checks the status of the added applications.
+    - True
+    - False
+
+2. UptimeRobot reports the status of the application directly to the users.
+    - True
+    - False
+
+## Answers
+
+### Multiple Choice
+
+1. B. Statuspage
+2. B. Checking the status of the application
+
+### True/False
+
+1. False
+2. False

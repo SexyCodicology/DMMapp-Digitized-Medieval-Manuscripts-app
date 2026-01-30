@@ -42,8 +42,6 @@
             </button>
             <a class="btn btn-primary border-light" href="{{route('random_library')}}" type="button">
                 <i class="bi bi-shuffle"></i> Explore a random library!</a>
-            <a class="btn btn-primary border-light" href="#cta" type="button">
-                <i class="bi bi-chat-left-heart-fill"></i> Support us!</a>
             @auth
                 <a class="btn btn-primary border-light" href="{{ route('update_library', $library_data->id) }}"
                    type="button"><i class="bi bi-edit"></i> Edit</a>
@@ -235,9 +233,4 @@
         </div>
     </div>
     <x-disclaimer/>
-    <x-patreon/>
-@endsection
-
-@section('feedback')
-    <x-feedback/>
 @endsection
